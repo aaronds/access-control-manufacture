@@ -1,0 +1,200 @@
+G17 G54 G40 G49 G80 G90
+G21
+G54
+
+#<_toolWidth> = 3.175
+#<_toolCut> = [#<_toolWidth> / 2]
+#<_drillOverlap> = 0.1
+#<_roughOffset> = 0.2
+
+#<_zFeedRate> = 100
+#<_zDepth> = 3
+#<_zFinish> = -2
+#<_zMove> = 10
+
+#<_finalY> = 220
+
+#<_cutoutFeedInner> = 100
+#<_cutoutFeedOuter> = 70
+
+M5
+G43 H1 
+M3 S10000
+
+; LED Lense Cap
+
+#<_holeR> = [6.4/2]
+#<_holeX> = [110 - 21]
+#<_holeY> = [155 - 21]
+
+#<_pathR> = [#<_holeR> - #<_toolCut> - #<_roughOffset>]
+
+
+G0 Z[#<_zMove>]
+G0 X[#<_holeX>] Y[#<_holeY>]
+
+#<_stitchLength> = [#<_toolCut> - #<_drillOverlap>]
+
+#<_cosA> = [ [2 * #<_pathR> * #<_pathR> - [#<_stitchLength> * #<_stitchLength>] ] / [ 2 * #<_pathR> * #<_pathR> ] ]
+
+#<_t> = 0
+#<_tStep> = [ ACOS[#<_cosA>] / 360 ]
+
+O101 do
+    
+    G0 Z[#<_zMove>]
+
+    G0 X[#<_holeX> + #<_pathR> * COS[#<_t> * 360]] Y[#<_holeY> + #<_pathR> * SIN[#<_t> * 360]]
+    
+    G0 Z[#<_zDepth> + 1]
+
+    O110 if [#<_t> LT #<_tStep>] ; Peck drill first hole.
+        G99
+        G83 Z0 F#<_zFeedRate> Q0.20 R[#<_zDepth> + 1]
+    O110 else
+        G1 Z[#<_zDepth>] F#<_zFeedRate>
+       
+        G1 Z0 F#<_zFeedRate>
+        G1 Z[#<_zDepth>] F#<_zFeedRate>
+    O110 endif
+    
+    G0 Z[#<_zMove>]
+
+    #<_t> = [#<_t> + #<_tStep>]
+
+O101 while [#<_t> LT 1]
+
+G0 Z[#<_zMove>]
+
+G0 X[#<_holeX> + #<_pathR> - [#<_toolCut> / 2]] Y#<_holeY>
+G0 Z[#<_zDepth> + 1]
+
+G1 Z[#<_zDepth>] F#<_zFeedRate>
+G1 Z[#<_zFinish>] F#<_zFeedRate>
+
+G2 I-[#<_pathR> - [#<_toolCut> / 2]] F#<_cutoutFeedInner>
+
+G1 X[#<_holeX> + #<_pathR> + #<_roughOffset>] Y#<_holeY> Z[#<_zFinish>] F#<_zFeedRate>
+
+G2 I-[#<_pathR> + #<_roughOffset>] F#<_cutoutFeedOuter>
+
+G0 X[#<_holeX>] Y#<_holeY>
+G0 Z[#<_zMove>]
+
+; Switch Hole
+
+#<_holeR> = [20.2/2]
+#<_holeX> = [110 - 56]
+#<_holeY> = [155 - 21]
+
+#<_pathR> = [#<_holeR> - #<_toolCut> - #<_roughOffset>]
+
+G0 Z[#<_zMove>]
+G0 X[#<_holeX>] Y[#<_holeY>]
+
+#<_cosA> = [ [2 * #<_pathR> * #<_pathR> - [#<_stitchLength> * #<_stitchLength>] ] / [ 2 * #<_pathR> * #<_pathR> ] ]
+
+#<_t> = 0
+#<_tStep> = [ ACOS[#<_cosA>] / 360 ]
+
+O201 do
+    
+    G0 Z[#<_zMove>]
+
+    G0 X[#<_holeX> + #<_pathR> * COS[#<_t> * 360]] Y[#<_holeY> + #<_pathR> * SIN[#<_t> * 360]]
+
+    G0 Z[#<_zDepth> + 1]
+
+    O210 if [#<_t> LT #<_tStep>] ; Peck drill first hole.
+        G99
+        G83 Z0 F#<_zFeedRate> Q0.20 R[#<_zDepth> + 1]
+    O210 else
+        G1 Z[#<_zDepth>] F#<_zFeedRate>
+       
+        G1 Z0 F#<_zFeedRate>
+        G1 Z[#<_zDepth>] F#<_zFeedRate>
+    O210 endif
+
+    G0 Z[#<_zMove>]
+
+    #<_t> = [#<_t> + #<_tStep>]
+
+O201 while [#<_t> LT 1]
+
+G0 Z[#<_zMove>]
+
+G0 X[#<_holeX> + #<_pathR> - [#<_toolCut> / 2]] Y#<_holeY>
+G0 Z[#<_zDepth> + 1]
+
+G1 Z[#<_zDepth>] F#<_zFeedRate>
+G1 Z[#<_zFinish>] F#<_zFeedRate>
+
+G2 I-[#<_pathR> - [#<_toolCut> / 2]] F#<_cutoutFeedInner>
+
+G1 X[#<_holeX> + #<_pathR> + #<_roughOffset>] Y#<_holeY> Z[#<_zFinish>] F#<_zFeedRate>
+
+G2 I-[#<_pathR> + #<_roughOffset>] F#<_cutoutFeedOuter>
+
+G0 X[#<_holeX>] Y#<_holeY>
+G0 Z[#<_zMove>]
+
+; Indicator
+
+#<_holeR> = [11.8/2]
+#<_holeX> = [110 - 84]
+#<_holeY> = [155 - 21]
+
+#<_pathR> = [#<_holeR> - #<_toolCut> - #<_roughOffset>]
+
+G0 Z[#<_zMove>]
+G0 X[#<_holeX>] Y[#<_holeY>]
+
+#<_cosA> = [ [2 * #<_pathR> * #<_pathR> - [#<_stitchLength> * #<_stitchLength>] ] / [ 2 * #<_pathR> * #<_pathR> ] ]
+
+#<_t> = 0
+#<_tStep> = [ ACOS[#<_cosA>] / 360 ]
+
+O301 do
+    
+    G0 Z[#<_zMove>]
+
+    G0 X[#<_holeX> + #<_pathR> * COS[#<_t> * 360]] Y[#<_holeY> + #<_pathR> * SIN[#<_t> * 360]]
+    
+    G0 Z[#<_zDepth> + 1]
+
+    O210 if [#<_t> LT #<_tStep>] ; Peck drill first hole.
+        G99
+        G83 Z0 F#<_zFeedRate> Q0.20 R[#<_zDepth> + 1]
+    O210 else
+        G1 Z[#<_zDepth>] F#<_zFeedRate>
+       
+        G1 Z0 F#<_zFeedRate>
+        G1 Z[#<_zDepth>] F#<_zFeedRate>
+    O210 endif
+
+    G0 Z[#<_zMove>]
+
+    #<_t> = [#<_t> + #<_tStep>]
+
+O301 while [#<_t> LT 1]
+
+G0 Z[#<_zMove>]
+
+G0 X[#<_holeX> + #<_pathR> - [#<_toolCut> / 2]] Y#<_holeY>
+G0 Z[#<_zDepth> + 1]
+
+G1 Z[#<_zDepth>] F#<_zFeedRate>
+G1 Z[#<_zFinish>] F#<_zFeedRate>
+
+G2 I-[#<_pathR> - [#<_toolCut> / 2]] F#<_cutoutFeedInner>
+
+G1 X[#<_holeX> + #<_pathR> + #<_roughOffset>] Y#<_holeY> Z[#<_zFinish>] F#<_zFeedRate>
+
+G2 I-[#<_pathR> + #<_roughOffset>] F#<_cutoutFeedOuter>
+
+G0 X[#<_holeX>] Y#<_holeY>
+G0 Z[#<_zMove>]
+
+G0 Y[#<_finalY>]
+
+M2

@@ -1,0 +1,133 @@
+G17 G54 G40 G49 G80 G90
+G21
+G54
+
+#<_toolWidth> = 3.0
+#<_toolCut> = [#<_toolWidth> / 2]
+#<_drillOverlap> = 0.1
+#<_roughOffset> = 0.2
+
+#<_zFeedRate> = 100
+#<_zDepth> = 3
+#<_zFinish> = -2
+#<_zMove> = 10
+
+#<_finalY> = 180
+
+#<_cutoutFeedInner> = 200
+#<_cutoutFeedOuter> = 70
+
+M5
+G43 H1 
+M3 S10000
+
+; Gland 1
+
+#<_holeR> = [20/2 + #<_toolCut>]
+#<_holeX> = [4.5 + 30 / 2]
+#<_holeY> = [155 - 20 - 30 / 2]
+
+#<_pathR> = [#<_holeR> - #<_toolCut> - #<_roughOffset>]
+
+
+G0 Z[#<_zMove>]
+G0 X[#<_holeX>] Y[#<_holeY>]
+
+#<_stitchLength> = [#<_toolCut> - #<_drillOverlap>]
+
+#<_cosA> = [ [2 * #<_pathR> * #<_pathR> - [#<_stitchLength> * #<_stitchLength>] ] / [ 2 * #<_pathR> * #<_pathR> ] ]
+
+#<_t> = 0
+#<_tStep> = [ ACOS[#<_cosA>] / 360 ]
+
+O101 do
+    
+    G0 Z[#<_zMove>]
+
+    G0 X[#<_holeX> + #<_pathR> * COS[#<_t> * 360]] Y[#<_holeY> + #<_pathR> * SIN[#<_t> * 360]]
+    
+    G0 Z[#<_zDepth> + 1]
+
+    O110 if [#<_t> LT #<_tStep>] ; Peck drill first hole.
+        G99
+        G83 Z0 F#<_zFeedRate> Q0.20 R[#<_zDepth> + 1]
+    O110 else
+        G1 Z[#<_zDepth>] F#<_zFeedRate>
+       
+        G1 Z0 F#<_zFeedRate>
+        G1 Z[#<_zDepth>] F#<_zFeedRate>
+    O110 endif
+    
+    G0 Z[#<_zMove>]
+
+    #<_t> = [#<_t> + #<_tStep>]
+
+O101 while [#<_t> LT 1]
+
+G0 Z[#<_zMove>]
+
+G0 X[#<_holeX> + #<_pathR> - [#<_toolCut> / 2]] Y#<_holeY>
+G0 Z[#<_zDepth> + 1]
+
+G1 Z[#<_zDepth>] F#<_zFeedRate>
+G1 Z[#<_zFinish>] F#<_zFeedRate>
+
+G2 I-[#<_pathR> - [#<_toolCut> / 2]] F#<_cutoutFeedInner>
+
+G0 Z[#<_zMove>]
+
+; Gland 2
+
+#<_holeR> = [20/2 + #<_toolCut>]
+#<_holeX> = [4.5 + 30/2]
+#<_holeY> = [155 - 20 - 30 - 9.5 - 30/2]
+
+#<_pathR> = [#<_holeR> - #<_toolCut> - #<_roughOffset>]
+
+G0 Z[#<_zMove>]
+G0 X[#<_holeX>] Y[#<_holeY>]
+
+#<_cosA> = [ [2 * #<_pathR> * #<_pathR> - [#<_stitchLength> * #<_stitchLength>] ] / [ 2 * #<_pathR> * #<_pathR> ] ]
+
+#<_t> = 0
+#<_tStep> = [ ACOS[#<_cosA>] / 360 ]
+
+O201 do
+    
+    G0 Z[#<_zMove>]
+
+    G0 X[#<_holeX> + #<_pathR> * COS[#<_t> * 360]] Y[#<_holeY> + #<_pathR> * SIN[#<_t> * 360]]
+
+    G0 Z[#<_zDepth> + 1]
+
+    O210 if [#<_t> LT #<_tStep>] ; Peck drill first hole.
+        G99
+        G83 Z0 F#<_zFeedRate> Q0.20 R[#<_zDepth> + 1]
+    O210 else
+        G1 Z[#<_zDepth>] F#<_zFeedRate>
+       
+        G1 Z0 F#<_zFeedRate>
+        G1 Z[#<_zDepth>] F#<_zFeedRate>
+    O210 endif
+
+    G0 Z[#<_zMove>]
+
+    #<_t> = [#<_t> + #<_tStep>]
+
+O201 while [#<_t> LT 1]
+
+G0 Z[#<_zMove>]
+
+G0 X[#<_holeX> + #<_pathR> - [#<_toolCut> / 2]] Y#<_holeY>
+G0 Z[#<_zDepth> + 1]
+
+G1 Z[#<_zDepth>] F#<_zFeedRate>
+G1 Z[#<_zFinish>] F#<_zFeedRate>
+
+G2 I-[#<_pathR> - [#<_toolCut> / 2]] F#<_cutoutFeedInner>
+
+G0 Z[#<_zMove>]
+
+G0 Y[#<_finalY>]
+
+M2
