@@ -1911,16 +1911,6 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 138.43) (xy 210.82 138.43)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "22669aa2-1f60-4184-9cc6-d4e97b129205")
-	)
-	(wire
-		(pts
 			(xy 91.44 63.5) (xy 90.17 63.5)
 		)
 		(stroke
@@ -1951,26 +1941,6 @@
 	)
 	(wire
 		(pts
-			(xy 210.82 133.35) (xy 210.82 134.62)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "37d3138e-267e-4114-8fad-387d834026a1")
-	)
-	(wire
-		(pts
-			(xy 210.82 138.43) (xy 210.82 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "50b67d3c-e8ab-4a8a-91e6-e137e126a5ec")
-	)
-	(wire
-		(pts
 			(xy 189.23 96.52) (xy 189.23 91.44)
 		)
 		(stroke
@@ -1988,6 +1958,16 @@
 			(type default)
 		)
 		(uuid "6db27aef-9dd9-4ee5-be47-59c874aadfa6")
+	)
+	(wire
+		(pts
+			(xy 210.82 133.35) (xy 210.82 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6dee04d8-0236-46d0-ae5e-771eaef8326b")
 	)
 	(wire
 		(pts
@@ -2051,16 +2031,6 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 133.35) (xy 210.82 133.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "92d5d5bd-1fe9-4529-b792-4cbbdf0a5df2")
-	)
-	(wire
-		(pts
 			(xy 149.86 121.92) (xy 163.83 121.92)
 		)
 		(stroke
@@ -2088,6 +2058,16 @@
 			(type default)
 		)
 		(uuid "99d7eb97-f992-46bf-a434-b1d6347ce681")
+	)
+	(wire
+		(pts
+			(xy 203.2 133.35) (xy 210.82 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2ee7fac-6f7b-4d76-a9e9-952d7db937d3")
 	)
 	(wire
 		(pts
@@ -2161,6 +2141,16 @@
 	)
 	(wire
 		(pts
+			(xy 210.82 137.16) (xy 203.2 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c8aa385c-422d-4a21-9347-922f30dd0ac8")
+	)
+	(wire
+		(pts
 			(xy 190.5 72.39) (xy 190.5 77.47)
 		)
 		(stroke
@@ -2208,6 +2198,16 @@
 			(type default)
 		)
 		(uuid "e16aa8b9-8ac8-44b8-bf03-0c94608ab6b8")
+	)
+	(wire
+		(pts
+			(xy 203.2 137.16) (xy 203.2 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e5047c35-b915-415c-a527-1aac48fde023")
 	)
 	(wire
 		(pts
@@ -3433,8 +3433,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 215.9 137.16 0)
-		(mirror x)
+		(at 215.9 134.62 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3442,7 +3441,7 @@
 		(dnp no)
 		(uuid "95a50e9c-6b35-479d-b6b4-5f70c4becc54")
 		(property "Reference" "J_OC1"
-			(at 218.44 137.1601 0)
+			(at 218.44 134.6199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3451,7 +3450,7 @@
 			)
 		)
 		(property "Value" "Screw_Terminal_01x02"
-			(at 218.44 134.6201 0)
+			(at 218.44 137.1599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3460,7 +3459,7 @@
 			)
 		)
 		(property "Footprint" "TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm"
-			(at 215.9 137.16 0)
+			(at 215.9 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3469,7 +3468,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 215.9 137.16 0)
+			(at 215.9 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3478,7 +3477,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 215.9 137.16 0)
+			(at 215.9 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3596,7 +3595,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Varistor:RV_Disc_D9mm_W3.3mm_P5mm"
+		(property "Footprint" "Varistor:RV_Disc_D12mm_W3.9mm_P7.5mm"
 			(at 181.102 118.11 90)
 			(effects
 				(font
@@ -3933,7 +3932,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Axial_L11.0mm_D5.0mm_P18.00mm_Horizontal"
+		(property "Footprint" "Capacitor_THT:CP_Axial_L10.0mm_D6.0mm_P15.00mm_Horizontal"
 			(at 164.7952 121.92 0)
 			(effects
 				(font
