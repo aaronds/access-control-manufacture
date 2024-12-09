@@ -26,7 +26,7 @@ sInPad = [34.645502, 32.561994];
 oInPad = [44.895502, 32.561994];
 
 slotWidth = 10;
-slotHeight = 5;
+slotHeight = 30;
 
 conLedCenter = [69.695502, 17.611994];
 conOptCenter = [73.745502, 28.046994];
@@ -47,7 +47,7 @@ conLedSize = [12.35, 6.1];
                         cube([lampCutoutSize[0] + 2 * thinGap, lampCutoutSize[1] + 2 * thinGap, wallThickness + 0.02]);
                     }
 
-                    translate([0, 0, (lidToSwitchContactTop - (lidToSwitchContactTop - lidToCopper))  - slotHeight]) {
+                    translate([0, 0, (lidToSwitchContactTop - (lidToSwitchContactTop - lidToCopper)) - 5  /*- slotHeight*/]) {
                         translate([nInPad[0] - slotWidth / 2, pcbHeight - 0.01, 0]) {
                             cube([slotWidth, wallThickness + 0.02, slotHeight]);
                         }
@@ -66,12 +66,12 @@ conLedSize = [12.35, 6.1];
                     }
 
                     translate([conOptCenter[0] - conOptSize[0] / 2, conOptCenter[1] - conOptSize[1] / 2, -wallThickness - 0.01]) {
-                        cube([conOptSize[0] + 10, conOptSize[1],wallThickness + (lidToSwitchContactTop - lidToCopper) + pcbThickness  + 0.02]);
+                        cube([conOptSize[0] + 10, conOptSize[1],wallThickness + (lidToSwitchContactTop - lidToCopper) + pcbThickness  + 0.02 + 30]);
                     }
 
 
                     translate([pcbWidth - 0.01, conLedCenter[1] - conLedSize[1] / 2, -wallThickness - 0.01]) {
-                        cube([wallThickness + 0.02, conLedSize[1],wallThickness + (lidToSwitchContactTop - lidToCopper) + pcbThickness + 0.02]);
+                        cube([wallThickness + 0.02, conLedSize[1],wallThickness + (lidToSwitchContactTop - lidToCopper) + pcbThickness + 0.02 + 30]);
                     }
                 }
             }
