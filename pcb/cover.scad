@@ -28,7 +28,7 @@ oInPad = [44.895502, 32.561994];
 slotWidth = 10;
 slotHeight = 30;
 
-conLedCenter = [69.695502, 17.611994];
+conLedCenter = [71.770502, 11.711994];
 conOptCenter = [73.745502, 28.046994];
 
 conOptSize = [7.6, 10];
@@ -70,8 +70,8 @@ conLedSize = [12.35, 6.1];
                     }
 
 
-                    translate([pcbWidth - 0.01, conLedCenter[1] - conLedSize[1] / 2, -wallThickness - 0.01]) {
-                        cube([wallThickness + 0.02, conLedSize[1],wallThickness + (lidToSwitchContactTop - lidToCopper) + pcbThickness + 0.02 + 30]);
+                    translate([pcbWidth - 0.01, conLedCenter[1] - conLedSize[1] / 2 - 2, (lidToSwitchContactTop - (lidToSwitchContactTop - lidToCopper)) - 5]) {
+                        cube([wallThickness + 0.02, conLedSize[1] + 4,wallThickness + (lidToSwitchContactTop - lidToCopper) + pcbThickness + 0.02 + 5 ]);
                     }
                 }
             }

@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 2.0,
-          "height": 4.0,
-          "width": 4.0
+          "drill": 0.762,
+          "height": 1.524,
+          "width": 1.524
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -179,8 +179,7 @@
       ],
       "track_widths": [
         0.0,
-        1.0,
-        2.0
+        1.0
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -446,7 +445,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "bleep-pannel-pcb.kicad_pro",
+    "filename": "led-connector-right-angle.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -591,7 +590,7 @@
   },
   "sheets": [
     [
-      "872a4328-dfd5-4ab6-8666-3dd60418a956",
+      "dbeb91f4-fed8-46ad-b34b-835e763fefba",
       "Root"
     ]
   ],
