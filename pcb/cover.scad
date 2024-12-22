@@ -35,7 +35,7 @@ conOptSize = [7.6, 10];
 conLedSize = [12.35, 6.1];
 
 
-/*mirror([1,0,0]) {*/
+mirror([1,0,0]) {
     translate([-(pcbWidth/2 + xOffset), 0, 0]){
         translate([-wallThickness - xOffset, -wallThickness - yOffset, -wallThickness]) {
             difference() {
@@ -89,4 +89,4 @@ conLedSize = [12.35, 6.1];
             }
         }
     }
-/*}*/
+}
