@@ -1,0 +1,43 @@
+G17 G54 G40 G49 G80 G90
+G21
+G54
+
+#<_toolWidth> = 0.8
+#<_toolCut> = [#<_toolWidth> / 2]
+
+#<_zMove> = 3
+
+M5
+G43 H1
+M3 S10000
+
+G0 Z[#<_zMove>]
+
+#<_designEdgeY> = 62.3
+#<_designEdgeX> = 58.5
+#<_slotLength> = 4.75
+#<_pcbThickness> = 1.7
+#<_zFeedRate> = 100
+#<_cutFeedRate> = 100
+
+; X and Y are flipped between (KiCad) design / mill.
+
+#<_slotStartY> = [91.35 - #<_designEdgeX>]
+#<_slotOffsetEdgeX> = [[41.7 - 41.05] / 2]
+#<_slotStartX> = [[#<_designEdgeY> - 41.7] + #<_slotOffsetEdgeX>]
+
+G0 X[#<_slotStartX>] Y[#<_slotStartY>]
+G1 Z[-#<_pcbThickness>] F[#<_zFeedRate>]
+G1 Y[#<_slotStartY> + #<_slotLength>] F[#<_cutFeedRate>]
+G1 Z0 F[#<_zFeedRate>]
+G0 Z[#<_zMove>]
+
+#<_slotStartY> = [100.35 - #<_designEdgeX>]
+
+G0 X[#<_slotStartX>] Y[#<_slotStartY>]
+G1 Z[-#<_pcbThickness>] F[#<_zFeedRate>]
+G1 Y[#<_slotStartY> + #<_slotLength>] F[#<_cutFeedRate>]
+G1 Z0 F[#<_zFeedRate>]
+G0 Z[#<_zMove>]
+
+M2

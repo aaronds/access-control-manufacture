@@ -1,0 +1,61 @@
+G17 G54 G40 G49 G80 G90
+G21
+G54
+
+;Ball Nose Tool
+#<_toolWidth> = 2.5
+#<_toolCut> = [#<_toolWidth> / 2]
+
+#<_wireD> = 2.5
+#<_wireR> = [#<_wireD> / 2]
+#<_wireCoverR> = 0.2
+
+#<_stripLength> = 11
+#<_wireLength> = 40
+
+#<_stripFeed> = 100
+#<_cutFeed> = 50
+
+M5
+G43 H1 
+M3 S10000
+
+; YZ Plane
+G19
+
+F#<_stripFeed>
+
+G43.1 Z[#<_toolCut>]
+
+G0 X0 Y0 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
+G1 X0 Y0 Z[#<_wireR> + #<_toolCut>] F#<_stripFeed>
+
+G1 X[#<_stripLength>] F#<_stripFeed>
+
+G3 Y[-#<_wireR> - #<_toolCut>] Z0 J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+G2 Y0 Z[#<_wireR> + #<_toolCut>] J[#<_wireR> + #<_toolCut>] K0 F#<_stripFeed>
+
+G2 Y[#<_wireR> + #<_toolCut>] Z0 J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+G3 Y0 Z[#<_wireR> + #<_toolCut>] J[-#<_wireR> - #<_toolCut>] K0 F#<_stripFeed>
+
+G0 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
+G0 X[#<_wireLength> - #<_stripLength>]
+G1 Z[#<_wireR> + #<_toolCut>] F#<_stripFeed>
+
+G3 Y[-#<_wireR> - #<_toolCut>] Z0 J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+G2 Y0 Z[#<_wireR> + #<_toolCut>] J[#<_wireR> + #<_toolCut>] K0 F#<_stripFeed>
+
+G2 Y[#<_wireR> + #<_toolCut>] Z0 J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+G3 Y0 Z[#<_wireR> + #<_toolCut>] J[-#<_wireR> - #<_toolCut>] K0 F#<_stripFeed>
+
+G1 X[#<_wireLength>] F#<_stripFeed>
+
+G0 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
+
+G0 X[#<_wireLength> + #<_toolCut>]
+G1 Z[-#<_wireR> - #<_wireCoverR> + #<_toolCut>] F#<_cutFeed>
+G1 Z[#<_wireR> + #<_wireCoverR> - #<_toolCut>] F#<_stripFeed>
+G2 K[-#<_wireR> - #<_wireCoverR> + #<_toolCut>] F#<_cutFeed>
+G1 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
+
+M2
