@@ -1,0 +1,9 @@
+stripLength = 11;
+toolWidth = 2.5;
+toolR = toolWidth / 2;
+wireD = 2.5;
+wireLength = 40;
+stockLength = 80;
+wallThickness = 5;
+boltM=3;
+sheetThickness = 3;
