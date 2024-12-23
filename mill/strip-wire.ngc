@@ -3,12 +3,12 @@ G21
 G54
 
 ;Ball Nose Tool
-#<_toolWidth> = 2.5
+#<_toolWidth> = 1.5
 #<_toolCut> = [#<_toolWidth> / 2]
 
-#<_wireD> = 2.5
+#<_wireD> = 1.7
 #<_wireR> = [#<_wireD> / 2]
-#<_wireCoverR> = 0.2
+#<_wireCoverR> = 0.65
 
 #<_stripLength> = 11
 #<_wireLength> = 40
@@ -25,7 +25,9 @@ G19
 
 F#<_stripFeed>
 
-G43.1 Z[#<_toolCut>]
+; Observed Behaviour differes from documentation.
+G43.1 Z-[#<_toolCut>]
+G43.2 H1
 
 G0 X0 Y0 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
 G1 X0 Y0 Z[#<_wireR> + #<_toolCut>] F#<_stripFeed>
@@ -57,5 +59,7 @@ G1 Z[-#<_wireR> - #<_wireCoverR> + #<_toolCut>] F#<_cutFeed>
 G1 Z[#<_wireR> + #<_wireCoverR> - #<_toolCut>] F#<_stripFeed>
 G2 K[-#<_wireR> - #<_wireCoverR> + #<_toolCut>] F#<_cutFeed>
 G1 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
+
+G43 H1
 
 M2
