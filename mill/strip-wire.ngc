@@ -29,36 +29,54 @@ F#<_stripFeed>
 G43.1 Z-[#<_toolCut>]
 G43.2 H1
 
-G0 X0 Y0 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
-G1 X0 Y0 Z[#<_wireR> + #<_toolCut>] F#<_stripFeed>
+o100 sub
+    #<_wireLength> = #1
+    #<_stripInLength> = #2
+    #<_stripOutLength> = #3
 
-G1 X[#<_stripLength>] F#<_stripFeed>
+    G0 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
+    G91
 
-G3 Y[-#<_wireR> - #<_toolCut>] Z0 J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
-G2 Y0 Z[#<_wireR> + #<_toolCut>] J[#<_wireR> + #<_toolCut>] K0 F#<_stripFeed>
+    G1 Z[-1 * #<_wireCoverR> - 2] F#<_stripFeed>
+    G1 X[#<_stripInLength>] F#<_stripFeed>
+    
+    G3 Y[-#<_wireR> - #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
 
-G2 Y[#<_wireR> + #<_toolCut>] Z0 J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
-G3 Y0 Z[#<_wireR> + #<_toolCut>] J[-#<_wireR> - #<_toolCut>] K0 F#<_stripFeed>
+    G2 Y[#<_wireR> + #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[#<_wireR> + #<_toolCut>] K0 F#<_stripFeed>
 
-G0 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
-G0 X[#<_wireLength> - #<_stripLength>]
-G1 Z[#<_wireR> + #<_toolCut>] F#<_stripFeed>
+    G2 Y[#<_wireR> + #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+    G3 Y[-#<_wireR> - #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[-#<_wireR> - #<_toolCut>] K0 F#<_stripFeed>
 
-G3 Y[-#<_wireR> - #<_toolCut>] Z0 J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
-G2 Y0 Z[#<_wireR> + #<_toolCut>] J[#<_wireR> + #<_toolCut>] K0 F#<_stripFeed>
+    G0 Z[#<_wireCoverR> + 2]
+    G0 X[#<_wireLength>]
+    G1 Z[-1 * #<_wireCoverR> - 2] F#<_stripFeed>
+    
+    G1 X[#<_stripOutLength>] F#<_stripFeed>
 
-G2 Y[#<_wireR> + #<_toolCut>] Z0 J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
-G3 Y0 Z[#<_wireR> + #<_toolCut>] J[-#<_wireR> - #<_toolCut>] K0 F#<_stripFeed>
+    G3 Y[-#<_wireR> - #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+    G2 Y[#<_wireR> + #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[#<_wireR> + #<_toolCut>] K0 F#<_stripFeed>
 
-G1 X[#<_wireLength>] F#<_stripFeed>
+    G2 Y[#<_wireR> + #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+    G3 Y[-#<_wireR> - #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[-#<_wireR> - #<_toolCut>] K0 F#<_stripFeed>
 
-G0 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
+    G0 Z[#<_wireCoverR> + 2]
 
-G0 X[#<_wireLength> + #<_toolCut>]
-G1 Z[-#<_wireR> - #<_wireCoverR> + #<_toolCut>] F#<_cutFeed>
-G1 Z[#<_wireR> + #<_wireCoverR> - #<_toolCut>] F#<_stripFeed>
-G2 K[-#<_wireR> - #<_wireCoverR> + #<_toolCut>] F#<_cutFeed>
-G1 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
+    G0 X[#<_toolCut>]
+
+    G1 Z[ -2 - #<_wireCoverR> - #<_wireR>] F#<_cutFeed>
+    G1 Z[-#<_wireCoverR> - #<_wireR> - #<_toolCut>] F#<_cutFeed>
+    G1 Z[#<_toolCut>] F#<_cutFeed>
+    G2 K[#<_wireCoverR> + #<_wireR> - #<_toolCut>] F#<_cutFeed>
+    G1 Z[2 * #<_wireCoverR> + 2 * #<_wireR> + 2]
+    G0 X[#<_toolCut>]
+
+    G90
+
+o100 endsub
+
+o100 call [10] [5] [15]
+
+o100 call [10] [5] [5]
 
 G43 H1
 
