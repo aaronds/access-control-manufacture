@@ -31,14 +31,18 @@ module stripWireHold() {
             square([stockLength, wireD]);
         }
 
-        translate([stripLength - toolR, -toolWidth - (wireD / 2)]) {
-            square([toolWidth, 2 * toolWidth + wireD]);
-        }
+        stripWireCuts(10, 5, 5);
 
-        translate([wireLength - stripLength - toolR, -toolWidth - (wireD / 2)]) {
-            square([toolWidth, 2 * toolWidth + wireD]);
-        }
+    }
+}
 
+module stripWireCuts(wireLength=10,stripInLength=5,stripOutLength=5) {
+    translate([stripInLength - toolR, -toolWidth - (wireD / 2)]) {
+        square([toolWidth, 2 * toolWidth + wireD]);
+    }
+
+    translate([stripInLength + wireLength - toolR, -toolWidth - (wireD / 2)]) {
+        square([toolWidth, 2 * toolWidth + wireD]);
     }
 }
 

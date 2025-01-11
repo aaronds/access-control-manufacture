@@ -1,10 +1,10 @@
 xOffset = -0.0045;
 yOffset = 0.012;
-pcbWidth = 80.2955 - xOffset;
-pcbHeight = 36.812 - yOffset;
+pcbWidth = (80.2955 - xOffset) + 0.1;
+pcbHeight = (36.812 - yOffset) + 0.1;
 pcbThickness = 1.7;
 lidToCopper=15.57;
-lidToIndicatorTop=28.18;
+lidToIndicatorTop=28.18 + 2;
 lidToSwitchContactTop=20.08;
 wallThickness = 2;
 thinGap = 0.5;
@@ -20,7 +20,7 @@ lampCutoutRadius = 6.231573;
 lampCutoutPos = [nPadCenter[0] - (padX / 2), nPadCenter[1] - (padY / 2)];
 lampCutoutSize = [(lPadCenter[0] + (padX / 2)) - (nPadCenter[0] - (padX / 2)), lampCutoutRadius * 2];
 
-lampConnectorOverhang = 3;
+lampConnectorOverhang = 3.5;
 
 nInPad = [9.845502, 32.211994];
 lInPad = [24.845502, 32.211994];
@@ -31,7 +31,7 @@ slotWidth = 10;
 slotHeight = 30;
 
 conLedCenter = [71.770502, 11.711994];
-conOptCenter = [73.745502, 28.046994];
+conOptCenter = [73.745502, (28.046994 + 33.046994) / 2];
 
 conOptSize = [7.6, 10];
 conLedSize = [12.35, 6.1];
