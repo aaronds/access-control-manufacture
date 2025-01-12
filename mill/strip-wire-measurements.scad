@@ -7,3 +7,6 @@ stockLength = 270;
 wallThickness = 5;
 boltM=3;
 sheetThickness = 3;
+tThreadM=5.75;
+tSlotWidth=8.5;
+tSlotDepth=5;
