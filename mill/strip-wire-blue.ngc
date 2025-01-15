@@ -49,15 +49,15 @@ o100 sub
 
     G0 Z[#<_wireCoverR> + 2]
     G0 X[#<_wireLength>]
-    G1 Z[-1 * #<_wireCoverR> - 2] F#<_stripFeed>
+    G1 Z[-1 * #<_wireCoverR> - 2] F#<_stripFeed>    
     
-    G1 X[#<_stripOutLength>] F#<_stripFeed>
-
     G3 Y[-#<_wireR> - #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
     G2 Y[#<_wireR> + #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[#<_wireR> + #<_toolCut>] K0 F#<_stripFeed>
 
     G2 Y[#<_wireR> + #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
     G3 Y[-#<_wireR> - #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[-#<_wireR> - #<_toolCut>] K0 F#<_stripFeed>
+
+    G1 X[#<_stripOutLength>] F#<_stripFeed>
 
     G0 Z[#<_wireCoverR> + 2]
 
