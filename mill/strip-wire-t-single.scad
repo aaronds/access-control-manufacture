@@ -33,10 +33,10 @@ difference() {
     }
 
     translate([stockLength + wallThickness + tThreadM / 2, 0, -0.01]) {
-        cylinder(r=tThreadM/2+0.5,h=fullThickness + 0.02);
+        cylinder(r=tThreadM/2+0.4,h=fullThickness + 0.02);
     }
 
-    translate([0, -wireD/2, fullThickness - wallThickness - 0.01]) {
-        cube([stockLength, wireD, wallThickness + 0.02]);
+    translate([0, -wireD/2, fullThickness - wireD - 0.01]) {
+        cube([stockLength, wireD, wireD + 0.02]);
     }
 }
