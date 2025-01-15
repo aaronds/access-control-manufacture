@@ -1,0 +1,91 @@
+G17 G54 G40 G49 G80 G90
+G21
+G54
+
+;Ball Nose Tool
+#<_toolWidth> = 1.5
+#<_toolCut> = [#<_toolWidth> / 2]
+
+#<_wireD> = 1.7
+#<_wireR> = [#<_wireD> / 2]
+#<_wireCoverR> = 0.65
+
+#<_stripLength> = 11
+#<_wireLength> = 40
+
+#<_stripFeed> = 100
+#<_cutFeed> = 50
+
+M5
+G43 H1 
+M3 S10000
+
+; YZ Plane
+G19
+
+F#<_stripFeed>
+
+; Observed Behaviour differes from documentation.
+G43.1 Z-[#<_toolCut>]
+G43.2 H1
+
+o100 sub
+    #<_wireLength> = #1
+    #<_stripInLength> = #2
+    #<_stripOutLength> = #3
+
+    G0 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
+    G91
+
+    G1 Z[-1 * #<_wireCoverR> - 2] F#<_stripFeed>
+    G1 X[#<_stripInLength>] F#<_stripFeed>
+    
+    G3 Y[-#<_wireR> - #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+
+    G2 Y[#<_wireR> + #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[#<_wireR> + #<_toolCut>] K0 F#<_stripFeed>
+
+    G2 Y[#<_wireR> + #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+    G3 Y[-#<_wireR> - #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[-#<_wireR> - #<_toolCut>] K0 F#<_stripFeed>
+
+    G0 Z[#<_wireCoverR> + 2]
+    G0 X[#<_wireLength>]
+    G1 Z[-1 * #<_wireCoverR> - 2] F#<_stripFeed>
+    
+    G1 X[#<_stripOutLength>] F#<_stripFeed>
+
+    G3 Y[-#<_wireR> - #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+    G2 Y[#<_wireR> + #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[#<_wireR> + #<_toolCut>] K0 F#<_stripFeed>
+
+    G2 Y[#<_wireR> + #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+    G3 Y[-#<_wireR> - #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[-#<_wireR> - #<_toolCut>] K0 F#<_stripFeed>
+
+    G0 Z[#<_wireCoverR> + 2]
+
+    G0 X[#<_toolCut>]
+
+    G1 Z[ -2 - #<_wireCoverR> - #<_wireR>] F#<_cutFeed>
+    G1 Z[-#<_wireCoverR> - #<_wireR> - #<_toolCut>] F#<_cutFeed>
+    G1 Z[#<_toolCut>] F#<_cutFeed>
+    G2 K[#<_wireCoverR> + #<_wireR> - #<_toolCut>] F#<_cutFeed>
+    G1 Z[2 * #<_wireCoverR> + 2 * #<_wireR> + 2]
+    G0 X[#<_toolCut>]
+
+    G90
+
+o100 endsub
+
+o100 call [20.7] [5.2] [15]
+
+o100 call [21.34] [5.2] [7]
+
+o100 call [20.7] [5.2] [15]
+
+o100 call [21.85] [5.2] [7]
+
+o100 call [20.7] [5.2] [15]
+
+o100 call [21.85] [5.2] [7]
+
+G43 H1
+
+M2
