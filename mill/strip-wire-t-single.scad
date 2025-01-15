@@ -6,7 +6,7 @@ holdWidth = paddingWidth + wireD;
 
 $fn=100;
 
-fullThickness = 2 * wallThickness + 20;
+fullThickness = 2 * wallThickness + 5;
 
 
 difference() {
@@ -29,11 +29,11 @@ difference() {
     }
 
     translate([-wallThickness - tThreadM / 2, 0, -0.01]) {
-        cylinder(r=tThreadM/2+0.2,h=fullThickness + 0.02);
+        cylinder(r=tThreadM/2+0.5,h=fullThickness + 0.02);
     }
 
     translate([stockLength + wallThickness + tThreadM / 2, 0, -0.01]) {
-        cylinder(r=tThreadM/2+0.2,h=fullThickness + 0.02);
+        cylinder(r=tThreadM/2+0.5,h=fullThickness + 0.02);
     }
 
     translate([0, -wireD/2, fullThickness - wallThickness - 0.01]) {

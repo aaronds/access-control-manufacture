@@ -1,7 +1,7 @@
 stripLength = 5.2;
 toolWidth = 1.5;
 toolR = toolWidth / 2;
-wireD = 3;
+wireD = 3.2;
 wireLength = 40;
 stockLength = 270;
 wallThickness = 5;
