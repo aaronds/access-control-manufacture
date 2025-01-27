@@ -875,6 +875,16 @@
 	)
 	(wire
 		(pts
+			(xy 196.85 19.05) (xy 196.85 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4474dc00-61ee-4870-8db6-26ad1bfe16dd")
+	)
+	(wire
+		(pts
 			(xy 198.12 44.45) (xy 198.12 49.53)
 		)
 		(stroke
@@ -1032,6 +1042,16 @@
 			(type default)
 		)
 		(uuid "ee88da4c-2717-47dd-8f93-f613728028ce")
+	)
+	(wire
+		(pts
+			(xy 196.85 33.02) (xy 198.12 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f605fb1a-79eb-4a2f-8ef9-b4185376d3ed")
 	)
 	(wire
 		(pts
@@ -1850,6 +1870,73 @@
 			(project "bleep-pannel-pcb-minimal"
 				(path "/d1e64cff-08e1-4db3-9d26-1d118b92a65f"
 					(reference "PAD_VAC1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Female")
+		(at 201.93 19.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "90e68a6e-38a3-4e02-8b0c-d04365c7e275")
+		(property "Reference" "CON_NEUT_LAMP1"
+			(at 203.2 17.7799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x01_Female"
+			(at 203.2 20.3199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
+			(at 201.93 19.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 201.93 19.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 201.93 19.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a942aa99-f316-41ca-90f7-bb6cfe3ff15f")
+		)
+		(instances
+			(project "bleep-pannel-pcb-minimal"
+				(path "/d1e64cff-08e1-4db3-9d26-1d118b92a65f"
+					(reference "CON_NEUT_LAMP1")
 					(unit 1)
 				)
 			)
