@@ -4,3 +4,8 @@
 
 *.stl
 *.zip
+*.gbr
+*.drl
+*.gbrjob
+
+*-backups*
