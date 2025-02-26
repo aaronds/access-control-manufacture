@@ -15,7 +15,7 @@ cableM = 3;
 function pcbToCaseX(pcb) = pcb;
 function pcbToCaseY(pcb) = relayBoardHeight - pcb;
 
-containerHeight=20;
+containerHeight=23;
 
 difference() {
     translate([-wallThickness, -wallThickness, -wallThickness]) {
