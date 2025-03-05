@@ -1,5 +1,5 @@
-lidWidth = 118;
-lidLength = 160;
+lidWidth = 114.4;
+lidLength = 155.9;
 lidFullHeight = 17.5;
 lidThickness = 19.64 - 17.6;
 screwWidth = 98;
@@ -18,7 +18,7 @@ $fn=100;
 viceSize = 20;
 viceLength = 100;
 
-cornerRadius=10;
+cornerRadius=8;
 
 portSize=15;
 
