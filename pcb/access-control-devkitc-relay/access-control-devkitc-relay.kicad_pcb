@@ -41,7 +41,7 @@
 	(setup
 		(pad_to_mask_clearance 0)
 		(allow_soldermask_bridges_in_footprints no)
-		(grid_origin -0.6 65.48)
+		(grid_origin -0.66 56.02)
 		(pcbplotparams
 			(layerselection 0x0001000_7fffffff)
 			(plot_on_all_layers_selection 0x0000000_00000000)
@@ -92,7 +92,7 @@
 	(footprint "Connector_Wire:SolderWire-1sqmm_1x01_D1.4mm_OD2.7mm"
 		(layer "F.Cu")
 		(uuid "0fd68e62-b824-46cf-a005-d57313332723")
-		(at 18.98 1.6)
+		(at 20.96 2.27)
 		(descr "Soldered wire connection, for a single 1 mm² wire, basic insulation, conductor diameter 1.4mm, outer diameter 2.7mm, size source Multi-Contact FLEXI-E 1.0 (https://ec.staubli.com/AcroFiles/Catalogues/TM_Cab-Main-11014119_(en)_hi.pdf), bend radius 3 times outer diameter, generated with kicad-footprint-generator")
 		(tags "connector wire 1sqmm")
 		(property "Reference" "J_COIL_HIGH1"
@@ -227,7 +227,12 @@
 			(at 0 0)
 			(size 2.75 2.75)
 			(drill 1.75)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(roundrect_rratio 0.090909)
 			(net 1 "+5V")
@@ -654,7 +659,12 @@
 			(at 0 0 270)
 			(size 2 2)
 			(drill 1)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 6 "Net-(C_SNUB1-Pad1)")
 			(pintype "passive")
@@ -664,7 +674,12 @@
 			(at 15 0 270)
 			(size 2 2)
 			(drill 1)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 7 "NEUT")
 			(pintype "passive")
@@ -1009,7 +1024,12 @@
 			(at 0 0)
 			(size 2.5 2.5)
 			(drill 1.3)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 3 "Net-(J_RELAY_COM1-Pin_1)")
 			(pintype "passive")
@@ -1019,7 +1039,12 @@
 			(at -6 2)
 			(size 2.5 2.5)
 			(drill 1.3)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 8 "Net-(D3-K)")
 			(pintype "passive")
@@ -1029,7 +1054,12 @@
 			(at -6 14.2)
 			(size 2.5 2.5)
 			(drill 1.3)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 4 "Net-(J_RELAY_LAMP1-Pin_1)")
 			(pintype "passive")
@@ -1039,7 +1069,12 @@
 			(at 6 14.2)
 			(size 2.5 2.5)
 			(drill 1.3)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 5 "unconnected-(K1-Pad4)")
 			(pintype "passive")
@@ -1049,7 +1084,12 @@
 			(at 6 2)
 			(size 2.5 2.5)
 			(drill 1.3)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 1 "+5V")
 			(pintype "passive")
@@ -1205,7 +1245,12 @@
 			(at 0 0)
 			(size 4.4 4.4)
 			(drill 3)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(roundrect_rratio 0.056818)
 			(net 3 "Net-(J_RELAY_COM1-Pin_1)")
@@ -1228,7 +1273,7 @@
 	(footprint "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "58a02bce-16d4-43ac-9d8f-f75e6f66c2e8")
-		(at 18.98 4.44 -90)
+		(at 20.97 4.72 -90)
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, , length*diameter=5.2*2.7mm^2, , http://www.diodes.com/_files/packages/DO-41%20(Plastic).pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "D1"
@@ -1559,7 +1604,12 @@
 			(at 0 0 270)
 			(size 2.2 2.2)
 			(drill 1.1)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 1 "+5V")
 			(pinfunction "K")
@@ -1570,7 +1620,12 @@
 			(at 10.16 0 270)
 			(size 2.2 2.2)
 			(drill 1.1)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 2 "Net-(D1-A)")
 			(pinfunction "A")
@@ -1592,7 +1647,7 @@
 	(footprint "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "58a5171d-9533-47cf-9df4-e9803518dc27")
-		(at 19 27.36 90)
+		(at 20.98 27.02 90)
 		(descr "Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=10.16mm, , length*diameter=5.2*2.7mm^2, , http://www.diodes.com/_files/packages/DO-41%20(Plastic).pdf")
 		(tags "Diode DO-41_SOD81 series Axial Horizontal pin pitch 10.16mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "D3"
@@ -1918,7 +1973,12 @@
 			(at 0 0 90)
 			(size 2.2 2.2)
 			(drill 1.1)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 8 "Net-(D3-K)")
 			(pinfunction "K")
@@ -1929,7 +1989,12 @@
 			(at 10.16 0 90)
 			(size 2.2 2.2)
 			(drill 1.1)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 2 "Net-(D1-A)")
 			(pinfunction "A")
@@ -2086,7 +2151,12 @@
 			(at 0 0)
 			(size 4.4 4.4)
 			(drill 3)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(roundrect_rratio 0.056818)
 			(net 4 "Net-(J_RELAY_LAMP1-Pin_1)")
@@ -2109,7 +2179,7 @@
 	(footprint "Connector_Wire:SolderWire-2.5sqmm_1x01_D2.4mm_OD4.4mm"
 		(layer "F.Cu")
 		(uuid "6ed05145-98f1-427a-9df2-ea87a014818f")
-		(at 14.95 53.32)
+		(at 19.92 53.23)
 		(descr "Soldered wire connection, for a single 2.5 mm² wire, reinforced insulation, conductor diameter 2.4mm, outer diameter 4.4mm, size source Multi-Contact FLEXI-xV 2.5 (https://ec.staubli.com/AcroFiles/Catalogues/TM_Cab-Main-11014119_(en)_hi.pdf), bend radius 3 times outer diameter, generated with kicad-footprint-generator")
 		(tags "connector wire 2.5sqmm")
 		(property "Reference" "J_NEUT1"
@@ -2245,7 +2315,12 @@
 			(at 0 0)
 			(size 4.4 4.4)
 			(drill 3)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(roundrect_rratio 0.056818)
 			(net 7 "NEUT")
@@ -2268,7 +2343,7 @@
 	(footprint "Connector_Wire:SolderWire-2.5sqmm_1x01_D2.4mm_OD4.4mm"
 		(layer "F.Cu")
 		(uuid "715720c3-ac84-4a53-8a6a-a7ebe62c89f9")
-		(at 14.98 48.65)
+		(at 19.95 48.84)
 		(descr "Soldered wire connection, for a single 2.5 mm² wire, reinforced insulation, conductor diameter 2.4mm, outer diameter 4.4mm, size source Multi-Contact FLEXI-xV 2.5 (https://ec.staubli.com/AcroFiles/Catalogues/TM_Cab-Main-11014119_(en)_hi.pdf), bend radius 3 times outer diameter, generated with kicad-footprint-generator")
 		(tags "connector wire 2.5sqmm")
 		(property "Reference" "J_NEUT2"
@@ -2404,7 +2479,12 @@
 			(at 0 0)
 			(size 4.4 4.4)
 			(drill 3)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(roundrect_rratio 0.056818)
 			(net 7 "NEUT")
@@ -2671,7 +2751,12 @@
 			(at 0 0 90)
 			(size 2.4 2.4)
 			(drill 1.2)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 4 "Net-(J_RELAY_LAMP1-Pin_1)")
 			(pintype "passive")
@@ -2681,7 +2766,12 @@
 			(at 20.32 0 90)
 			(size 2.4 2.4)
 			(drill 1.2)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 6 "Net-(C_SNUB1-Pad1)")
 			(pintype "passive")
@@ -2906,7 +2996,12 @@
 			(at 0 0 270)
 			(size 1.8 1.8)
 			(drill 0.8)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 4 "Net-(J_RELAY_LAMP1-Pin_1)")
 			(pintype "passive")
@@ -2916,7 +3011,12 @@
 			(at 7.5 1.4 270)
 			(size 1.8 1.8)
 			(drill 0.8)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(net 7 "NEUT")
 			(pintype "passive")
@@ -2937,7 +3037,7 @@
 	(footprint "Connector_Wire:SolderWire-1sqmm_1x01_D1.4mm_OD2.7mm"
 		(layer "F.Cu")
 		(uuid "e2d4938c-ef58-4e55-a344-1081d0e0d596")
-		(at 18.9 34.23)
+		(at 20.99 31.41)
 		(descr "Soldered wire connection, for a single 1 mm² wire, basic insulation, conductor diameter 1.4mm, outer diameter 2.7mm, size source Multi-Contact FLEXI-E 1.0 (https://ec.staubli.com/AcroFiles/Catalogues/TM_Cab-Main-11014119_(en)_hi.pdf), bend radius 3 times outer diameter, generated with kicad-footprint-generator")
 		(tags "connector wire 1sqmm")
 		(property "Reference" "J_COIL_LOW1"
@@ -3072,7 +3172,12 @@
 			(at 0 0)
 			(size 2.75 2.75)
 			(drill 1.75)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(roundrect_rratio 0.090909)
 			(net 8 "Net-(D3-K)")
@@ -3230,7 +3335,12 @@
 			(at 0 0)
 			(size 4.4 4.4)
 			(drill 3)
-			(layers "*.Cu" "*.Mask")
+			(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
+				"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
+				"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
+				"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
+				"In29.Cu" "In30.Cu"
+			)
 			(remove_unused_layers no)
 			(roundrect_rratio 0.056818)
 			(net 4 "Net-(J_RELAY_LAMP1-Pin_1)")
@@ -3262,19 +3372,8 @@
 		(uuid "0c4de0fb-3256-40bb-b4e5-b30be0ebe73f")
 	)
 	(gr_rect
-		(start 18.55 42.7)
-		(end 20.55 56)
-		(stroke
-			(width 0.05)
-			(type solid)
-		)
-		(fill solid)
-		(layer "Edge.Cuts")
-		(uuid "12fedb09-bcdf-4b7d-ac9e-841d1cfd04fa")
-	)
-	(gr_rect
 		(start -0.66 0.06)
-		(end 20.56 56.02)
+		(end 23.02 56.02)
 		(stroke
 			(width 0.1)
 			(type default)
@@ -3427,68 +3526,60 @@
 		(uuid "f9b5765d-2f5a-4162-ba0d-106f6fbab123")
 	)
 	(segment
-		(start 18.09 10.4925)
-		(end 18.84 10.4925)
+		(start 20.97 9.12)
+		(end 20.97 4.72)
 		(width 1)
 		(layer "F.Cu")
 		(net 1)
-		(uuid "439d0673-cec4-4e1f-997b-11c4100cab36")
+		(uuid "18d5d84f-21ab-4316-b6d8-839ebc3cd886")
 	)
 	(segment
-		(start 18.98 4.44)
-		(end 18.98 1.91)
+		(start 20.99 9.14)
+		(end 20.97 9.12)
 		(width 1)
 		(layer "F.Cu")
 		(net 1)
-		(uuid "4cb541e1-b817-46d4-9b51-7ee3f0490113")
-	)
-	(segment
-		(start 18.98 4.44)
-		(end 18.98 10.3525)
-		(width 1)
-		(layer "F.Cu")
-		(net 1)
-		(uuid "7548cb78-3b4b-4172-86c3-6b26e21876c5")
-	)
-	(segment
-		(start 18.98 10.3525)
-		(end 18.84 10.4925)
-		(width 1)
-		(layer "F.Cu")
-		(net 1)
-		(uuid "8bf5aca5-ace2-44d0-aad3-c992b0383f05")
+		(uuid "563685fd-de83-4824-96f1-541dd8e95880")
 	)
 	(segment
 		(start 14.85 10.4925)
-		(end 18.09 10.4925)
+		(end 19.6375 10.4925)
 		(width 1)
 		(layer "F.Cu")
 		(net 1)
-		(uuid "8ee1ea0d-42ca-41a1-9bc6-f114c7bc0267")
+		(uuid "c934c925-e059-471b-bb79-afa8d13e6b5d")
 	)
 	(segment
-		(start 18.95 10.6025)
-		(end 18.84 10.4925)
+		(start 19.6375 10.4925)
+		(end 20.99 9.14)
 		(width 1)
 		(layer "F.Cu")
 		(net 1)
-		(uuid "cd90ca90-ccd4-4059-9347-d9f12841e496")
+		(uuid "cc4c2740-7b13-4d79-95a0-e474e527864b")
 	)
 	(segment
-		(start 18.98 14.6)
-		(end 18.98 17.18)
+		(start 20.97 4.72)
+		(end 20.97 1.88)
+		(width 1)
+		(layer "F.Cu")
+		(net 1)
+		(uuid "ff727d02-7915-4897-bf92-ca4a6db418dd")
+	)
+	(segment
+		(start 20.99 17.48)
+		(end 20.99 14.9)
 		(width 1)
 		(layer "F.Cu")
 		(net 2)
-		(uuid "3dc41ed8-d8f1-4eb7-af65-9395b47d32bd")
+		(uuid "625f38d8-0a23-4d91-8a63-839167c81b8a")
 	)
 	(segment
-		(start 18.98 17.18)
-		(end 19 17.2)
+		(start 20.99 14.9)
+		(end 20.97 14.88)
 		(width 1)
 		(layer "F.Cu")
 		(net 2)
-		(uuid "cda8d3e5-3cf5-4cce-bee4-0877b23cb08a")
+		(uuid "fac0ca2d-aeb3-41e0-b9ec-5246253adbd8")
 	)
 	(segment
 		(start 8.85 8.4925)
@@ -3635,6 +3726,30 @@
 		(uuid "a013e1a1-c692-41df-8671-5f834064f7e2")
 	)
 	(segment
+		(start 14.95 53.32)
+		(end 14.95 54.07)
+		(width 2)
+		(layer "F.Cu")
+		(net 7)
+		(uuid "018b2f79-3b98-4cac-976f-c57be8db03bc")
+	)
+	(segment
+		(start 15.35 45.02)
+		(end 15.35 48.18)
+		(width 2)
+		(layer "F.Cu")
+		(net 7)
+		(uuid "05b184a5-317a-46b7-b1f8-56b84ce3cb74")
+	)
+	(segment
+		(start 15.66 53.23)
+		(end 19.92 53.23)
+		(width 2)
+		(layer "F.Cu")
+		(net 7)
+		(uuid "2660e75c-0239-4a2f-93c7-0b978eabafd2")
+	)
+	(segment
 		(start 15.35 52.92)
 		(end 14.95 53.32)
 		(width 2)
@@ -3651,6 +3766,38 @@
 		(uuid "3893d122-8849-4eaf-88fa-47d0bba32fbb")
 	)
 	(segment
+		(start 14.5 54.52)
+		(end 12.65 54.52)
+		(width 2)
+		(layer "F.Cu")
+		(net 7)
+		(uuid "4f02f891-9666-4872-afff-f36ff5bed328")
+	)
+	(segment
+		(start 15.35 52.92)
+		(end 15.66 53.23)
+		(width 2)
+		(layer "F.Cu")
+		(net 7)
+		(uuid "7c9b9e97-d474-4095-941e-bdd3e80a8895")
+	)
+	(segment
+		(start 19.95 48.56)
+		(end 19.95 53.2)
+		(width 2)
+		(layer "F.Cu")
+		(net 7)
+		(uuid "a86d01c5-c167-42dd-9ac6-014bafff7309")
+	)
+	(segment
+		(start 14.95 54.07)
+		(end 14.5 54.52)
+		(width 2)
+		(layer "F.Cu")
+		(net 7)
+		(uuid "aaadde0e-fb65-4eec-a549-3356fc0bb2a1")
+	)
+	(segment
 		(start 1.95 54.32)
 		(end 2.25 54.62)
 		(width 2)
@@ -3659,12 +3806,12 @@
 		(uuid "b80715bf-7f1d-40e1-b2f9-e8bb53e33f37")
 	)
 	(segment
-		(start 15.35 45.02)
-		(end 15.35 52.92)
+		(start 19.95 53.2)
+		(end 19.92 53.23)
 		(width 2)
 		(layer "F.Cu")
 		(net 7)
-		(uuid "d7b695b5-8db8-4e13-897d-bf2064d680db")
+		(uuid "d4243413-bf52-498b-a3ea-3260dc84272b")
 	)
 	(segment
 		(start 2.25 54.62)
@@ -3675,75 +3822,91 @@
 		(uuid "d886e879-8d65-40c0-b3fd-7d0dd43e07a4")
 	)
 	(segment
-		(start 12.65 54.62)
-		(end 13.75 53.52)
+		(start 15.35 48.18)
+		(end 15.35 52.92)
 		(width 2)
 		(layer "F.Cu")
 		(net 7)
-		(uuid "d899482e-02b8-445b-ad5d-c0b3e90247af")
+		(uuid "ff03c898-c412-4743-bba9-57c1dd6b9adf")
 	)
 	(segment
-		(start 10.845 19.22)
-		(end 6.745 15.12)
+		(start 20.99 22.21)
+		(end 20.99 27.64)
 		(width 1)
 		(layer "F.Cu")
 		(net 8)
-		(uuid "39a0aa91-7b59-4ce4-9c95-4a15eb1d32aa")
+		(uuid "1989f3dd-96c1-4f1a-8d75-a1947e5adabe")
 	)
 	(segment
-		(start 18.064214 19.22)
+		(start 6.745 15.12)
 		(end 10.845 19.22)
 		(width 1)
 		(layer "F.Cu")
 		(net 8)
-		(uuid "5532f013-160e-4322-b528-cdec46193ce4")
+		(uuid "4ae0ee90-cf07-4c14-918c-022926c49510")
 	)
 	(segment
-		(start 4.265786 15.12)
-		(end 2.85 13.704214)
+		(start 19.09 20.31)
+		(end 20.99 22.21)
 		(width 1)
 		(layer "F.Cu")
 		(net 8)
-		(uuid "59a752e9-5b3c-48d9-8963-e9b8ba96e9bd")
+		(uuid "67bbde82-83a1-42f9-984a-418acc6962f4")
 	)
 	(segment
-		(start 6.745 15.12)
-		(end 4.265786 15.12)
-		(width 1)
-		(layer "F.Cu")
-		(net 8)
-		(uuid "69a1e0bb-39eb-4408-8ddd-daf5e9d464bf")
-	)
-	(segment
-		(start 19.09 34.04)
-		(end 19.09 20.245786)
-		(width 1)
-		(layer "F.Cu")
-		(net 8)
-		(uuid "6b0ba096-d5f5-4a10-b1e7-edafc5b4c5a4")
-	)
-	(segment
-		(start 2.85 13.704214)
-		(end 2.85 10.4925)
-		(width 1)
-		(layer "F.Cu")
-		(net 8)
-		(uuid "8ebd50a4-5630-4626-beb7-cca6e570dab1")
-	)
-	(segment
-		(start 18.9 34.23)
-		(end 19.09 34.04)
-		(width 1)
-		(layer "F.Cu")
-		(net 8)
-		(uuid "9e4d4c78-7d12-459d-86ab-d34cfb5407a1")
-	)
-	(segment
-		(start 19.09 20.245786)
+		(start 10.845 19.22)
 		(end 18.064214 19.22)
 		(width 1)
 		(layer "F.Cu")
 		(net 8)
-		(uuid "d6444a7e-62ae-4294-9a1c-4ef12af36aad")
+		(uuid "88840c6a-3dfa-4d96-8b21-c87200443b43")
+	)
+	(segment
+		(start 19.09 20.245786)
+		(end 19.09 20.31)
+		(width 1)
+		(layer "F.Cu")
+		(net 8)
+		(uuid "9681f710-f9d2-407c-9a78-c7c7d3556b7c")
+	)
+	(segment
+		(start 4.265786 15.12)
+		(end 6.745 15.12)
+		(width 1)
+		(layer "F.Cu")
+		(net 8)
+		(uuid "b33a5175-2bef-4c8e-ab1f-a5992b1ab200")
+	)
+	(segment
+		(start 2.85 10.4925)
+		(end 2.85 13.704214)
+		(width 1)
+		(layer "F.Cu")
+		(net 8)
+		(uuid "cbcdf28d-b9ae-4a1a-9d52-c3129f44cb6f")
+	)
+	(segment
+		(start 2.85 13.704214)
+		(end 4.265786 15.12)
+		(width 1)
+		(layer "F.Cu")
+		(net 8)
+		(uuid "de7e3bbb-196e-432a-ab65-34ea3b4f4b3b")
+	)
+	(segment
+		(start 20.99 27.64)
+		(end 20.99 31.41)
+		(width 1)
+		(layer "F.Cu")
+		(net 8)
+		(uuid "ecd76291-4e45-4104-b637-bf34fcebbac1")
+	)
+	(segment
+		(start 18.064214 19.22)
+		(end 19.09 20.245786)
+		(width 1)
+		(layer "F.Cu")
+		(net 8)
+		(uuid "fe349bab-595d-4f34-a0e9-9e9c56b5730a")
 	)
 )

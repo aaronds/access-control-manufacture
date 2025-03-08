@@ -7,5 +7,6 @@
 *.gbr
 *.drl
 *.gbrjob
+*.lck
 
 *-backups*
