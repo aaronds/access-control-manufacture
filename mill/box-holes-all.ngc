@@ -162,15 +162,15 @@ O301 do
     
     G0 Z[#<_zDepth> + 1]
 
-    O210 if [#<_t> LT #<_tStep>] ; Peck drill first hole.
+    O310 if [#<_t> LT #<_tStep>] ; Peck drill first hole.
         G99
         G83 Z0 F#<_zFeedRate> Q0.20 R[#<_zDepth> + 1]
-    O210 else
+    O310 else
         G1 Z[#<_zDepth>] F#<_zFeedRate>
        
         G1 Z0 F#<_zFeedRate>
         G1 Z[#<_zDepth>] F#<_zFeedRate>
-    O210 endif
+    O310 endif
 
     G0 Z[#<_zMove>]
 
