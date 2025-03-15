@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 3.0,
-          "height": 4.0,
-          "width": 4.0
+          "drill": 0.762,
+          "height": 1.524,
+          "width": 1.524
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -179,11 +179,7 @@
       ],
       "track_widths": [
         0.0,
-        0.5,
-        0.8,
-        1.0,
-        2.0,
-        3.8
+        0.8
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -449,7 +445,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "current-sensor-pcb.kicad_pro",
+    "filename": "access-control-smt-lv.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -594,7 +590,7 @@
   },
   "sheets": [
     [
-      "ed885ae9-e2ca-4fb3-ad41-8083aa76f12b",
+      "7cf59121-d90a-405f-864e-dd3e48ad3dc1",
       "Root"
     ]
   ],

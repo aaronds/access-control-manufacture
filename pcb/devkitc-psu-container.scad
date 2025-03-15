@@ -15,7 +15,7 @@ function pcbToCaseY(pcb) = psuBoardHeight - pcb;
 
 containerHeight=22;
 
-
+/*
 difference() {
     translate([-wallThickness, -wallThickness, -wallThickness]) {
         cube([2 * wallThickness + psuBoardWidth, 2 * wallThickness + psuBoardHeight, wallThickness + containerHeight]);
@@ -38,7 +38,9 @@ difference() {
         }
     }
 }
-/*
+*/
+
+legHeight = 4 * wallThickness;
 
 translate([psuBoardWidth + 10, 0, 0]) {
     difference() {
@@ -49,18 +51,17 @@ translate([psuBoardWidth + 10, 0, 0]) {
             cube([2 * wallThickness + psuBoardWidth + 0.2, 2 * wallThickness + psuBoardHeight + 0.2,2 * wallThickness + 0.01]);
         }
     }
-    translate([-wallThickness, -2 * wallThickness, - 3 * wallThickness]) {
-        cube([wallThickness * 3, wallThickness, 3 * wallThickness]);
+    translate([-wallThickness, -2 * wallThickness, -legHeight]) {
+        cube([wallThickness * 3, wallThickness, legHeight]);
     }
-    translate([psuBoardWidth - 0 * wallThickness, -2 * wallThickness, - 3 * wallThickness]) {
-        cube([wallThickness * 3, wallThickness, 3 * wallThickness]);
+    translate([psuBoardWidth - 0 * wallThickness, -2 * wallThickness, -legHeight]) {
+        cube([wallThickness * 3, wallThickness, legHeight]);
     }
 
-    translate([-wallThickness, psuBoardHeight + 3 * wallThickness, - 3 * wallThickness]) {
-        cube([wallThickness * 3, wallThickness, 3 * wallThickness]);
+    translate([-wallThickness, psuBoardHeight + 3 * wallThickness, -legHeight]) {
+        cube([wallThickness * 3, wallThickness, legHeight]);
     }
-    translate([psuBoardWidth - 0 * wallThickness, psuBoardHeight + 3 * wallThickness, - 3 * wallThickness]) {
-        cube([wallThickness * 3, wallThickness, 3 * wallThickness]);
+    translate([psuBoardWidth - 0 * wallThickness, psuBoardHeight + 3 * wallThickness, -legHeight]) {
+        cube([wallThickness * 3, wallThickness, legHeight]);
     }
 }
-*/
