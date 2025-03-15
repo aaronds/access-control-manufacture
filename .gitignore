@@ -8,5 +8,6 @@
 *.drl
 *.gbrjob
 *.lck
+*.bgcode
 
 *-backups*

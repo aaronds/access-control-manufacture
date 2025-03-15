@@ -1,4 +1,4 @@
-relayBoardWidth=22;
+relayBoardWidth=25;
 relayBoardHeight=56;
 wallThickness=2;
 
