@@ -4421,7 +4421,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "22690b7c-ab57-4c6d-aa80-33a1d09a272c")
-		(property "Reference" "#PWR25"
+		(property "Reference" "#PWR025"
 			(at 49.53 106.68 0)
 			(effects
 				(font
@@ -4471,7 +4471,7 @@
 		(instances
 			(project ""
 				(path "/7cf59121-d90a-405f-864e-dd3e48ad3dc1"
-					(reference "#PWR25")
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -4619,7 +4619,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "31036425-2835-4f35-88e9-d20aef026bd7")
-		(property "Reference" "#PWR26"
+		(property "Reference" "#PWR026"
 			(at 49.53 111.76 0)
 			(effects
 				(font
@@ -4669,7 +4669,7 @@
 		(instances
 			(project ""
 				(path "/7cf59121-d90a-405f-864e-dd3e48ad3dc1"
-					(reference "#PWR26")
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)
@@ -4703,7 +4703,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric_Pad1.72x2.30mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_1812_4532Metric_Pad1.57x3.40mm_HandSolder"
 			(at 47.9552 34.29 0)
 			(effects
 				(font
@@ -5043,7 +5043,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4b30ebdd-5d6a-4939-b464-20278e30611e")
-		(property "Reference" "#PWR28"
+		(property "Reference" "#PWR028"
 			(at 44.45 62.23 0)
 			(effects
 				(font
@@ -5093,7 +5093,7 @@
 		(instances
 			(project "access-control-smt-lv"
 				(path "/7cf59121-d90a-405f-864e-dd3e48ad3dc1"
-					(reference "#PWR28")
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -5273,7 +5273,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric_Pad1.72x2.30mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_1812_4532Metric_Pad1.57x3.40mm_HandSolder"
 			(at 17.4752 34.29 0)
 			(effects
 				(font
@@ -6027,7 +6027,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "751e847b-09d6-4c21-a330-5cc576772ef2")
-		(property "Reference" "#PWR29"
+		(property "Reference" "#PWR029"
 			(at 77.47 121.92 0)
 			(effects
 				(font
@@ -6077,7 +6077,7 @@
 		(instances
 			(project "access-control-smt-lv"
 				(path "/7cf59121-d90a-405f-864e-dd3e48ad3dc1"
-					(reference "#PWR29")
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -6573,7 +6573,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "96fb8117-cdd2-4f0d-915f-fbc1c11b6d2a")
-		(property "Reference" "#PWR30"
+		(property "Reference" "#PWR030"
 			(at 77.47 128.27 0)
 			(effects
 				(font
@@ -6623,7 +6623,7 @@
 		(instances
 			(project "access-control-smt-lv"
 				(path "/7cf59121-d90a-405f-864e-dd3e48ad3dc1"
-					(reference "#PWR30")
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -6838,7 +6838,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ae10bbfa-ba0f-4344-a89b-be4cc132112e")
-		(property "Reference" "#PWR27"
+		(property "Reference" "#PWR027"
 			(at 39.37 67.31 0)
 			(effects
 				(font
@@ -6888,7 +6888,7 @@
 		(instances
 			(project "access-control-smt-lv"
 				(path "/7cf59121-d90a-405f-864e-dd3e48ad3dc1"
-					(reference "#PWR27")
+					(reference "#PWR027")
 					(unit 1)
 				)
 			)
@@ -7036,7 +7036,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c32fff42-29d9-4d0e-a8e2-73afcbb99b2b")
-		(property "Reference" "#PWR24"
+		(property "Reference" "#PWR024"
 			(at 13.97 49.53 0)
 			(effects
 				(font
@@ -7086,7 +7086,7 @@
 		(instances
 			(project ""
 				(path "/7cf59121-d90a-405f-864e-dd3e48ad3dc1"
-					(reference "#PWR24")
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)

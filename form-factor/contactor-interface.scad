@@ -13,9 +13,10 @@ pcbWidth=50;
 pcbLength=66;
 zeroOffsetToContactorCenter=-5;
 pcbWallWidth=2;
+pcbClearance=0.5;
 sideWidth = (fullContactorWidth - centerOuterGap) / 2 - centerWingWall;
 gapWidth = fullContactorWidth / 2 - sideWidth;
-psuHeight = 20.5;
+psuHeight = 22.5;
 verticalSupportWidth = 20;
 
 difference() {
@@ -57,12 +58,12 @@ difference() {
 }
 
 translate([-pcbWidth / 2 - pcbWallWidth, -pcbLength / 2 + zeroOffsetToContactorCenter - pcbWallWidth, 0]) {
-    cube([pcbWallWidth + pcbWidth / 2 - gapWidth, pcbLength + 2 * pcbWallWidth, centerWingWall * 2 + pcbWallWidth]);
+    cube([pcbWallWidth + pcbWidth / 2 - gapWidth, pcbLength + 2 * pcbWallWidth, centerWingWall * 2 + pcbClearance]);
 }
 
 
 translate([pcbWidth / 2 - (pcbWidth / 2 - gapWidth) , -pcbLength / 2 + zeroOffsetToContactorCenter - pcbWallWidth, 0]) {
-    cube([pcbWallWidth + (pcbWidth / 2 - gapWidth), pcbLength + 2 * pcbWallWidth, centerWingWall * 2 + pcbWallWidth]);
+    cube([pcbWallWidth + (pcbWidth / 2 - gapWidth), pcbLength + 2 * pcbWallWidth, centerWingWall * 2 + pcbClearance]);
 }
 
 pcbWalls();
@@ -75,11 +76,12 @@ translate([pcbWidth / 2, zeroOffsetToContactorCenter - verticalSupportWidth / 2,
     cube([pcbWallWidth, verticalSupportWidth, psuHeight]);
 }
 
+
 translate([0,0,centerWingWall * 2 + psuHeight]) {
     translate([-pcbWidth / 2 - pcbWallWidth, zeroOffsetToContactorCenter - pcbLength / 2 - pcbWallWidth,0]) {
-        cube([pcbWidth + 2 * pcbWallWidth, pcbLength + 2 * pcbWallWidth, centerWingWall]);
+        #cube([pcbWidth + 2 * pcbWallWidth, pcbLength + 2 * pcbWallWidth, pcbClearance]);
     }
-    translate([0,0,-1 * centerWingWall]){
+    translate([0,0,-2 * centerWingWall]){
         pcbWalls();
     }
 }
