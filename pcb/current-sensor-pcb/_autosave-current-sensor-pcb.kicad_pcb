@@ -4812,8 +4812,8 @@
 		(uuid "0b0f0175-8f7b-4e26-88c5-d913876128b9")
 	)
 	(gr_rect
-		(start 0.1114 -0.1534)
-		(end 35.1044 45.0466)
+		(start 0.1114 0.2022)
+		(end 35.1044 43.2178)
 		(stroke
 			(width 0.05)
 			(type default)
