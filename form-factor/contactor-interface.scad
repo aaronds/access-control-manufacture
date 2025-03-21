@@ -14,16 +14,18 @@ pcbLength=66;
 zeroOffsetToContactorCenter=-5;
 pcbWallWidth=2;
 pcbClearance=0.5;
+pcbClearanceTop=1;
 sideWidth = (fullContactorWidth - centerOuterGap) / 2 - centerWingWall;
 gapWidth = fullContactorWidth / 2 - sideWidth;
 verticalSupportWidth = 20;
 
 wago221s415 = [30.2, 18.6 - 1.5, 8.6];
 wago221s413 = [18.7, 18.6 - 1.5, 8.4];
-wagoWallWidthH = 0.5;
+wagoWallWidthH = 1;
 wagoWallWidthV = 2;
 
-psuHeight = 3 * wagoWallWidthH + 3 * wago221s415[2]; /*22.5*/
+psuHeight = 3 * wagoWallWidthH + 3 * wago221s415[2];/*22.5*/
+echo(psuHeight);
 
 difference() {
     translate([-fullContactorWidth / 2, 0, 0]) {
@@ -100,10 +102,10 @@ translate([-(wago221s415[0] + 2 * wagoWallWidthV) / 2, pcbLength / 2 + zeroOffse
 
 translate([0,0, psuHeight]) {
     translate([-pcbWidth / 2 - pcbWallWidth, zeroOffsetToContactorCenter - pcbLength / 2 - pcbWallWidth,0]) {
-        cube([pcbWidth + 2 * pcbWallWidth, pcbLength + 2 * pcbWallWidth, pcbClearance]);
+        #cube([pcbWidth + 2 * pcbWallWidth, pcbLength + 2 * pcbWallWidth, pcbClearanceTop]);
     }
     translate([0,0,-2 * centerWingWall]){
-        pcbWalls();
+        pcbWalls(extraHeight=pcbClearanceTop);
     }
 
     translate([-pcbWidth/2 - pcbWallWidth, zeroOffsetToContactorCenter - pcbLength / 2 - pcbWallWidth, -wago221s413[2] - pcbWallWidth * 2 ]) {
@@ -112,11 +114,11 @@ translate([0,0, psuHeight]) {
 }
 
 translate([-pcbWidth / 2 - pcbWallWidth, zeroOffsetToContactorCenter -pcbLength / 2 - pcbWallWidth, centerWingWall * 2]) {
-    cube([pcbWallWidth, pcbWallWidth + wago221s415[1], psuHeight]);
+    cube([pcbWallWidth, pcbWallWidth + wago221s415[1], psuHeight - 1]);
 }
 
 translate([pcbWidth / 2, zeroOffsetToContactorCenter -pcbLength / 2 - pcbWallWidth, centerWingWall * 2]) {
-    cube([pcbWallWidth, pcbWallWidth + wago221s415[1], psuHeight]);
+    cube([pcbWallWidth, pcbWallWidth + wago221s415[1], psuHeight - 1]);
 }
 /*
 translate([pcbWidth / 2, zeroOffsetToContactorCenter - verticalSupportWidth / 2, centerWingWall * 2]) {
@@ -124,35 +126,35 @@ translate([pcbWidth / 2, zeroOffsetToContactorCenter - verticalSupportWidth / 2,
 }
 */
 
-module pcbWalls(showEnds=true) {
+module pcbWalls(showEnds=true,extraHeight = 0) {
     wallGap = wago221s415[0]/2;
 
     translate([-pcbWidth / 2 - pcbWallWidth, -pcbLength / 2 + zeroOffsetToContactorCenter - pcbWallWidth, centerWingWall * 2]) {
-        cube([pcbWallWidth, pcbLength + 2 * pcbWallWidth, pcbWallWidth * 2]);
+        cube([pcbWallWidth, pcbLength + 2 * pcbWallWidth, pcbWallWidth * 2 + extraHeight]);
     }
 
     translate([pcbWidth / 2 , -pcbLength / 2 + zeroOffsetToContactorCenter - pcbWallWidth, centerWingWall * 2]) {
-        cube([pcbWallWidth, pcbLength + 2 * pcbWallWidth, pcbWallWidth * 2]);
+        cube([pcbWallWidth, pcbLength + 2 * pcbWallWidth, pcbWallWidth * 2 + extraHeight]);
     }
 
     if (showEnds) {
         translate([pcbWidth / 2 - (pcbWidth / 2 - wallGap) , -pcbLength / 2 + zeroOffsetToContactorCenter - pcbWallWidth,centerWingWall * 2]) {
-           cube([pcbWallWidth + (pcbWidth / 2 - wallGap), pcbWallWidth, pcbWallWidth * 2]);
+           cube([pcbWallWidth + (pcbWidth / 2 - wallGap), pcbWallWidth, pcbWallWidth * 2 + extraHeight]);
         }
     }
 
     translate([-pcbWidth / 2 - pcbWallWidth , pcbLength / 2 + zeroOffsetToContactorCenter,centerWingWall * 2]) {
-       cube([pcbWallWidth + (pcbWidth / 2 - wallGap), pcbWallWidth, pcbWallWidth * 2]);
+       cube([pcbWallWidth + (pcbWidth / 2 - wallGap), pcbWallWidth, pcbWallWidth * 2 + extraHeight]);
     }
 
     if (showEnds) {
         translate([-pcbWidth / 2 - pcbWallWidth , -pcbLength / 2 + zeroOffsetToContactorCenter - pcbWallWidth,centerWingWall * 2]) {
-           cube([pcbWallWidth + (pcbWidth / 2 - wallGap), pcbWallWidth, pcbWallWidth * 2]);
+           cube([pcbWallWidth + (pcbWidth / 2 - wallGap), pcbWallWidth, pcbWallWidth * 2 + extraHeight]);
         }
     }
 
     translate([pcbWidth / 2 - (pcbWidth / 2 - wallGap) , pcbLength / 2 + zeroOffsetToContactorCenter,centerWingWall * 2]) {
-       cube([pcbWallWidth + (pcbWidth / 2 - wallGap), pcbWallWidth, pcbWallWidth * 2]);
+       cube([pcbWallWidth + (pcbWidth / 2 - wallGap), pcbWallWidth, pcbWallWidth * 2 + extraHeight]);
     }
 }
 
