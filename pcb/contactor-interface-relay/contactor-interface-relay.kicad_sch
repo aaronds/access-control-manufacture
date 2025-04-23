@@ -652,6 +652,139 @@
 				)
 			)
 		)
+		(symbol "Device:Fuse"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "F"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Fuse"
+				(at -1.905 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Fuse"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "fuse"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "*Fuse*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Fuse_0_1"
+				(rectangle
+					(start -0.762 -2.54)
+					(end 0.762 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Fuse_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Device:R"
 			(pin_numbers hide)
 			(pin_names
@@ -1800,16 +1933,6 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 78.74) (xy 118.11 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0425590f-fd3b-4c9a-8338-7639b8c23175")
-	)
-	(wire
-		(pts
 			(xy 119.38 35.56) (xy 157.48 35.56)
 		)
 		(stroke
@@ -1817,6 +1940,16 @@
 			(type default)
 		)
 		(uuid "067d6b45-9064-4764-addc-17eb869a266f")
+	)
+	(wire
+		(pts
+			(xy 109.22 82.55) (xy 109.22 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e46e5d1-e639-4849-89af-596ef31d4787")
 	)
 	(wire
 		(pts
@@ -1910,6 +2043,16 @@
 	)
 	(wire
 		(pts
+			(xy 121.92 82.55) (xy 124.46 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62a584d1-0e73-4b11-ae08-7d0fb5f098ad")
+	)
+	(wire
+		(pts
 			(xy 78.74 90.17) (xy 87.63 90.17)
 		)
 		(stroke
@@ -1980,6 +2123,16 @@
 	)
 	(wire
 		(pts
+			(xy 109.22 82.55) (xy 114.3 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9eada3aa-9a66-4260-807c-c22e67dfd094")
+	)
+	(wire
+		(pts
 			(xy 111.76 63.5) (xy 118.11 63.5)
 		)
 		(stroke
@@ -2020,7 +2173,7 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 78.74) (xy 118.11 80.01)
+			(xy 124.46 82.55) (xy 124.46 86.36)
 		)
 		(stroke
 			(width 0)
@@ -2267,6 +2420,74 @@
 			(project "contactor-interface-relay"
 				(path "/92cf2299-4756-44c6-9b64-4b60cc6635f5"
 					(reference "R_SNUB1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Fuse")
+		(at 118.11 82.55 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "260072bd-227a-4bc7-b74d-835b276689a5")
+		(property "Reference" "F1"
+			(at 118.11 76.2 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Fuse"
+			(at 118.11 78.74 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_Littelfuse_395Series"
+			(at 118.11 80.772 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 118.11 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fuse"
+			(at 118.11 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "041f2c10-6a00-4a1d-88ba-cdc4022197b1")
+		)
+		(pin "2"
+			(uuid "edff17fb-cd28-4c93-b93e-83decfcdf506")
+		)
+		(instances
+			(project ""
+				(path "/92cf2299-4756-44c6-9b64-4b60cc6635f5"
+					(reference "F1")
 					(unit 1)
 				)
 			)
@@ -2923,7 +3144,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Socket")
-		(at 123.19 80.01 0)
+		(at 129.54 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2932,7 +3153,7 @@
 		(fields_autoplaced yes)
 		(uuid "c45f131f-abb5-4c57-ae21-f30e5d07ac26")
 		(property "Reference" "J_RELAY_COM1"
-			(at 124.46 78.7399 0)
+			(at 130.81 85.0899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2941,7 +3162,7 @@
 			)
 		)
 		(property "Value" "Conn_01x01_Socket"
-			(at 124.46 81.2799 0)
+			(at 130.81 87.6299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2950,7 +3171,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Wire:SolderWire-2.5sqmm_1x01_D2.4mm_OD4.4mm"
-			(at 123.19 80.01 0)
+			(at 129.54 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2959,7 +3180,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 123.19 80.01 0)
+			(at 129.54 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2968,7 +3189,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated"
-			(at 123.19 80.01 0)
+			(at 129.54 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
