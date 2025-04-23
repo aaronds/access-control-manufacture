@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="131.0627mm"
+   height="131.32187mm"
+   viewBox="0 -131.32187 131.0627 131.32187"
+   id="svg11216"
+   version="1.1"
+   sodipodi:docname="hackspace_logo_h.svg"
+   inkscape:version="1.4.1-rc (06eac75fbf, 2025-03-29)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.6178601"
+     inkscape:cx="247.85826"
+     inkscape:cy="263.61982"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3121" />
+  <title
+     id="title3012">Bristol Hackspace Logo v1.1</title>
+  <defs
+     id="defs3" />
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Bristol Hackspace Logo v1.1</dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/4.0/" />
+        <dc:date>2012-03-22</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Barney Livingston</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:description />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="g3121"
+     transform="translate(-125.53331,-274.74036)">
+    <path
+       id="path240-4"
+       d="m 373.20871,714.22559 -59.93252,-59.93252 10.22462,-10.22462 -71.4525,-71.45712 -10.22463,10.22924 -59.93251,-59.92791 89.84115,-89.84577 59.93713,59.92791 -19.51806,19.52267 12.26217,12.26678 50.67135,-50.67596 -12.26217,-12.26217 -18.84963,18.84963 -59.93713,-59.93252 89.17273,-89.17272 59.93252,59.93251 -10.22002,10.22463 71.44329,71.4525 10.22923,-10.22462 59.93713,59.93713 -89.17273,89.16812 -59.93712,-59.93252 18.84963,-18.84963 -9.97108,-9.97109 -50.67136,50.67597 9.96648,9.96647 19.51805,-19.51806 59.94174,59.94174 z"
+       style="fill:#000000;fill-opacity:1" />
+  </g>
+</svg>
