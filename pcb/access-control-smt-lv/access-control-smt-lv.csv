@@ -1,0 +1,16 @@
+Reference,Value,Datasheet,Footprint,Qty,DNP,Done
+"C1,C3",0.1U,~,Capacitor_SMD:C_1808_4520Metric_Pad1.72x2.30mm_HandSolder,2,,TRUE
+"CON_3v3,CON_5v1,J_BUTTON1",Conn_01x02_Socket,~,Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical,3,,
+"CON_AUX1,CON_SENSE1,J_LED1,J_NFC1,J_RELAY1,J_SERIAL1",Conn_01x04_Socket,~,-- mixed values --,6,,
+C_3v3_De1,C,~,Capacitor_THT:C_Disc_D3.4mm_W2.1mm_P2.50mm,1,,
+C_3V3_Large1,1000uf,~,Capacitor_THT:CP_Radial_D8.0mm_P5.00mm,1,,
+"C_PWR_3v3,C_PWR_5V1",1U,~,Capacitor_SMD:C_1812_4532Metric_Pad1.57x3.40mm_HandSolder,2,,
+"D_Z_3v3,D_Z_5V1",D_Zener,~,Diode_SMD:D_1210_3225Metric_Pad1.42x2.65mm_HandSolder,2,,"5v6 1206, 3v6 0805"
+"PAD_SWL1,PAD_SWS1",Conn_01x01_Female,~,Connector_Wire:SolderWirePad_1x01_SMD_1x2mm,2,,
+"Q_LED1,Q_RELAY1",MMBT2222A,https://assets.nexperia.com/documents/data-sheet/MMBT2222A.pdf,Package_TO_SOT_SMD:SOT-23W_Handsoldering,2,,TRUE
+"R_BUTTON_PD1,R_EN1",10kR,~,Resistor_SMD:R_2010_5025Metric_Pad1.40x2.65mm_HandSolder,2,,1206
+R_LED1,R330,~,Resistor_SMD:R_2010_5025Metric_Pad1.40x2.65mm_HandSolder,1,,1206
+"R_Q_LED1,R_Q_RELAY1",R560,~,Resistor_SMD:R_2010_5025Metric_Pad1.40x2.65mm_HandSolder,2,,1206
+"SW_BOOT1,SW_RESET1",SW_Push,~,Button_Switch_SMD:SW_SPST_B3S-1000,2,,
+U1,ESP32-WROOM-E,https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32e_esp32-wroom-32ue_datasheet_en.pdf,PCM_Espressif:ESP32-WROOM-32E,1,,
+U_PWR_3V3,TC1262-33,http://ww1.microchip.com/downloads/en/DeviceDoc/21373C.pdf,Package_TO_SOT_SMD:SOT-223-3_TabPin2,1,,
