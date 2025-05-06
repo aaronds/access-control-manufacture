@@ -1453,6 +1453,12 @@
 		(uuid "d4a9e48d-62b8-4f98-b127-44ac8347c4ca")
 	)
 	(junction
+		(at 236.22 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e0a581b9-e467-43d2-a9b9-f168d7942e93")
+	)
+	(junction
 		(at 245.11 66.04)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1533,6 +1539,26 @@
 			(type default)
 		)
 		(uuid "3616ea1c-bc19-4813-b4fc-092d7df0b949")
+	)
+	(wire
+		(pts
+			(xy 205.74 88.9) (xy 205.74 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3649b48e-cef9-4991-8495-b2b0b4322e1b")
+	)
+	(wire
+		(pts
+			(xy 236.22 91.44) (xy 236.22 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "427d16af-7230-49ac-b4c5-35e85d0a01e7")
 	)
 	(wire
 		(pts
@@ -2048,6 +2074,73 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Socket")
+		(at 210.82 92.71 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2d8677c1-3d5d-4b4c-bbbf-89a9b68b8203")
+		(property "Reference" "J_RELAY_LAMP2"
+			(at 212.09 91.4399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x01_Socket"
+			(at 212.09 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_Wire:SolderWire-2.5sqmm_1x01_D2.4mm_OD4.4mm"
+			(at 210.82 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 210.82 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 210.82 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5e828573-81e1-447d-9e3a-38ab766356a6")
+		)
+		(instances
+			(project "access-control-devkitc-relay"
+				(path "/79724983-fbb7-47f3-9f65-a8afc53dd20f"
+					(reference "J_RELAY_LAMP2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Socket")
 		(at 241.3 87.63 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2178,6 +2271,73 @@
 			(project "access-control-wroom-32e"
 				(path "/79724983-fbb7-47f3-9f65-a8afc53dd20f"
 					(reference "C_SNUB1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Socket")
+		(at 241.3 95.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "911b611a-cec0-4e02-9474-15bdabee1eb3")
+		(property "Reference" "J_NEUT3"
+			(at 242.57 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x01_Socket"
+			(at 242.57 96.5199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_Wire:SolderWire-2.5sqmm_1x01_D2.4mm_OD4.4mm"
+			(at 241.3 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 241.3 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 241.3 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "edbc87a7-1850-4928-aca9-4a2fdaa0311e")
+		)
+		(instances
+			(project "access-control-devkitc-relay"
+				(path "/79724983-fbb7-47f3-9f65-a8afc53dd20f"
+					(reference "J_NEUT3")
 					(unit 1)
 				)
 			)
