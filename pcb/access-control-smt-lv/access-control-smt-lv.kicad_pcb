@@ -123,7 +123,7 @@
 		(descr "JST XH series connector, B2B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST XH vertical")
 		(property "Reference" "CON_5v2"
-			(at 1.25 -3.55 360)
+			(at 1.25 -3.55 0)
 			(layer "F.SilkS")
 			(uuid "c5a34b6c-c142-490b-bba2-d4f030e1fe39")
 			(effects
@@ -134,7 +134,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02_Socket"
-			(at 0.83 1.81 360)
+			(at 0.83 1.81 0)
 			(layer "F.Fab")
 			(uuid "5e854d3f-f577-47f1-b27e-8655ff1fe352")
 			(effects
@@ -529,7 +529,7 @@
 			(uuid "51bb2e3b-f76b-488a-b1a7-97990ed5d8e2")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 1.25 2.7 360)
+			(at 1.25 2.7 0)
 			(layer "F.Fab")
 			(uuid "a58884a7-fe48-4a18-8c25-7d5e591cfc4c")
 			(effects
@@ -1779,7 +1779,7 @@
 		(descr "JST XH series connector, B4B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST XH vertical")
 		(property "Reference" "J_SERIAL1"
-			(at 3.75 -3.55 360)
+			(at 3.75 -3.55 0)
 			(layer "F.SilkS")
 			(uuid "3ab1937e-7cf3-4e1a-a175-4020d7aab5b7")
 			(effects
@@ -1790,7 +1790,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04_Socket"
-			(at 3.75 4.6 360)
+			(at 3.75 4.6 0)
 			(layer "F.Fab")
 			(uuid "d2878b85-69a6-430b-a147-b5d1cf98c628")
 			(effects
@@ -2185,7 +2185,7 @@
 			(uuid "5e65ee49-bf6d-4d6e-9cba-1a98f0e0c12a")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 3.75 2.7 360)
+			(at 3.75 2.7 0)
 			(layer "F.Fab")
 			(uuid "55cdc467-a9fa-48ea-95b9-eb8ac784248f")
 			(effects
@@ -6401,7 +6401,7 @@
 		(descr "JST XH series connector, B4B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST XH vertical")
 		(property "Reference" "J_NFC1"
-			(at 3.75 -3.55 360)
+			(at 3.75 -3.55 0)
 			(layer "F.SilkS")
 			(uuid "5db47bdd-9097-4246-9a71-1f169bc267d6")
 			(effects
@@ -6412,7 +6412,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04_Socket"
-			(at 3.75 4.6 360)
+			(at 3.75 4.6 0)
 			(layer "F.Fab")
 			(uuid "9f285d82-bd43-48e8-a128-04604a4664f5")
 			(effects
@@ -6807,7 +6807,7 @@
 			(uuid "f380e0e5-1e83-47ed-9e33-53e73849865b")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 3.75 2.7 360)
+			(at 3.75 2.7 0)
 			(layer "F.Fab")
 			(uuid "063d764d-00ed-4760-b911-d3729d98a700")
 			(effects
@@ -7327,7 +7327,7 @@
 		(descr "JST XH series connector, B4B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST XH vertical")
 		(property "Reference" "J_RELAY1"
-			(at 3.75 -3.55 360)
+			(at 3.75 -3.55 0)
 			(layer "F.SilkS")
 			(uuid "e66046f6-4361-426c-a418-6e0ae8a5af57")
 			(effects
@@ -7338,7 +7338,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04_Socket"
-			(at 3.75 4.6 360)
+			(at 3.75 4.6 0)
 			(layer "F.Fab")
 			(uuid "50b73eb0-d8c0-4e2b-93aa-c3bb77cb74c1")
 			(effects
@@ -7733,7 +7733,7 @@
 			(uuid "a90d5eb8-08eb-4919-89eb-22544734dcbf")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 3.75 2.7 360)
+			(at 3.75 2.7 0)
 			(layer "F.Fab")
 			(uuid "f86ee4bd-a80f-4e53-a676-1a40512f11f5")
 			(effects
@@ -8562,7 +8562,7 @@
 		(descr "Diode SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "diode handsolder")
 		(property "Reference" "D_Z_3v3"
-			(at 0 -1.65 360)
+			(at 0 -1.65 0)
 			(layer "F.SilkS")
 			(uuid "dbc489dc-eea1-470b-9906-a49524a08c61")
 			(effects
@@ -8573,7 +8573,7 @@
 			)
 		)
 		(property "Value" "D_Zener"
-			(at 0 1.65 360)
+			(at 0 1.65 0)
 			(layer "F.Fab")
 			(uuid "ddf8bc53-0d96-4a98-84aa-a58d3be14930")
 			(effects
@@ -8748,7 +8748,7 @@
 			(uuid "d6b95ab1-984f-47f8-96e5-e498ec991ad7")
 		)
 		(fp_text user "${REFERENCE}"
-			(at -0.0225 0 360)
+			(at -0.0225 0 0)
 			(layer "F.Fab")
 			(uuid "f002ff85-fe82-4870-8613-a867ac04d359")
 			(effects
@@ -9608,7 +9608,7 @@
 		(descr "JST XH series connector, B4B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST XH vertical")
 		(property "Reference" "CON_SENSE1"
-			(at 3.75 -3.55 360)
+			(at 3.75 -3.55 0)
 			(layer "F.SilkS")
 			(uuid "3039e86f-1308-4ea5-941b-9383cfe8fef1")
 			(effects
@@ -9619,7 +9619,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04_Socket"
-			(at 3.75 4.6 360)
+			(at 3.75 4.6 0)
 			(layer "F.Fab")
 			(uuid "b8da963d-368f-4e1d-bcc9-7cadb7dc9ff5")
 			(effects
@@ -10014,7 +10014,7 @@
 			(uuid "e4d7ad95-c87a-4577-9512-7a5e8dffd5b9")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 3.75 2.7 360)
+			(at 3.75 2.7 0)
 			(layer "F.Fab")
 			(uuid "41cd3424-7795-49ca-a1b0-524839ea0222")
 			(effects
