@@ -4604,7 +4604,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0e2b4560-a45d-450b-b7cd-b20b734f6eed")
-		(property "Reference" "CON_3v3"
+		(property "Reference" "J_3v3"
 			(at 63.5 105.4101 0)
 			(effects
 				(font
@@ -4658,7 +4658,7 @@
 		(instances
 			(project ""
 				(path "/7cf59121-d90a-405f-864e-dd3e48ad3dc1"
-					(reference "CON_3v3")
+					(reference "J_3v3")
 					(unit 1)
 				)
 			)
@@ -4811,7 +4811,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "163de47d-213a-404e-aa90-6dbfe33065e5")
-		(property "Reference" "J_NFC1"
+		(property "Reference" "CON_NFC1"
 			(at 168.91 92.7101 0)
 			(effects
 				(font
@@ -4871,7 +4871,7 @@
 		(instances
 			(project "access-control-smt-lv"
 				(path "/7cf59121-d90a-405f-864e-dd3e48ad3dc1"
-					(reference "J_NFC1")
+					(reference "CON_NFC1")
 					(unit 1)
 				)
 			)
@@ -6826,7 +6826,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7d42c36b-7c60-43eb-a26a-f69b180dfd51")
-		(property "Reference" "CON_5v1"
+		(property "Reference" "J_5v1"
 			(at 90.17 119.3801 0)
 			(effects
 				(font
@@ -6880,7 +6880,7 @@
 		(instances
 			(project "access-control-smt-lv"
 				(path "/7cf59121-d90a-405f-864e-dd3e48ad3dc1"
-					(reference "CON_5v1")
+					(reference "J_5v1")
 					(unit 1)
 				)
 			)
@@ -7374,7 +7374,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "991faa8f-57ba-47a5-8c64-638c87908e2b")
-		(property "Reference" "CON_5v2"
+		(property "Reference" "CON_5v1"
 			(at 77.47 138.4301 0)
 			(effects
 				(font
@@ -7428,7 +7428,7 @@
 		(instances
 			(project "access-control-smt-lv"
 				(path "/7cf59121-d90a-405f-864e-dd3e48ad3dc1"
-					(reference "CON_5v2")
+					(reference "CON_5v1")
 					(unit 1)
 				)
 			)
@@ -8722,7 +8722,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dc2bea41-ee66-4b05-9d54-115de4f4c15a")
-		(property "Reference" "J_RELAY1"
+		(property "Reference" "CON_RELAY1"
 			(at 238.76 101.5999 0)
 			(effects
 				(font
@@ -8782,7 +8782,7 @@
 		(instances
 			(project ""
 				(path "/7cf59121-d90a-405f-864e-dd3e48ad3dc1"
-					(reference "J_RELAY1")
+					(reference "CON_RELAY1")
 					(unit 1)
 				)
 			)
