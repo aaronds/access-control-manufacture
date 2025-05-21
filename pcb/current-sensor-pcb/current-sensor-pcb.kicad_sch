@@ -1720,6 +1720,12 @@
 		(uuid "7fb94e91-4d87-4b30-bc72-aa7298d0abc3")
 	)
 	(junction
+		(at 90.17 113.03)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a0f9721d-3de1-416a-b165-72c5bc70ac06")
+	)
+	(junction
 		(at 132.08 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2052,6 +2058,16 @@
 			(type default)
 		)
 		(uuid "c0c5133f-e8db-4264-ab43-bd65acb73573")
+	)
+	(wire
+		(pts
+			(xy 90.17 113.03) (xy 90.17 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c2de1dfd-47f4-4bf6-b47d-51e3ed4695f5")
 	)
 	(wire
 		(pts
@@ -2612,6 +2628,71 @@
 			(project ""
 				(path "/ed885ae9-e2ca-4fb3-ad41-8083aa76f12b"
 					(reference "J_NE1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Socket")
+		(at 85.09 118.11 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3518a87d-9dbf-49ee-806a-8977204962f2")
+		(property "Reference" "J_NE2"
+			(at 85.725 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x01_Socket"
+			(at 85.725 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_Wire:SolderWire-2.5sqmm_1x01_D2.4mm_OD3.6mm"
+			(at 85.09 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 85.09 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 85.09 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "888e00dc-7658-4754-81c1-d77fda1d5c98")
+		)
+		(instances
+			(project "current-sensor-pcb"
+				(path "/ed885ae9-e2ca-4fb3-ad41-8083aa76f12b"
+					(reference "J_NE2")
 					(unit 1)
 				)
 			)
