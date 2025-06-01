@@ -749,6 +749,12 @@
 		)
 	)
 	(junction
+		(at 130.81 83.82)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "09db22cb-d9c8-4388-8b11-5c9d1b917a79")
+	)
+	(junction
 		(at 119.38 90.17)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -759,6 +765,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6acdb7a1-a0fa-482b-b165-54e9e5159bca")
+	)
+	(junction
+		(at 130.81 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b3facace-8767-47f1-901d-4c4aad64e393")
 	)
 	(wire
 		(pts
@@ -782,6 +794,16 @@
 	)
 	(wire
 		(pts
+			(xy 130.81 83.82) (xy 119.38 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "269cff95-da9d-49d1-8d46-14fd45871fcd")
+	)
+	(wire
+		(pts
 			(xy 119.38 90.17) (xy 119.38 88.9)
 		)
 		(stroke
@@ -792,13 +814,23 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 83.82) (xy 119.38 83.82)
+			(xy 148.59 83.82) (xy 130.81 83.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "2bcf815f-3483-4341-a293-969ede353512")
+	)
+	(wire
+		(pts
+			(xy 130.81 91.44) (xy 119.38 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41037c41-e0ba-4690-a186-814ee52cd889")
 	)
 	(wire
 		(pts
@@ -812,7 +844,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 91.44) (xy 119.38 91.44)
+			(xy 148.59 91.44) (xy 130.81 91.44)
 		)
 		(stroke
 			(width 0)
@@ -849,6 +881,26 @@
 			(type default)
 		)
 		(uuid "933d94cb-e81c-4211-a011-d73f22e51954")
+	)
+	(wire
+		(pts
+			(xy 130.81 83.82) (xy 130.81 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bad6bec9-cdf3-4762-8f1f-6a1f11582a2b")
+	)
+	(wire
+		(pts
+			(xy 130.81 88.9) (xy 130.81 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e7bee414-19a7-48b0-8796-5204dbcf8eaf")
 	)
 	(wire
 		(pts
@@ -1077,6 +1129,76 @@
 			(project ""
 				(path "/d592ddd9-ec8a-4205-8c1a-840537a83eb3"
 					(reference "PS2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Socket")
+		(at 135.89 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "681a8651-5021-43e0-ba86-8ccc6b277edc")
+		(property "Reference" "J2"
+			(at 137.16 86.3599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x02_Socket"
+			(at 137.16 88.8999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+			(at 135.89 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 135.89 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated"
+			(at 135.89 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0bacb460-0043-4596-a8b7-5f78a79c315e")
+		)
+		(pin "2"
+			(uuid "29a39901-ef8a-4439-af7e-2990e203454f")
+		)
+		(instances
+			(project "access-control-devkitc-psu"
+				(path "/d592ddd9-ec8a-4205-8c1a-840537a83eb3"
+					(reference "J2")
 					(unit 1)
 				)
 			)
