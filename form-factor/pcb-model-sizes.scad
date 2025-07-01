@@ -1,11 +1,12 @@
 pcbSmtLvSize=[65.94, 33.75];
 pcbDevkitcRelaySize=[57.53, 24.56];
 pcbCurrentSensorSize=[35,43.5];
+pcbContactorPsuSize=[24.4,44.1];
 
 pcbRelayHeight = 16;
 
 pcbThickness = 1.6;
-solderThickness = 2;
+solderThickness = 3;
 wallThickness = 2;
 partitionThickness = 0.8;
 

@@ -30,3 +30,10 @@ module pcbSmtLv() {
     }
 }
 
+module pcbContactorPsu() {
+    rotate([-90, 0, 0]) {
+        scale(1) {
+            import("pcb-models/contactor-psu.stl");
+        }
+    }
+}
