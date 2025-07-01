@@ -1,25 +1,63 @@
 include <pcb-model-sizes.scad>
 
+currentTopStands=[6, 28];
+currentBottomStands = [7, 27];
+relayTopStands=[9, 42];
+relayBottomStands = [12, 41];
+standSize = 2;
 
 module relayCurrentCase() {
     maxY = max(pcbCurrentSensorSize[0], pcbDevkitcRelaySize[1]);
     sizeX = 2 * wallThickness + partitionThickness + pcbDevkitcRelaySize[0] + pcbCurrentSensorSize[1];
+    relayYOffset = (maxY - pcbDevkitcRelaySize[1]) / 2;
     difference() {
         cube([sizeX, 2 * wallThickness + maxY, wallThickness + pcbThickness + solderThickness]);
-        translate([wallThickness - caseMargin, wallThickness + (maxY - pcbDevkitcRelaySize[1]) / 2 - caseMargin, wallThickness]) {
+        translate([wallThickness - caseMargin, wallThickness + relayYOffset - caseMargin, wallThickness]) {
             cube([pcbDevkitcRelaySize[0] + 2 * caseMargin, pcbDevkitcRelaySize[1] + 2 * caseMargin, pcbThickness + solderThickness + 0.01]);
         }
         translate([wallThickness + pcbDevkitcRelaySize[0] + partitionThickness, wallThickness + (maxY - pcbCurrentSensorSize[0]) / 2, wallThickness]) {
             cube([pcbCurrentSensorSize[1], pcbCurrentSensorSize[0], pcbThickness + solderThickness + 0.01]);
         }
     }
-    translate([0, 0, wallThickness + pcbThickness + solderThickness]) {
+    translate([wallThickness,wallThickness + relayYOffset,wallThickness]) {
+        for(stand = relayBottomStands) {
+            translate([stand, 0, 0]){
+               cube([standSize, standSize, solderThickness]);
+            }
+        }
+    }
+
+    translate([wallThickness,wallThickness + relayYOffset + pcbDevkitcRelaySize[1] - standSize,wallThickness]) {
+        for(stand = relayTopStands) {
+            translate([stand, 0, 0]){
+               #cube([standSize, standSize, solderThickness]);
+            }
+        }
+    }
+
+    translate([wallThickness + pcbDevkitcRelaySize[0] + partitionThickness,wallThickness,wallThickness]) {
+        for(stand = currentBottomStands) {
+            translate([stand, 0, 0]){
+               cube([standSize, standSize, solderThickness]);
+            }
+        }
+    }
+
+    translate([wallThickness + pcbDevkitcRelaySize[0] + partitionThickness,wallThickness + pcbCurrentSensorSize[0] - standSize,wallThickness]) {
+        for(stand = currentTopStands) {
+            translate([stand, 0, 0]){
+               cube([standSize, standSize, solderThickness]);
+            }
+        }
+    }
+
+    translate([0, 0, wallThickness + pcbThickness + solderThickness - 0.01]) {
         translate([wallThickness + caseMargin, 0, 0]) {
-            cube([2 * wallThickness, wallThickness, 2 * wallThickness]);
+            cube([1 * wallThickness, wallThickness, 2 * wallThickness]);
         }
 
-        translate([sizeX - wallThickness - caseMargin - 2 * wallThickness, 0, 0]) {
-            cube([2 * wallThickness, wallThickness, 2 * wallThickness]);
+        translate([sizeX - wallThickness - caseMargin - 1 * wallThickness, 0, 0]) {
+            cube([1 * wallThickness, wallThickness, 2 * wallThickness]);
         }
 
         translate([wallThickness + caseMargin, maxY + wallThickness, 0]) {
@@ -57,7 +95,7 @@ module relayCurrentCaseTop() {
     }
 }
 
-relayCurrentCase();
+*relayCurrentCase();
 
 
 translate([0, -wallThickness, wallThickness + pcbThickness + solderThickness + 2]) {
