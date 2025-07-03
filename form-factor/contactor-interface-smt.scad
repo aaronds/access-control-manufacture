@@ -75,15 +75,17 @@ halfWidthNotWago = (pcbWidth - wago221s415[0] - 2 * wagoWallWidthV)/2;
 
 *pcbWalls(showEnds=false);
 
-translate([-(wago221s415[0] + 2 * wagoWallWidthV) / 2, pcbLength / 2 + zeroOffsetToContactorCenter - (wago221s415[1] + wagoWallWidthV) + pcbWallWidth, /*centerWingWall * 2 + pcbClearance*/]){
+translate([fullContactorWidth / 2 + pcbWallWidth - (wago221s415[0] + 2 * wagoWallWidthV), pcbLength / 2 + zeroOffsetToContactorCenter - (wago221s415[1] + wagoWallWidthV) + pcbWallWidth, /*centerWingWall * 2 + pcbClearance*/]){
     wagoPort415();
-    *translate([0, 0, wagoWallWidthH + wago221s415[2]]) {
+    translate([0, 0, wagoWallWidthH + wago221s415[2]]) {
         wagoPort415();
     }
-    *translate([0, 0, 2 * wagoWallWidthH + 2 * wago221s415[2]]) {
+    translate([0, 0, 2 * wagoWallWidthH + 2 * wago221s415[2]]) {
         wagoPort415();
     }
 }
+
+/*
 
 translate([pcbWidth / 2 + pcbWallWidth , zeroOffsetToContactorCenter + pcbLength / 2 + 1 * pcbWallWidth ,wagoWallWidthV  + wago221s415[2]]) {
     translate([-(pcbWallWidth + halfWidthNotWago), -(wago221s415[1] + wagoWallWidthV), -(wagoWallWidthV  + wago221s415[2])]) {
@@ -94,9 +96,14 @@ translate([pcbWidth / 2 + pcbWallWidth , zeroOffsetToContactorCenter + pcbLength
     }
 }
 
+translate([pcbWidth / 2 + pcbWallWidth , zeroOffsetToContactorCenter + pcbLength / 2 + 1 * pcbWallWidth - wagoWallWidthH - 0.01 - wago221s415[2] ,wagoWallWidthV  + wago221s415[2]]) {
+    rotate([90,-90,0]) {
+        wagoPort415();
+    }
+}
+*/
 
-translate([pcbWidth / 2 + pcbWallWidth - pcbThickness - solderThickness - wallThickness , zeroOffsetToContactorCenter + pcbLength / 2 + 1 * pcbWallWidth - wago221s415[1] - 3 * wagoWallWidthH - pcbCurrentSensorSize[0] - pcbContactorPsuSize[0] - 2 * wallThickness - partitionThickness, 0]) {
-    color("red") sphere(r=3);
+translate([fullContactorWidth / 2 + pcbWallWidth - pcbThickness - solderThickness - wallThickness , zeroOffsetToContactorCenter + pcbLength / 2 + 1 * pcbWallWidth - wago221s415[1] - 3 * wagoWallWidthH - pcbCurrentSensorSize[0] - pcbContactorPsuSize[0] - 2 * wallThickness - partitionThickness + 2.5, 0]) {
     difference() {
         cube([pcbThickness + solderThickness + wallThickness, pcbCurrentSensorSize[0] + pcbContactorPsuSize[0] + 2 * wallThickness + partitionThickness + 0, 2 * wallThickness + max(pcbCurrentSensorSize[1], pcbContactorPsuSize[1]) + centerWingWall * 2 + 1 * pcbClearance]);
         translate([-0.01, wallThickness, centerWingWall * 2 + 1 * pcbClearance + 0.5]) {
@@ -109,11 +116,6 @@ translate([pcbWidth / 2 + pcbWallWidth - pcbThickness - solderThickness - wallTh
     }
 }
 
-translate([fullContactorWidth / 2 + pcbWallWidth * 2, zeroOffsetToContactorCenter + pcbLength / 2 + 1 * pcbWallWidth - wagoWallWidthH - 0.01 - wago221s415[2] ,wagoWallWidthV  + wago221s415[2]]) {
-    rotate([90,-90,0]) {
-        wagoPort415();
-    }
-}
 
 *translate([fullContactorWidth / 2,-18,pcbCurrentSensorSize[1] + centerWingWall * 2 + 2 * pcbClearance]) {
     rotate([90, 0, 0]) {
