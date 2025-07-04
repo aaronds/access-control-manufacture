@@ -8,7 +8,7 @@ module contactorInterfaceRelay() {
     translate([-92, 21, 0]) {
         rotate([-90, 0, 0]) {
             scale(1000) {
-                import("contactor-interface-relay.stl");
+                import("pcb-models/contactor-interface-relay.stl");
             }
         }
     }
@@ -16,8 +16,8 @@ module contactorInterfaceRelay() {
 
 module contactor() {
     rotate([90, 0, 0]) {
-        scale(20) {
-            import("CJX2-09_12.stl");
+        scale(25) {
+            import("pcb-models/CJX2-09_12.stl");
         }
     };
 }

@@ -28,6 +28,8 @@ wago221s615 = [36.3, 21.0 - 4, 9.8];
 //wago221s613 = [18.7, 18.6 - 1.5, 8.4];
 wagoWallWidthH = 1;
 wagoWallWidthV = 2;
+wagoLeaverOffset = 0;
+wagoInterallWall = 0.8;
 
 psuHeight = 3 * wagoWallWidthH + 3 * wago221s615[2];/*22.5*/
 
