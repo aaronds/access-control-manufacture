@@ -24,7 +24,7 @@ wago221s613 = [22.9, 21.0 - 4, 9.8];
 wagoWallWidthH = 1;
 wagoWallWidthV = 2;
 wagoWireD = 6;
-wagoLeaverOffset = 3;
+wagoLeaverOffset = 4;
 wagoInterallWall = 0.8;
 
 psuHeight = 3 * wagoWallWidthH + 3 * wago221s615[2];/*22.5*/
@@ -80,27 +80,27 @@ module contactorInterfaceSMT615() {
     }
 
     translate([fullContactorWidth / 2 + pcbWallWidth - pcbThickness - solderThickness - wallThickness , zeroOffsetToContactorCenter + pcbLength / 2 + 1 * pcbWallWidth - wago221s615[1] - 3 * wagoWallWidthH - pcbCurrentSensorSize[0] - pcbContactorPsuSize[0] - 2 * wallThickness - partitionThickness + 2.5, 0]) {
-        maxOuterSize = 2 * wallThickness + max(pcbCurrentSensorSize[1], pcbContactorPsuSize[1]) + centerWingWall * 2 + 1 * pcbClearance;
+        maxOuterSize = 2 * wallThickness + max(pcbCurrentSensorSize[1], pcbContactorPsuSize[1]) + centerWingWall * 2 + 1 * pcbClearance + wagoWallWidthV;
         difference() {
             cube([pcbThickness + solderThickness + wallThickness, pcbCurrentSensorSize[0] + pcbContactorPsuSize[0] + 2 * wallThickness + partitionThickness + 0, maxOuterSize]);
-            translate([-0.01, wallThickness, centerWingWall * 2 + 1 * pcbClearance + 0.5]) {
+            translate([-0.01, wallThickness, centerWingWall * 2 + 1 * pcbClearance + 0.5 + wagoWallWidthV]) {
                 cube([pcbThickness + solderThickness, pcbCurrentSensorSize[0], pcbCurrentSensorSize[1]]);
             }
 
-            translate([-0.01, wallThickness + pcbCurrentSensorSize[0] + partitionThickness,centerWingWall * 2 + 1 * pcbClearance + 0.5]) {
+            translate([-0.01, wallThickness + pcbCurrentSensorSize[0] + partitionThickness,centerWingWall * 2 + 1 * pcbClearance + 0.5 + wagoWallWidthV]) {
                 cube([pcbThickness + solderThickness, pcbContactorPsuSize[0], pcbContactorPsuSize[1]]);
             }
         }
 
-        translate([-wago221s615[2] - 2 * wagoWallWidthH - wago221s615[2], wago221s615[1] + 1.5 * wagoWireD + wallThickness , 6]) {
+        translate([-wago221s615[2] - 2 * wagoWallWidthH - wago221s615[2], wago221s615[1] + 1.5 * wagoWireD + wallThickness , 2 * centerWingWall + wagoWallWidthH + 0.5]) {
 
             rotate([180, -90, 0]) { 
                 wagoPort613(true);
             }
 
-            translate([0,0,maxOuterSize - wago221s613[0] - 2 * wagoWallWidthV]) {
+            translate([0,0,(maxOuterSize - (2 * centerWingWall + wagoWallWidthH)) -  wago221s613[0]]) {
                 rotate([180, -90, 0]) { 
-                    wagoPort613(true);
+                    #wagoPort613(true);
                 }
             }
 
@@ -108,10 +108,10 @@ module contactorInterfaceSMT615() {
                 cube([wago221s615[2], wago221s615[1] + wagoWallWidthV, wallThickness]);
 
                 translate([-wagoWallWidthH, 0, 0]) {
-                    cube([wagoWallWidthH, wago221s615[1] + wagoWallWidthV, maxOuterSize]);
+                    cube([wagoWallWidthH, wago221s615[1] + wagoWallWidthV, maxOuterSize - (2 * centerWingWall + wagoWallWidthH) - 0.5]);
                 }
 
-                translate([0, 0, maxOuterSize - wallThickness]) {
+                translate([0, 0, (maxOuterSize - (2 * centerWingWall + wagoWallWidthH)) - wagoWallWidthV]) {
                     cube([wago221s615[2], wago221s615[1] + wagoWallWidthV, wallThickness]);
                 }
             }
@@ -120,7 +120,7 @@ module contactorInterfaceSMT615() {
     }
 
 
-    translate([fullContactorWidth / 2 - solderThickness,-14,pcbCurrentSensorSize[1] + centerWingWall * 2 + 2 * pcbClearance]) {
+    *translate([fullContactorWidth / 2 - solderThickness,-14,pcbCurrentSensorSize[1] + centerWingWall * 2 + 2 * pcbClearance + wagoWallWidthV]) {
         rotate([90, 0, 0]) {
             rotate([0,-90, 0]) {
                 color("green") pcbCurrentSensor();
@@ -128,7 +128,7 @@ module contactorInterfaceSMT615() {
         }
     }
 
-    translate([fullContactorWidth / 2 - solderThickness,11, centerWingWall * 2 + 2 * pcbClearance]) {
+    *translate([fullContactorWidth / 2 - solderThickness,11, centerWingWall * 2 + 2 * pcbClearance + wagoWallWidthV]) {
         psuVertical();
     }
 }
