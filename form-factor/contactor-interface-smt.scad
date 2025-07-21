@@ -24,6 +24,8 @@ wago221s413 = [18.7, 18.6 - 1.5, 8.4];
 wagoWallWidthH = 1;
 wagoWallWidthV = 2;
 
+jstWireThickness = 2;
+
 psuHeight = 3 * wagoWallWidthH + 3 * wago221s415[2];/*22.5*/
 
 use <pcb-models.scad>

@@ -5,6 +5,7 @@ pcbContactorPsuSize=[24.4,44.1];
 pcbContactorInterfaceRelaySize=[41.3,34.8];
 
 pcbRelayHeight = 16;
+pcbTallCompoent = 15;
 
 pcbThickness = 1.6;
 solderThickness = 3;

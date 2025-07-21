@@ -1,6 +1,6 @@
 lidWidth = 114.4;
 lidLength = 155.9;
-lidFullHeight = 17.5;
+lidFullHeight = 19.5;
 lidThickness = 19.64 - 17.6;
 screwWidth = 98;
 screwLength = 141.2;
@@ -10,9 +10,9 @@ boltInsertDepth=8;
 
 mountM=5;
 
-tableThickness=0.6;
+tableThickness=1;
 wallWidth=2;
-wallHeight=20;
+wallHeight=30;
 $fn=100;
 
 viceSize = 20;
@@ -140,13 +140,13 @@ difference() {
         }
     }
 
-    translate([lidWidth / 2 - wallWidth - 0.01, cornerRadius + -lidLength / 4 - portSize, tableThickness + (wallHeight - portSize) / 2 + portSize / 2]) {
+    translate([lidWidth / 2 - wallWidth  - 0.01, cornerRadius + -lidLength / 4 - portSize, tableThickness + (wallHeight - portSize) / 2 + portSize / 2]) {
         rotate([0, 90, 0]) {
-            cylinder(r=portSize/2,h=wallWidth + 0.02);
+            #cylinder(r=portSize/2,h=wallWidth + 0.02);
         }
     }
 
-    translate([lidWidth / 2 - wallWidth - 0.01, cornerRadius + -lidLength / 4 + portSize, tableThickness + (wallHeight - portSize) / 2 + portSize / 2]) {
+    translate([-lidWidth / 2 - 0.01, cornerRadius + -lidLength / 4 - portSize, tableThickness + (wallHeight - portSize) / 2 + portSize / 2]) {
         rotate([0, 90, 0]) {
             cylinder(r=portSize/2,h=wallWidth + 0.02);
         }

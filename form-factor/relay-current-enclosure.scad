@@ -95,9 +95,68 @@ module relayCurrentCaseTop() {
     }
 }
 
+module smtLvSled() {
+    maxY = max(pcbCurrentSensorSize[0], pcbDevkitcRelaySize[1]);
+
+    offsetY = maxY + (2 * wallThickness) - (pcbSmtLvSize[1] + 2 * wallThickness);
+
+    difference() {
+        union() {
+            translate([0, 0, 0]) {
+                cube([pcbSmtLvSize[0] + 2 * wallThickness, pcbSmtLvSize[1] + 2 * wallThickness, wallThickness + pcbTallCompoent + pcbThickness]);
+            }
+        }
+        translate([wallThickness, 1 * wallThickness, wallThickness]) {
+            cube([pcbSmtLvSize[0], pcbSmtLvSize[1] + 0 * wallThickness + 0.01, pcbTallCompoent + pcbThickness + 0.01]);
+        }
+
+        translate([wallThickness, wallThickness, pcbTallCompoent / 2]) {
+            cube([pcbSmtLvSize[0], pcbSmtLvSize[1] + wallThickness + 0.01, pcbTallCompoent / 2 + pcbThickness + wallThickness + 0.01]);
+        }
+    }
+    translate([pcbSmtLvSize[0] / 4 - wallThickness, wallThickness, wallThickness]) {
+        cube([wallThickness * 2, wallThickness * 3, pcbTallCompoent]);
+    }
+    translate([ 3 * pcbSmtLvSize[0] / 4 - wallThickness, wallThickness, wallThickness]) {
+        cube([wallThickness * 2, wallThickness * 3, pcbTallCompoent]);
+    }
+
+    translate([pcbSmtLvSize[0] / 4 - wallThickness, wallThickness, wallThickness]) {
+        cube([wallThickness * 2, wallThickness * 3, pcbTallCompoent]);
+    }
+    translate([ 3 * pcbSmtLvSize[0] / 4 - wallThickness, wallThickness, wallThickness]) {
+        cube([wallThickness * 2, wallThickness * 3, pcbTallCompoent]);
+    }
+
+    translate([pcbSmtLvSize[0] / 4 - wallThickness, wallThickness + pcbSmtLvSize[1] - wallThickness * 1, wallThickness]) {
+        #cube([wallThickness * 2, wallThickness * 2, pcbTallCompoent]);
+    }
+
+    translate([3 * pcbSmtLvSize[0] / 4 - wallThickness, wallThickness + pcbSmtLvSize[1] - wallThickness * 1, wallThickness]) {
+        #cube([wallThickness * 2, wallThickness * 2, pcbTallCompoent]);
+    }
+
+    translate([0, -offsetY - 1.4, 0]) {
+        cube([pcbSmtLvSize[0] + 2 * wallThickness, maxY + 4 * wallThickness + 2.8, wallThickness]);
+    }
+
+    translate([0, -offsetY - 1.4 - wallThickness, -3 * wallThickness]) {
+        cube([pcbSmtLvSize[0] + 2 * wallThickness, wallThickness, 4 * wallThickness]);
+    }
+
+    translate([0, maxY + 3 * wallThickness + 1.4, -3 * wallThickness]) {
+        cube([pcbSmtLvSize[0] + 2 * wallThickness, wallThickness, 4 * wallThickness]);
+    }
+
+}
+
 *relayCurrentCase();
 
 
 translate([0, -wallThickness, wallThickness + pcbThickness + solderThickness + 2]) {
-    relayCurrentCaseTop();
+    *relayCurrentCaseTop();
+}
+
+translate([0, 0, 15 + pcbRelayHeight + wallThickness]) {
+    smtLvSled();
 }
