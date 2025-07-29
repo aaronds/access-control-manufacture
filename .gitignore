@@ -9,6 +9,7 @@
 *.gbrjob
 *.lck
 *.bgcode
+*.wrl
 
 *-backups*
 fp-info-cache
