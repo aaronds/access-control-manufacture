@@ -6,7 +6,7 @@ relayTopStands=[9, 42];
 relayBottomStands = [12, 41];
 standSize = 2;
 
-module relayCurrentCase() {
+module relayCurrentCase(legHeight=5) {
     maxY = max(pcbCurrentSensorSize[0], pcbDevkitcRelaySize[1]);
     sizeX = 2 * wallThickness + partitionThickness + pcbDevkitcRelaySize[0] + pcbCurrentSensorSize[1];
     relayYOffset = (maxY - pcbDevkitcRelaySize[1]) / 2;
@@ -66,6 +66,15 @@ module relayCurrentCase() {
 
         translate([sizeX - wallThickness - caseMargin - 2 * wallThickness, maxY + wallThickness, 0]) {
             cube([2 * wallThickness, wallThickness, 2 * wallThickness]);
+        }
+    }
+
+    if (legHeight > 0) {
+        translate([0,0,-legHeight + 0.01]) {
+            cube([10 * wallThickness, 2 * wallThickness + maxY, legHeight]);
+        }
+        translate([sizeX - 10 * wallThickness, 0, -legHeight + 0.01]) {
+            cube([10 * wallThickness, 2 * wallThickness + maxY, legHeight]);
         }
     }
 }
