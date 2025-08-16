@@ -119,7 +119,7 @@ translate([fullContactorWidth / 2 + pcbWallWidth - pcbThickness - solderThicknes
 }
 
 
-*translate([fullContactorWidth / 2,-18,pcbCurrentSensorSize[1] + centerWingWall * 2 + 2 * pcbClearance]) {
+translate([fullContactorWidth / 2,-18,pcbCurrentSensorSize[1] + centerWingWall * 2 + 2 * pcbClearance]) {
     rotate([90, 0, 0]) {
         rotate([0,-90, 0]) {
             color("green") pcbCurrentSensor();
@@ -127,7 +127,7 @@ translate([fullContactorWidth / 2 + pcbWallWidth - pcbThickness - solderThicknes
     }
 }
 
-*translate([fullContactorWidth / 2,6, centerWingWall * 2 + 2 * pcbClearance]) {
+translate([fullContactorWidth / 2,6, centerWingWall * 2 + 2 * pcbClearance]) {
     psuVertical();
 }
 

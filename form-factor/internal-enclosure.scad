@@ -68,7 +68,7 @@ translate([-(110 - 56) + 0, 155 - 90, 2.5]) {
         }
     }
     translate([0,-wallThickness,0]) {
-        relayCurrentCaseTop();
+        %relayCurrentCaseTop();
     }
 }
 

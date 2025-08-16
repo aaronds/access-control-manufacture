@@ -1,0 +1,35 @@
+
+    G0 Z[#<_wireR> + #<_wireCoverR> + #<_toolCut> + 2]
+    G91
+
+    G1 Z[-1 * #<_wireCoverR> - 2] F#<_stripFeed>
+    G1 X[#<_stripLength>] F#<_stripFeed>
+
+    G3 Y[-#<_wireR> - #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+
+    G2 Y[#<_wireR> + #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[#<_wireR> + #<_toolCut>] K0 F#<_stripFeed>
+
+    G2 Y[#<_wireR> + #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+    G3 Y[-#<_wireR> - #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[-#<_wireR> - #<_toolCut>] K0 F#<_stripFeed>
+
+    G0 Z[#<_wireCoverR> + #<_toolCut> + 2]
+    G0 X[#<_wireLength>]
+    G1 Z[-2 - <_wireCoverR>] F#<_stripFeed>
+
+    G3 Y[-#<_wireR> - #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+    G2 Y[#<_wireR> + #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[-#<_wireR> - #<_toolCut>] K0 F#<_stripFeed>
+
+    G2 Y[#<_wireR> + #<_toolCut>] Z[-#<_wireR> - #<_toolCut>] J0 K[-#<_wireR> - #<_toolCut>] F#<_stripFeed>
+    G3 Y[-#<_wireR> - #<_toolCut>] Z[#<_wireR> + #<_toolCut>] J[-#<_wireR> - #<_toolCut>] K0 F#<_stripFeed>
+
+    G0 Z[#<_wireCoverR> + #<_toolCut> + 2]
+
+    G0 X[#<_toolCut>]
+
+    G1 Z[ -2 - #<_wireCoverR> - #<_wireR>] F#<_cutFeed>
+    G1 Z[-#<_wireCoverR> - #<_wireR> - #<_toolCut>] F#<_cutFeed>
+    G1 Z[#<_toolCut>] F#<_cutFeed>
+    G2 K[-#<_wireCoverR> - #<_wireR>] F#<_cutFeed>
+    G1 Z[2 * #<_wireCoverR> + 2 * #<_wireR> + 2]
+
+    G90
