@@ -7,16 +7,16 @@ relayBottomStands = [12, 41];
 standSize = 2;
 
 module relayCurrentCase(legHeight=5) {
-    maxY = max(pcbCurrentSensorSize[0], pcbDevkitcRelaySize[1]);
-    sizeX = 2 * wallThickness + partitionThickness + pcbDevkitcRelaySize[0] + pcbCurrentSensorSize[1];
+    maxY = max(pcbCurrentSensorSize[1], pcbDevkitcRelaySize[1]);
+    sizeX = 2 * wallThickness + partitionThickness + pcbDevkitcRelaySize[0] + pcbCurrentSensorSize[0];
     relayYOffset = (maxY - pcbDevkitcRelaySize[1]) / 2;
     difference() {
         cube([sizeX, 2 * wallThickness + maxY, wallThickness + pcbThickness + solderThickness]);
         translate([wallThickness - caseMargin, wallThickness + relayYOffset - caseMargin, wallThickness]) {
             cube([pcbDevkitcRelaySize[0] + 2 * caseMargin, pcbDevkitcRelaySize[1] + 2 * caseMargin, pcbThickness + solderThickness + 0.01]);
         }
-        translate([wallThickness + pcbDevkitcRelaySize[0] + partitionThickness, wallThickness + (maxY - pcbCurrentSensorSize[0]) / 2, wallThickness]) {
-            cube([pcbCurrentSensorSize[1], pcbCurrentSensorSize[0], pcbThickness + solderThickness + 0.01]);
+        translate([wallThickness + pcbDevkitcRelaySize[0] + partitionThickness, wallThickness + (maxY - pcbCurrentSensorSize[1]) / 2, wallThickness]) {
+            cube([pcbCurrentSensorSize[0], pcbCurrentSensorSize[1], pcbThickness + solderThickness + 0.01]);
         }
     }
     translate([wallThickness,wallThickness + relayYOffset,wallThickness]) {
@@ -30,7 +30,7 @@ module relayCurrentCase(legHeight=5) {
     translate([wallThickness,wallThickness + relayYOffset + pcbDevkitcRelaySize[1] - standSize,wallThickness]) {
         for(stand = relayTopStands) {
             translate([stand, 0, 0]){
-               #cube([standSize, standSize, solderThickness]);
+               cube([standSize, standSize, solderThickness]);
             }
         }
     }
@@ -43,7 +43,7 @@ module relayCurrentCase(legHeight=5) {
         }
     }
 
-    translate([wallThickness + pcbDevkitcRelaySize[0] + partitionThickness,wallThickness + pcbCurrentSensorSize[0] - standSize,wallThickness]) {
+    translate([wallThickness + pcbDevkitcRelaySize[0] + partitionThickness,wallThickness + pcbCurrentSensorSize[1] - standSize,wallThickness]) {
         for(stand = currentTopStands) {
             translate([stand, 0, 0]){
                cube([standSize, standSize, solderThickness]);
@@ -80,16 +80,16 @@ module relayCurrentCase(legHeight=5) {
 }
 
 module relayCurrentCaseTop() {
-    maxY = max(pcbCurrentSensorSize[0], pcbDevkitcRelaySize[1]);
+    maxY = max(pcbCurrentSensorSize[1], pcbDevkitcRelaySize[1]);
     trayHeight = wallThickness + pcbThickness + solderThickness;
 
     difference() {
-        cube([2 * wallThickness + partitionThickness + pcbDevkitcRelaySize[0] + pcbCurrentSensorSize[1], 4 * wallThickness + maxY, wallThickness + pcbThickness + solderThickness + pcbRelayHeight + wallThickness]);
+        cube([2 * wallThickness + partitionThickness + pcbDevkitcRelaySize[0] + pcbCurrentSensorSize[0], 4 * wallThickness + maxY, wallThickness + pcbThickness + solderThickness + pcbRelayHeight + wallThickness]);
         translate([-0.01, wallThickness - caseMargin, -0.01]) {
-            cube([2 * wallThickness + partitionThickness + pcbDevkitcRelaySize[0] + pcbCurrentSensorSize[1] + 0.02, 2 * wallThickness + maxY + 2 * caseMargin, wallThickness + pcbThickness + solderThickness]);
+            cube([2 * wallThickness + partitionThickness + pcbDevkitcRelaySize[0] + pcbCurrentSensorSize[0] + 0.02, 2 * wallThickness + maxY + 2 * caseMargin, wallThickness + pcbThickness + solderThickness]);
         }
         translate([wallThickness -0.01, wallThickness, wallThickness + pcbThickness + solderThickness - 0.01]) {
-            cube([partitionThickness + pcbDevkitcRelaySize[0] + pcbCurrentSensorSize[1] + 0.02, 2 * wallThickness + maxY, pcbRelayHeight + 0.01]);
+            cube([partitionThickness + pcbDevkitcRelaySize[0] + pcbCurrentSensorSize[0] + 0.02, 2 * wallThickness + maxY, pcbRelayHeight + 0.01]);
         }
         for(hole=[[6,6], [33, 6], [51, 6], [pcbDevkitcRelaySize[0] + partitionThickness + 15.5, 6], [pcbDevkitcRelaySize[0] + partitionThickness + 39, 6]]) {
             translate([wallThickness + hole[0] - hole[1] / 2, - 0.01, 0]) {
@@ -105,7 +105,7 @@ module relayCurrentCaseTop() {
 }
 
 module smtLvSled() {
-    maxY = max(pcbCurrentSensorSize[0], pcbDevkitcRelaySize[1]);
+    maxY = max(pcbCurrentSensorSize[1], pcbDevkitcRelaySize[1]);
 
     offsetY = maxY + (2 * wallThickness) - (pcbSmtLvSize[1] + 2 * wallThickness);
 
@@ -163,7 +163,7 @@ relayCurrentCase();
 
 
 translate([0, -wallThickness, wallThickness + pcbThickness + solderThickness + 2]) {
-    relayCurrentCaseTop();
+    *relayCurrentCaseTop();
 }
 
 translate([0, 0, 15 + pcbRelayHeight + wallThickness]) {

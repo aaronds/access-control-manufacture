@@ -12,7 +12,7 @@ mountM=5;
 
 tableThickness=1;
 wallWidth=2;
-wallHeight=30;
+wallHeight=35;
 $fn=100;
 
 viceSize = 20;
