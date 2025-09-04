@@ -163,7 +163,7 @@ relayCurrentCase();
 
 
 translate([0, -wallThickness, wallThickness + pcbThickness + solderThickness + 2]) {
-    *relayCurrentCaseTop();
+    relayCurrentCaseTop();
 }
 
 translate([0, 0, 15 + pcbRelayHeight + wallThickness]) {

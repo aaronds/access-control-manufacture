@@ -109,3 +109,33 @@ module bentoContactorPsu(wallThickness=[2,2,2], solderThickness=3, boardThicknes
 translate([220, 0, 0]) {
     bentoContactorPsu();
 }
+
+currentMiniTopStands=[6, 28];
+currentMiniBottomStands = [7, 27];
+
+module bentoCurrentSensorMini(wallThickness=[2,2,2], solderThickness=3, boardThickness=1.6, standSize = 2) {
+    difference() {
+        cube([wallThickness[0] * 2 + pcbCurrentSensorMiniSize[0], wallThickness[1] * 2 + pcbCurrentSensorMiniSize[1], wallThickness[2] + solderThickness + boardThickness]);
+        translate([wallThickness[0], wallThickness[1], wallThickness[2]]) {
+            cube([pcbCurrentSensorMiniSize[0], pcbCurrentSensorMiniSize[1], solderThickness + boardThickness + 0.01]);
+        }
+    }
+    translate(wallThickness) {
+        for(stand = currentBottomStands) {
+            translate([stand, 0, 0]){
+               cube([standSize, standSize, solderThickness]);
+            }
+        }
+    }
+    translate(wallThickness + [0, pcbCurrentSensorMiniSize[1] - standSize, 0]) {
+        for(stand = currentTopStands) {
+            translate([stand, 0, 0]){
+               cube([standSize, standSize, solderThickness]);
+            }
+        }
+    }
+}
+
+translate([280, 0, 0]) {
+    bentoCurrentSensorMini();
+}

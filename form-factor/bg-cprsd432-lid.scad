@@ -1,9 +1,11 @@
 include <bg-cprsd432-dimensions.scad>
 
+pcbDepth = 2.5;
+
 *difference() {
-    cube([pannelSize + 0.2 + 2 * wallWidth, pannelSize + 0.2 + 2 * wallWidth, wallWidth + pannelDepth]);
+    cube([pannelSize + 0.2 + 2 * wallWidth, pannelSize + 0.2 + 2 * wallWidth, wallWidth + centerHoleRingDepth * 2 + pcbDepth]);
     translate([wallWidth, wallWidth, wallWidth]) {
-        cube([pannelSize + 0.2, pannelSize + 0.2, pannelDepth + 0.01]);
+        cube([pannelSize + 0.2, pannelSize + 0.2, pannelDepth + centerHoleRingDepth * 2 + pcbDepth + 0.01]);
     }
 }
 

@@ -1,0 +1,3 @@
+[submodule "lib/cadmodel-sg90"]
+	path = lib/cadmodel-sg90
+	url = https://github.com/ledalert/cadmodel-sg90.git

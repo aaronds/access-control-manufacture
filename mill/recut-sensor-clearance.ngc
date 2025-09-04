@@ -1,0 +1,33 @@
+G17 G54 G40 G49 G80 G90
+G21
+G54
+
+#<_toolWidth> = 0.8
+#<_toolCut> = [#<_toolWidth> / 2]
+
+#<_zMove> = 3
+
+M5
+G43 H1
+M3 S10000
+
+G0 Z[#<_zMove>]
+
+#<_pcbThickness> = 1.7
+#<_pcbClearance> = 3
+#<_pcbSlot> = 17.55
+#<_zFeedRate> = 100
+#<_cutFeedRate> = 100
+
+G0 X[#<_toolCut>] Y[#<_toolCut>]
+
+G1 Z[-#<_pcbThickness>] F[#<_zFeedRate>]
+G1 X[#<_pcbClearance> - #<_toolCut>] F[#<_cutFeedRate>]
+G1 Y[#<_pcbSlot>] F[#<_cutFeedRate>]
+G1 X[#<_toolCut>] F[#<_cutFeedRate>]
+G1 Y[#<_toolCut>] F[#<_cutFeedRate>]
+
+G1 Z0 F[#<_zFeedRate>]
+G0 Z[#<_zMove>]
+
+M2

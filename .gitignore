@@ -10,6 +10,7 @@
 *.lck
 *.bgcode
 *.wrl
+*.3mf
 
 *-backups*
 fp-info-cache
