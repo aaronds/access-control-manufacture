@@ -46,6 +46,17 @@ switchRollerM=4.6;
 switchRollerTopOffset=3.3;
 switchRollerThickness = switchThickness - 2 * 2.5;
 
+leaverSwitchThickness=6.36;
+leaverSwitchWidth=9.92;
+leaverSwitchLength=20.15;
+leaverSwitchCornerR=1;
+leaverOffset=3;
+leaverExtension=11.5;
+leaverThickness = 1;
+leaverWidth=4.28;
+leaverSwitchContactLength=5;
+leaverSwitchContactOffset=1.5;
+
 thinWall=1;
 ferrousSheet=1;
 magnetM=5;
@@ -64,7 +75,7 @@ translate([-servoSpindleOffset, -servoHeight - servoDrivePlateHeight - servoSpin
 
 function angleForT(t=0) = (t < 0.5) ? initialAngle + (t * 2) * deltaAngle : initialAngle + ((1 - t) * 2) * deltaAngle;
 
-$t=0.5;
+$t=0;
 
 translate([0,0,servoWidth / 2]) {
     rotate([0,angleForT($t),0]) {
@@ -128,7 +139,7 @@ module servoLink(width=servoArmM, length=strokeSize, internalWidth=servoSpindleM
     }
 }
 
-
+/* Door side clip */
 
 clipFullWidth = 3 * boltM + clipSize + 2 * clipWall + 3 * boltM;
 translate([strokeSize + 2 * clipWall, -clipSize / 2 - clipWall - 3 * boltM, 0]) {
@@ -144,6 +155,44 @@ translate([strokeSize + 2 * clipWall, -clipSize / 2 - clipWall - 3 * boltM, 0]) 
 
         translate([-0.01, 3 * boltM + clipWall - gapToMove, -0.01]) {
             cube([clipSize + 0.02, clipSize + 2 * gapToMove, clipWall + gapToMove + 0.02]);
+        }
+    }
+}
+
+/* Conical alignment feature */
+
+translate([strokeSize + 2 * clipWall, -clipSize / 2 - clipWall - 3 * boltM, 0]) {
+    translate([clipSize - boltM - thinWall, boltM + thinWall, 2 * clipWall]) {
+        cylinder(h=leaverSwitchWidth, r1=boltM, r2=1);
+    }
+}
+
+/* Leaver Switch Holder */
+
+translate([strokeSize + 2 * clipWall - (leaverSwitchLength - clipSize) - 2 * thinWall - leaverExtension, -clipSize / 2 - clipWall - 3 * boltM - 2 * thinWall - leaverSwitchThickness - 2 * gapToFit, 0]) {
+    union() {
+        difference() {
+            cube([2 * thinWall + leaverSwitchLength, 2 * thinWall + leaverSwitchThickness + 2 * gapToFit + 0.1, leaverSwitchContactLength + leaverSwitchWidth]);
+            translate([thinWall - gapToFit, thinWall - gapToFit, -0.01]) {
+                cube([leaverSwitchLength + 2 * gapToFit, leaverSwitchThickness + 2 * gapToFit, leaverSwitchContactLength + leaverSwitchWidth + 0.02]);
+            }
+            translate([thinWall + leaverSwitchContactOffset, -0.01, -0.01]) {
+                cube([leaverSwitchLength - 2 * leaverSwitchContactOffset, thinWall + 0.02, leaverSwitchContactLength + 0.02]);
+            }
+        }
+
+        translate([thinWall - gapToFit,thinWall - gapToFit,0]) {
+            cube([leaverSwitchContactOffset + 2 * gapToFit,leaverSwitchThickness + 2 * gapToFit,leaverSwitchContactLength]);
+        }
+
+        translate([thinWall + leaverSwitchLength - leaverSwitchContactOffset - gapToFit, thinWall - gapToFit,0]) {
+            cube([leaverSwitchContactOffset + 2 * gapToFit,leaverSwitchThickness + 2 * gapToFit,leaverSwitchContactLength]);
+        }
+
+        translate([thinWall, thinWall,leaverSwitchContactLength]) {
+            rotate([0,-90,-90]) {
+                color("blue") leaverSwitch();
+            }
         }
     }
 }
@@ -239,7 +288,24 @@ translate([-servoLength/2 - servoSpindleOffset - servoMountPlateExtends,-servoHe
     }
 }
 
-module microSwitch(depressed=false) {
+module microSwitchRoller(depressed=false) {
+    translate([0, switchCornerR, 0]) {
+        difference() {
+            minkowski() {
+                cube([switchWidth - switchCornerR/2,switchLength - switchCornerR/2,switchThickness - 2]);
+                cylinder(r=switchCornerR/2,h=1);
+            }
+        }
+    }
+    translate([switchWidth + (depressed ? switchRollerIn : switchRollerOut) - switchRollerM/2, switchLength - switchRollerTopOffset, (switchThickness - switchRollerThickness) / 2]) {
+        cylinder(r=switchRollerM / 2,h=switchRollerThickness);
+    }
+
+}
+
+//microSwitch();
+
+module microSwitchRoller(depressed=false) {
     difference() {
         minkowski() {
             cube([switchWidth - switchCornerR/2,switchLength - switchCornerR/2,switchThickness - 2]);
@@ -252,8 +318,21 @@ module microSwitch(depressed=false) {
 
 }
 
-//microSwitch();
+module leaverSwitch(depressed=true) {
+    translate([0, leaverSwitchCornerR/2, 0]) {
+        difference() {
+            minkowski() {
+                cube([leaverSwitchWidth - leaverSwitchCornerR/2,leaverSwitchLength - leaverSwitchCornerR/2,leaverSwitchThickness - 1]);
+                cylinder(r=leaverSwitchCornerR/2,h=1);
+            }
+        }
+    }
+    translate([leaverSwitchWidth, leaverOffset, (leaverSwitchThickness - leaverWidth) / 2]) {
+        cube([leaverThickness, (leaverSwitchLength - leaverOffset) + leaverExtension, leaverWidth]);
+    }
+}
 
+/* Frame side clip */
 
 translate([strokeSize + clipSize + doorClipGap + 2 * clipWall + gapToMove, -clipSize / 2 - gapToMove - 3 * boltM,0]) {
     difference() {
@@ -271,14 +350,28 @@ translate([strokeSize + clipSize + doorClipGap + 2 * clipWall + gapToMove, -clip
     }
     translate([-gapToMove - strokeSize / 2 - doorClipGap, 1.5 * boltM + clipSize / 2, 2 * clipWall + ferrousSheet]) {
         difference() {
-            cube([gapToMove + strokeSize / 2 + doorClipGap + doorLatchPannel, 1 * boltPlate, 2 * thinWall]);
-            translate([strokeSize / 4, boltPlate / 2, 1 * thinWall]) {
-                cylinder(h=thinWall + 0.01, r=magnetM/2);
+            cube([gapToMove + strokeSize / 2 + doorClipGap + doorLatchPannel, 1 * boltPlate, 4 * thinWall]);
+            translate([strokeSize / 4, boltPlate / 2, 0.5 * thinWall]) {
+                cylinder(h=(3.5 * thinWall) + 0.01, r=magnetM/2 + gapToFit);
             }
         }
     }
+
 }
 
+translate([strokeSize/2 + clipSize + 2 * clipWall, -clipSize / 2 - clipWall - 3 * boltM - 2 * thinWall - leaverSwitchThickness, leaverSwitchContactLength + leaverSwitchWidth + 0.8 * leaverThickness]) {
+        cube([ strokeSize / 2 + doorClipGap + doorLatchPannel, 2 * thinWall + leaverSwitchThickness, 4 * thinWall]);
+}
+
+translate([strokeSize + clipSize + doorClipGap + 2 * clipWall + gapToMove, -clipSize / 2 - clipWall - 3 * boltM - 2 * thinWall - leaverSwitchThickness, , 0]) {
+    difference() {
+        cube([doorLatchPannel - gapToMove, 2 * thinWall + leaverSwitchThickness + clipWall + boltM, leaverSwitchContactLength + leaverSwitchWidth + 0.8 * leaverThickness]);
+        translate([doorLatchPannel/2, 2 * thinWall + leaverSwitchThickness + clipWall + boltM * 1.5 - gapToMove, -0.01]) {
+            cylinder(h=leaverSwitchContactLength + leaverSwitchWidth + 0.8 * leaverThickness + 0.02, r=boltM/2);
+        }
+    }
+    
+}
 
 /* Laser cut section for door */
 difference() {
@@ -323,7 +416,7 @@ difference() {
     }
 }
 
-difference() { 
+*difference() { 
     translate([strokeSize + clipSize + doorClipGap + 2 * clipWall + gapToMove, -(doorSize[1])/2,-doorWall]) {
         color("#e7cfb4") cube([doorLatchPannel - gapToMove, doorSize[1], doorWall]);
     }
