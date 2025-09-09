@@ -63,3 +63,5 @@ initialAngle = 20;
 deltaAngle = 50;
 
 bleepHolesOffset=110-56;
+
+handleDepth=25;

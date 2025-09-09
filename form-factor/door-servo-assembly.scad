@@ -1,5 +1,6 @@
 use <../lib/cadmodel-sg90/sg90.scad>
 use <../mill/bleep-holes.scad>
+use <MCAD/regular_shapes.scad>
 include <door-servo-measurements.scad>
 $fn=100;
 
@@ -120,10 +121,16 @@ module doorClip() {
             cube([clipSize, clipFullWidth, 2 * clipWall]);
             translate([clipSize / 2, 1.5 * boltM, -0.01 - doorWall]) {
                 cylinder(r=boltM/2,h=2 * clipWall + 0.02 + doorWall);
+                translate([0,0,2 * clipWall + 0.02 + doorWall]) {
+                    boltSocket();
+                }
             }
 
             translate([clipSize / 2,clipFullWidth - 1.5 * boltM, -0.01 - doorWall]) {
                 cylinder(r=boltM/2,h=2 * clipWall + 0.02 + doorWall);
+                translate([0,0,2 * clipWall + 0.02 + doorWall]) {
+                    boltSocket();
+                }
             }
 
             translate([-0.01, 3 * boltM + clipWall - gapToMove, -0.01]) {
@@ -261,10 +268,16 @@ module servoMount() {
 
             translate([-1.5 * boltM,-1.5 * boltM, -0.01]) {
                 cylinder(r=boltM/2,h=clipWall+0.02);
+                translate([0,0,clipWall]) {
+                    boltSocket();
+                }
             }
 
             translate([servoLength + 2 * servoMountPlateExtends + 1.5 * boltM,-1.5 * boltM, -0.01]) {
                 cylinder(r=boltM/2,h=clipWall+0.02);
+                translate([0,0,clipWall]) {
+                    boltSocket();
+                }
             }
 
             translate([servoMountHoleOffset, - 3 * boltM - 0.01, servoWidth / 2]) {
@@ -339,9 +352,15 @@ module frameClip() {
 
             translate([1.5 * boltM, 1.5 * boltM, -0.01]) {
                 cylinder(r=boltM/2,h=2 * clipWall + ferrousSheet + 0.02);
+                translate([0,0,2 * clipWall + ferrousSheet + 0.02]) {
+                    boltSocket();
+                }
             }
             translate([1.5 * boltM, clipSize + 3 * boltM + 2 * gapToMove + 1.5 * boltM, -0.01]) {
                 cylinder(r=boltM/2,h=2 * clipWall + ferrousSheet + 0.02);
+                translate([0,0,2 * clipWall + ferrousSheet + 0.02]) {
+                    boltSocket();
+                }
             }
         }
         translate([-gapToMove - strokeSize / 2 - doorClipGap, 1.5 * boltM + clipSize / 2, 2 * clipWall + ferrousSheet]) {
@@ -378,12 +397,15 @@ module frameClip() {
         }
     }
 
-    translate([strokeSize + clipSize + doorClipGap + 2 * clipWall + gapToMove, -clipSize / 2 - clipWall - 3 * boltM - 2 * thinWall - leaverSwitchThickness, , 0]) {
+    translate([strokeSize + clipSize + doorClipGap + 2 * clipWall + gapToMove, -clipSize / 2 - clipWall - 3 * boltM - 2 * thinWall - leaverSwitchThickness, 0]) {
         difference() {
             cube([doorLatchPannel - gapToMove, 2 * thinWall + leaverSwitchThickness + clipWall + boltM, leaverSwitchContactLength + leaverSwitchWidth + 0.8 * leaverThickness + 4 * thinWall]);
             translate([doorLatchPannel/2, 2 * thinWall + leaverSwitchThickness + clipWall + boltM * 1.5 - gapToMove, 0]) {
 
-                cylinder(h=2*clipWall + leaverSwitchContactLength + leaverSwitchWidth + 0.8 * leaverThickness + 0.02, r=boltM/2 + gapToMove);
+                cylinder(h=2*clipWall + leaverSwitchContactLength + leaverSwitchWidth + 0.8 * leaverThickness + 0.02, r=boltM/2);
+                translate([0,0,2 * clipWall + ferrousSheet + 0.02]) {
+                    boltSocket();
+                }
                 translate([0,0,2 * clipWall]) {
                     cylinder(h=leaverSwitchContactLength + leaverSwitchWidth + 0.8 * leaverThickness + 0.02, r=boltHeadM/2 + gapToMove);
                 }
@@ -400,38 +422,99 @@ module laserDoorSide() {
             color("#e7cfb4") cube([doorSize[0], doorSize[1], doorWall]);
         }
 
+        translate([0,0,-doorWall]) {
+            doorNutHoles(doorWall);
+        }
+
 
         /* Bleepy Box LED and Button */
         translate([0,0,-doorWall - 0.01]) {
             linear_extrude(height=doorWall + 0.02) {
-                translate([-(servoMountPlateLength / 2) - servoMountPlateOffset - 3 * boltM, bleepHolesOffset, 0]) {
-                    rotate([0,0,90]) {
-                        holesForBleep(onLid=false, withContacts=false);
+                translate([-(servoMountPlateLength / 2) - servoMountPlateOffset - 6 * boltM, 0, 0]) {
+                    rotate([0,0,180]) {
+                        translate([0,bleepHolesOffset, 0]) {
+                            rotate([0,0,90]) {
+                                holesForBleep(onLid=false, withContacts=false);
+                            }
+                        }
                     }
                 }
             }
         }
         
-        /* Clip / latch door side */
-        translate([strokeSize + 2 * clipWall, -clipSize / 2 - clipWall - 3 * boltM, -doorWall - 0.01]) {
-            translate([clipSize / 2, 1.5 * boltM, 0]) {
-                cylinder(r=boltM/2,h= 0.02 + doorWall);
-            }
+    }
+}
 
-            translate([clipSize / 2,clipFullWidth - 1.5 * boltM, 0]) {
-                cylinder(r=boltM/2,h=0.02 + doorWall);
-            }
+module doorNutHoles(height=doorWall) {
+    /* Clip / latch door side */
+    translate([strokeSize + 2 * clipWall, -clipSize / 2 - clipWall - 3 * boltM, 0 - 0.01]) {
+        translate([clipSize / 2, 1.5 * boltM, 0]) {
+            cylinder(r=boltM/2,h= 0.02 + height);
         }
 
-        
-        /* Servo mount */
-        translate([-servoLength/2 - servoSpindleOffset - servoMountPlateExtends,-servoHeight - servoDrivePlateHeight - servoSpindleHeight + servoMountPlateOffset - servoMountPlateThickness/2,0]) { 
-            translate([-1.5 * boltM,-1.5 * boltM, -doorWall -0.01]) {
-                cylinder(r=boltM/2,h=doorWall+0.02);
-            }
+        translate([clipSize / 2,clipFullWidth - 1.5 * boltM, 0]) {
+            cylinder(r=boltM/2,h=0.02 + height);
+        }
+    }
 
-            translate([servoLength + 2 * servoMountPlateExtends + 1.5 * boltM,-1.5 * boltM, -doorWall -0.01]) {
-                cylinder(r=boltM/2,h=doorWall+0.02);
+    
+    /* Servo mount */
+    translate([-servoLength/2 - servoSpindleOffset - servoMountPlateExtends,-servoHeight - servoDrivePlateHeight - servoSpindleHeight + servoMountPlateOffset - servoMountPlateThickness/2,0]) { 
+        translate([-1.5 * boltM,-1.5 * boltM, 0 -0.01]) {
+            cylinder(r=boltM/2,h=height+0.02);
+        }
+
+        translate([servoLength + 2 * servoMountPlateExtends + 1.5 * boltM,-1.5 * boltM, 0 -0.01]) {
+            cylinder(r=boltM/2,h=height+0.02);
+        }
+    }
+}
+
+module doorHandle() {
+    translate([0,0,-doorWall - handleDepth]) {
+        curveR = 2;
+        difference() {
+            minkowski() {
+                translate([-servoLength/2 - servoSpindleOffset - servoMountPlateExtends - 4 * boltM, -clipSize / 2 - clipWall - 3 * boltM - 1 * boltM, 0]) {
+                    difference() {
+                        cube([
+                            strokeSize + 2 * clipWall + clipSize + servoLength / 2 + servoSpindleOffset + servoMountPlateExtends + 3 * boltM,
+                            clipFullWidth + 2 * boltM, 
+                            handleDepth
+                        ]);
+                        translate([
+                            -0 * boltM - 0.01,
+                            4 * boltM + 0.01,
+                            -0.01
+                        ]) {
+                            cube([
+                                strokeSize + 2 * clipWall + clipSize + servoLength / 2 + servoSpindleOffset + servoMountPlateExtends - 1 * boltM,
+                                clipFullWidth -2 * boltM,
+                                handleDepth + 0.02
+                            ]);
+                        }
+                        translate([0,3 * thinWall - curveR, 3 * thinWall - curveR]) {
+                            #cube([
+                                strokeSize + 2 * clipWall + clipSize + servoLength / 2 + servoSpindleOffset + servoMountPlateExtends + 3 * boltM - (3 * thinWall - curveR),
+                                clipFullWidth + 2 * boltM - (3 * thinWall - curveR), 
+                                handleDepth - (6 * thinWall - 2 * curveR)
+                            ]);
+                        }
+                    }
+                }
+                sphere(r=curveR);
+            }
+            translate([0,0,handleDepth - 3 * thinWall]) {
+                doorNutHoles(3 * thinWall);
+            }
+            translate([-servoLength/2 - servoSpindleOffset - servoMountPlateExtends - 4 * boltM, -clipSize / 2 - clipWall - 3 * boltM - 1 * boltM, 0]) {
+                translate([-curveR,-curveR,handleDepth]) {
+                    cube([
+                        strokeSize + 2 * clipWall + clipSize + servoLength / 2 + servoSpindleOffset + servoMountPlateExtends + 3 * boltM + 2 * curveR,
+                        clipFullWidth + 2 * boltM + 2 * curveR, 
+                        2 * curveR
+                    ]);
+                }
             }
         }
     }
@@ -469,6 +552,14 @@ module cornerRoundCut(r=5,h=10) {
     }
 }
 
+module boltSocket() {
+    translate([0,0,-boltHeadHeight]) {
+        linear_extrude(boltHeadHeight + 0.02) {
+            hexagon(boltHeadM/2);
+        }
+    }
+}
+
 servo();
 servoArms();
 servoMount();
@@ -477,3 +568,4 @@ laserDoorSide();
 frameClip();
 doorClip();
 doorBolt();
+doorHandle();
