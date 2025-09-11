@@ -6,6 +6,7 @@ doorClipGap=3;
 boltM=3;
 smallBoltM=2;
 boltHeadM=5;
+boltNutM=5.9;
 boltHeadHeight=3;
 lockBoltCurveR=1.5;
 
@@ -64,4 +65,5 @@ deltaAngle = 50;
 
 bleepHolesOffset=110-56;
 
-handleDepth=25;
+handleDepth=45;
+handleWall=2;
