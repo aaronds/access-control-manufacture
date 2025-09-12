@@ -114,13 +114,23 @@ clipFullWidth = 3 * boltM + clipSize + 2 * clipWall + 3 * boltM;
 
 /* Door side clip */
 
-module doorClip() {
+module doorClip(frameless=false) {
 
     translate([strokeSize + 2 * clipWall, -clipSize / 2 - clipWall - 3 * boltM, 0]) {
         difference() {
-            cube([clipSize, clipFullWidth, 2 * clipWall]);
+            union() {
+                cube([clipSize, clipFullWidth, 2 * clipWall]);
+                if (frameless) {
+                    translate([0,0,-clipWall]) {
+                        cube([clipSize, clipFullWidth, clipWall]);
+                    }
+                }
+            }
             translate([clipSize / 2, 1.5 * boltM, -0.01 - doorWall]) {
                 cylinder(r=boltM/2,h=2 * clipWall + 0.02 + doorWall);
+                if (frameless) {
+                    framelessBoltHole();
+                }
                 translate([0,0,2 * clipWall + 0.02 + doorWall]) {
                     boltSocket();
                 }
@@ -128,6 +138,9 @@ module doorClip() {
 
             translate([clipSize / 2,clipFullWidth - 1.5 * boltM, -0.01 - doorWall]) {
                 cylinder(r=boltM/2,h=2 * clipWall + 0.02 + doorWall);
+                if (frameless) {
+                    framelessBoltHole();
+                }
                 translate([0,0,2 * clipWall + 0.02 + doorWall]) {
                     boltSocket();
                 }
@@ -152,7 +165,14 @@ module doorClip() {
     translate([strokeSize + 2 * clipWall - (leaverSwitchLength - clipSize) - 2 * thinWall - leaverExtension, -clipSize / 2 - clipWall - 3 * boltM - 2 * thinWall - leaverSwitchThickness - 2 * gapToFit, 0]) {
         union() {
             difference() {
-                cube([2 * thinWall + leaverSwitchLength, 2 * thinWall + leaverSwitchThickness + 2 * gapToFit + 0.1, leaverSwitchContactLength + leaverSwitchWidth]);
+                union() {
+                    cube([2 * thinWall + leaverSwitchLength, 2 * thinWall + leaverSwitchThickness + 2 * gapToFit + 0.1, leaverSwitchContactLength + leaverSwitchWidth]);
+                    if (frameless) {
+                        translate([0,0,-clipWall]) {
+                            cube([2 * thinWall + leaverSwitchLength, 2 * thinWall + leaverSwitchThickness + 2 * gapToFit + 0.1, clipWall + 0.01]);   
+                        }
+                    }
+                }
                 translate([thinWall - gapToFit, thinWall - gapToFit, -0.01]) {
                     cube([leaverSwitchLength + 2 * gapToFit, leaverSwitchThickness + 2 * gapToFit, leaverSwitchContactLength + leaverSwitchWidth + 0.02]);
                 }
@@ -177,9 +197,18 @@ module doorClip() {
         }
     }
 
+    /* Guide rails for door bolt */
+
     translate([2 * clipWall + strokeSize * sin(initialAngle), -clipSize/2 -2 * thinWall, 0]) {
         difference() {
-            cube([strokeSize - (strokeSize * sin(initialAngle)), 4 * thinWall + clipSize, clipWall + 2 * thinWall]);
+            union() {
+                cube([strokeSize - (strokeSize * sin(initialAngle)), 4 * thinWall + clipSize, clipWall + 2 * thinWall]);
+                if (frameless) {
+                    translate([0,0,-clipWall]) {
+                        cube([strokeSize - (strokeSize * sin(initialAngle)), 4 * thinWall + clipSize, clipWall + 0.01]);
+                    }
+                }
+            }
             translate([-0.01, 2 * thinWall - 1 * gapToMove, -0.01]) {
                 cube([strokeSize + 0.02, clipSize + 2 * gapToMove , clipWall + 2 * gapToMove + 0.02]);
             }
@@ -195,7 +224,7 @@ module doorBolt() {
     translate([strokeSize * sin(angleForT($t)), 0, 0]) {
         union() {
             translate([-servoArmM / 2, 0, 0]) {
-                cube([(servoArmM - servoSpindleM) / 2 - gapToMove, servoSpindleHeight, servoWidth / 2]);
+                #cube([(servoArmM - servoSpindleM) / 2 - gapToMove, servoSpindleHeight, servoWidth / 2]);
                 cube([2 * clipWall + (servoArmM / 2), servoSpindleHeight, servoWidth / 2 - servoSpindleM/2 - gapToMove]);  
             }
             translate([2 * clipWall, -clipSize / 2, 0]) {
@@ -240,7 +269,7 @@ module doorBolt() {
 
 /* Servo Mount */
 
-module servoMount() {
+module servoMount(frameless=false) {
 
     translate([-servoLength/2 - servoSpindleOffset - servoMountPlateExtends,-servoHeight - servoDrivePlateHeight - servoSpindleHeight + servoMountPlateOffset - servoMountPlateThickness/2,0]) { 
         difference() {
@@ -251,7 +280,6 @@ module servoMount() {
                 translate([0, - 3 * boltM, 0]) {
                     cube([servoMountPlateExtends - gapToFit, 3 * boltM, servoWidth + clipWall]);
                 }
-
 
                 translate([servoLength + servoMountPlateExtends + gapToFit, -3 * boltM, 0]) {
                     cube([servoMountPlateExtends - gapToFit, 3 * boltM, servoWidth + clipWall]);
@@ -264,6 +292,12 @@ module servoMount() {
                 translate([0, - 3 * boltM, servoWidth + gapToFit]) {
                     cube([servoLength + 2 * servoMountPlateExtends, 3 * boltM, clipWall]);
                 }
+
+                if (frameless) {
+                    translate([-3 * boltM, -3 * boltM, - clipWall]) {
+                        cube([3 * boltM + servoMountPlateExtends * 2 + servoLength + 3 * boltM, 3 * boltM, clipWall]);
+                    }
+                }
             }
 
             translate([-1.5 * boltM,-1.5 * boltM, -0.01]) {
@@ -271,12 +305,18 @@ module servoMount() {
                 translate([0,0,clipWall]) {
                     boltSocket();
                 }
+                if (frameless) {
+                    framelessBoltHole();
+                }
             }
 
             translate([servoLength + 2 * servoMountPlateExtends + 1.5 * boltM,-1.5 * boltM, -0.01]) {
                 cylinder(r=boltM/2,h=clipWall+0.02);
                 translate([0,0,clipWall]) {
                     boltSocket();
+                }
+                if (frameless) {
+                    framelessBoltHole();
                 }
             }
 
@@ -342,24 +382,59 @@ module leaverSwitch(depressed=true) {
 
 /* Frame side clip */
 
-module frameClip() {
+module frameClip(frameless=true) {
     translate([strokeSize + clipSize + doorClipGap + 2 * clipWall + gapToMove, -clipSize / 2 - gapToMove - 3 * boltM,0]) {
         difference() {
-            cube([doorLatchPannel - gapToMove, clipSize + 6 * boltM + 2 * gapToMove, 2 * clipWall + ferrousSheet]);
+            union() {
+                cube([doorLatchPannel - gapToMove, clipSize + 6 * boltM + 2 * gapToMove, 2 * clipWall + ferrousSheet]);
+                if (frameless) {
+                    translate([0,0,-clipWall]) {
+                        cube([doorLatchPannel - gapToMove, clipSize + 6 * boltM + 2 * gapToMove, clipWall]);
+                        
+                    }
+                }
+            }
             translate([-0.01, 3 * boltM, -0.01]) {
                 cube([doorLatchPannel + 0.02, gapToMove * 2 + clipSize, clipWall + 2 * gapToMove]);
             }
 
-            translate([1.5 * boltM, 1.5 * boltM, -0.01]) {
-                cylinder(r=boltM/2,h=2 * clipWall + ferrousSheet + 0.02);
-                translate([0,0,2 * clipWall + ferrousSheet + 0.02]) {
-                    boltSocket();
+            if (frameless) {
+                translate([0, 1.5 * boltM, clipWall + ferrousSheet / 2]) {
+                    rotate([0,90,0]) {
+                        cylinder(r=boltM/2,h=doorLatchPannel);
+                        translate([0, 0, boltHeadHeight - 0.01]) {
+                            boltSocket();
+                        }
+                    }
                 }
-            }
-            translate([1.5 * boltM, clipSize + 3 * boltM + 2 * gapToMove + 1.5 * boltM, -0.01]) {
-                cylinder(r=boltM/2,h=2 * clipWall + ferrousSheet + 0.02);
-                translate([0,0,2 * clipWall + ferrousSheet + 0.02]) {
-                    boltSocket();
+                translate([0, clipSize + 3 * boltM + 2 * gapToMove + 1.5 * boltM, clipWall + ferrousSheet / 2]) {
+                    rotate([0,90,0]) {
+                        cylinder(r=boltM/2,h=doorLatchPannel);
+                        translate([0, 0, boltHeadHeight - 0.01]) {
+                            boltSocket();
+                        }
+                    }
+                }
+            } else {
+
+                translate([1.5 * boltM, 1.5 * boltM, -0.01]) {
+                    cylinder(r=boltM/2,h=2 * clipWall + ferrousSheet + 0.02);
+                    translate([0,0,2 * clipWall + ferrousSheet + 0.02]) {
+                        boltSocket();
+                    }
+                    if (frameless) {
+                        framelessBoltHole();
+                    }
+                }
+
+                translate([1.5 * boltM, clipSize + 3 * boltM + 2 * gapToMove + 1.5 * boltM, -0.01]) {
+                    cylinder(r=boltM/2,h=2 * clipWall + ferrousSheet + 0.02);
+                    translate([0,0,2 * clipWall + ferrousSheet + 0.02]) {
+                        boltSocket();
+                    }
+                    if (frameless) {
+                        framelessBoltHole();
+                    }
                 }
             }
         }
@@ -399,8 +474,26 @@ module frameClip() {
 
     translate([strokeSize + clipSize + doorClipGap + 2 * clipWall + gapToMove, -clipSize / 2 - clipWall - 3 * boltM - 2 * thinWall - leaverSwitchThickness, 0]) {
         difference() {
-            cube([doorLatchPannel - gapToMove, 2 * thinWall + leaverSwitchThickness + clipWall + boltM, leaverSwitchContactLength + leaverSwitchWidth + 0.8 * leaverThickness + 4 * thinWall]);
+            union() {
+                cube([doorLatchPannel - gapToMove, 2 * thinWall + leaverSwitchThickness + clipWall + boltM, leaverSwitchContactLength + leaverSwitchWidth + 0.8 * leaverThickness + 4 * thinWall]);
+                if (frameless) {
+                    translate([0,0,-clipWall]) {
+                        cube([doorLatchPannel - gapToMove, 2 * thinWall + leaverSwitchThickness + clipWall + boltM, clipWall]);
+                    }
+                }
+            }
             translate([doorLatchPannel/2, 2 * thinWall + leaverSwitchThickness + clipWall + boltM * 1.5 - gapToMove, 0]) {
+
+                if (frameless) {
+                    translate([-doorLatchPannel/2, 0, clipWall + ferrousSheet / 2]) {
+                        rotate([0,90,0]) {
+                            #cylinder(r=boltM/2,h=doorLatchPannel);
+                            translate([0, 0, boltHeadHeight - 0.01]) {
+                                boltSocket();
+                            }
+                        }
+                    }
+                }
 
                 cylinder(h=2*clipWall + leaverSwitchContactLength + leaverSwitchWidth + 0.8 * leaverThickness + 0.02, r=boltM/2);
                 translate([0,0,2 * clipWall + ferrousSheet + 0.02]) {
@@ -410,7 +503,6 @@ module frameClip() {
                     linear_extrude(leaverSwitchContactLength + leaverSwitchWidth + 0.8 * leaverThickness + 0.02) {
                         hexagon(boltNutM/2);
                     }
-                    *cylinder(h=leaverSwitchContactLength + leaverSwitchWidth + 0.8 * leaverThickness + 0.02, r=boltHeadM/2 + gapToMove);
                 }
             }
         }
@@ -560,6 +652,12 @@ module boltSocket() {
         linear_extrude(boltHeadHeight + 0.02) {
             hexagon(boltNutM/2 + 2 * gapToFit);
         }
+    }
+}
+
+module framelessBoltHole() {
+    translate([0,0,-clipWall]) {
+        cylinder(r=boltM/2,h=clipWall + 0.01);
     }
 }
 
