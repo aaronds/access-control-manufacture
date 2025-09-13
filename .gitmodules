@@ -1,3 +1,6 @@
 [submodule "lib/cadmodel-sg90"]
 	path = lib/cadmodel-sg90
 	url = https://github.com/ledalert/cadmodel-sg90.git
+[submodule "lib/lasercut"]
+	path = lib/lasercut
+	url = https://github.com/bmsleight/lasercut.git

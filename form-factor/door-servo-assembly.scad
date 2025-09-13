@@ -122,7 +122,12 @@ module doorClip(frameless=false) {
                 cube([clipSize, clipFullWidth, 2 * clipWall]);
                 if (frameless) {
                     translate([0,0,-clipWall]) {
-                        cube([clipSize, clipFullWidth, clipWall]);
+                        difference() {
+                            cube([clipSize, clipFullWidth, clipWall]);
+                            translate([0, clipFullWidth / 2 - 1.0 * clipWall, -0.01]) {
+                                cube([clipSize + 0.01, 2 * clipWall, clipWall + 0.02]);
+                            }
+                        }
                     }
                 }
             }
@@ -224,7 +229,7 @@ module doorBolt() {
     translate([strokeSize * sin(angleForT($t)), 0, 0]) {
         union() {
             translate([-servoArmM / 2, 0, 0]) {
-                #cube([(servoArmM - servoSpindleM) / 2 - gapToMove, servoSpindleHeight, servoWidth / 2]);
+                cube([(servoArmM - servoSpindleM) / 2 - gapToMove, servoSpindleHeight, servoWidth / 2]);
                 cube([2 * clipWall + (servoArmM / 2), servoSpindleHeight, servoWidth / 2 - servoSpindleM/2 - gapToMove]);  
             }
             translate([2 * clipWall, -clipSize / 2, 0]) {
@@ -382,7 +387,7 @@ module leaverSwitch(depressed=true) {
 
 /* Frame side clip */
 
-module frameClip(frameless=true) {
+module frameClip(frameless=false) {
     translate([strokeSize + clipSize + doorClipGap + 2 * clipWall + gapToMove, -clipSize / 2 - gapToMove - 3 * boltM,0]) {
         difference() {
             union() {
