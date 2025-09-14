@@ -516,32 +516,58 @@ module frameClip(frameless=false) {
 }
 
 /* Laser cut section for door */
-module laserDoorSide() {
-    difference() {
-        translate([strokeSize + clipSize + doorClipGap + 2 * clipWall - doorSize[0],-(doorSize[1])/2,-doorWall]) {
-            color("#e7cfb4") cube([doorSize[0], doorSize[1], doorWall]);
-        }
+module laserDoorSide(frameless=false) {
+    translate([0,0,frameless ? -clipWall : 0]) {
+        difference() {
+            if (frameless) {
+                translate([(strokeSize + clipSize + doorClipGap + 2 * clipWall + doorLatchPannel  - boxSize[0]), ((-(boxSize[2])/2)), -boxWallThickness]) {
+                    color("#e7cfb4") cube([boxSize[0], boxSize[2], boxWallThickness]);
+                }
+            } else {
+                translate([(strokeSize + clipSize + doorClipGap + 2 * clipWall - doorSize[0]), (-(doorSize[1])/2), -doorWall]) {
+                    color("#e7cfb4") cube([doorSize[0], doorSize[1], doorWall]);
+                }
+            }
 
-        translate([0,0,-doorWall]) {
-            doorNutHoles(doorWall);
-        }
+            translate([0,0,frameless ? -boxWallThickness : -doorWall]) {
+                doorNutHoles(frameless ? boxWallThickness : doorWall);
+            }
 
 
-        /* Bleepy Box LED and Button */
-        translate([0,0,-doorWall - 0.01]) {
-            linear_extrude(height=doorWall + 0.02) {
-                translate([-(servoMountPlateLength / 2) - servoMountPlateOffset - 6 * boltM, 0, 0]) {
-                    rotate([0,0,180]) {
-                        translate([0,bleepHolesOffset, 0]) {
-                            rotate([0,0,90]) {
-                                holesForBleep(onLid=false, withContacts=false);
+            /* Bleepy Box LED and Button */
+            translate([0,0,(frameless ? -boxWallThickness : -doorWall) - 0.01]) {
+                linear_extrude(height=(frameless ? boxWallThickness : doorWall) + 0.02) {
+                    translate([-(servoMountPlateLength / 2) - servoMountPlateOffset - 6 * boltM, 0, 0]) {
+                        rotate([0,0,180]) {
+                            translate([0,bleepHolesOffset, 0]) {
+                                rotate([0,0,90]) {
+                                    holesForBleep(onLid=false, withContacts=false);
+                                }
                             }
                         }
                     }
                 }
             }
+
+            if (frameless) {
+                translate([(strokeSize + clipSize + doorClipGap + 2 * clipWall + doorLatchPannel  - boxSize[0]), 0, -boxWallThickness - 0.01]) {
+                    translate([boxWallThickness + cabinetHingeDoorInsetM / 2, 0, 0]) {
+                        cylinder(r=cabinetHingeDoorInsetM/2,h=boxWallThickness + 0.02);
+                    }
+
+                    translate([boxWallThickness + cabinetHingeDoorInsetM / 2  + cabinetHingeDoorBoltOffsetLength, 0, 0]) {
+                        translate([0, cabinetHingeDoorBoltOffsetHeight, 0]) {
+                            cylinder(r=boltM/2,h=boxWallThickness + 0.02);
+                        }
+
+                        translate([0, -cabinetHingeDoorBoltOffsetHeight, 0]) {
+                            cylinder(r=boltM/2,h=boxWallThickness + 0.02);
+                        }
+                    }
+                }
+
+            }
         }
-        
     }
 }
 
@@ -665,6 +691,46 @@ module framelessBoltHole() {
         cylinder(r=boltM/2,h=clipWall + 0.01);
     }
 }
+
+module cabinetHingeDoorSpacer() {
+    spacerThickness = cabinetHingeDoorInsetDepth +  cabinetHingeDoorInsetFace - boxWallThickness;
+    innerRadius = cabinetHingeDoorInsetOuterRadius - cabinetHingeDoorMetalThickness;
+    difference() {
+        translate([innerRadius, -cabinetHingeDoorPlate[1]/2 + innerRadius, 0]) {
+            minkowski() {
+                cube([cabinetHingeDoorPlate[0] - 2 * innerRadius, cabinetHingeDoorPlate[1] - 2 * innerRadius, spacerThickness - 1]);
+                cylinder(r=innerRadius - gapToFit,h=1);
+            }
+        }
+        translate([cabinetHingeDoorBoltOffsetLength - cabinetHingeDoorMetalThickness, cabinetHingeDoorBoltOffsetHeight,-0.01]) {
+            cylinder(r=boltM/2,h=spacerThickness + 0.02);
+
+            translate([0,0,spacerThickness - cabinetHingeDoorMetalThickness]) {
+                cylinder(r=cabinetHingeDoorBoltChamferM/2, h=cabinetHingeDoorMetalThickness + 0.02);
+            }
+        }
+        translate([cabinetHingeDoorBoltOffsetLength - cabinetHingeDoorMetalThickness, -cabinetHingeDoorBoltOffsetHeight,-0.01]) {
+            cylinder(r=boltM/2,h=spacerThickness + 0.02);
+
+            translate([0,0,spacerThickness - cabinetHingeDoorMetalThickness]) {
+                cylinder(r=cabinetHingeDoorBoltChamferM/2, h=cabinetHingeDoorMetalThickness + 0.02);
+            }
+        }
+        
+        translate([-0.01, -cabinetHingeDoorInsetWidth / 2 - gapToFit,-0.01]) {
+            cube([gapToFit + (cabinetHingeDoorPlate[0] - cabinetHingeDoorInsetLengthOffset) + 0.01, 2 * gapToFit + cabinetHingeDoorInsetWidth, spacerThickness + 0.02]);
+        }
+    }
+}
+
+module doorHingeSpacer() {
+    translate([(strokeSize + clipSize + doorClipGap + 2 * clipWall + doorLatchPannel  - boxSize[0]), 0, -clipWall]) {
+        translate([boxWallThickness + cabinetHingeDoorInsetM / 2 + cabinetHingeDoorMetalThickness, 0, 0]) {
+            cabinetHingeDoorSpacer();
+        }
+    }
+}
+            
 
 servo();
 servoArms();

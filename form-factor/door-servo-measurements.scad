@@ -1,3 +1,7 @@
+
+boxSize=[640, 300, 500];
+boxWallThickness=6;
+
 strokeSize=20;
 clipSize=20;
 clipWall=5;
@@ -10,13 +14,35 @@ boltNutM=5.9;
 boltHeadHeight=3;
 lockBoltCurveR=1.5;
 
+cabinetHingeFrameBoltOffsetHeight=16;
+cabinetHingeFrameBoltOffsetDepth=25;
+cabinetHingeDoorBoltOffsetHeight=48/2;
+cabinetHingeDoorBoltOffsetLength=7;
+cabinetHingeDoorMetalThickness=0.8;
+cabinetHingeDoorInsetM=35;
+cabinetHingeDoorInsetDepth=12;
+cabinetHingeDoorInsetFace=2.5;
+cabinetHingeDoorInsetWidth=25.5;
+cabinetHingeDoorInsetLengthOffset=3;
+cabinetHingeDoorInsetOuterRadius=4;
+cabinetHingeDoorBoltChamferM=8;
+
+cabinetHingeFrameSize=[27,46, 16];
+cabinetHingeFrameInsetFace = 2.8;
+cabinetHingeFrameCornerRadius = 4;
+cabinetHingeFrameHoleOne=6;
+cabinetHingeFrameHoleTwoExtraOffset = 14;
+cabinetHingeFrameHoleTwo=cabinetHingeFrameHoleOne + cabinetHingeFrameHoleTwoExtraOffset;
+cabinetHingeFrameLargeChamferSize=[8,12];
+
+cabinetHingeDoorPlate=[19.3,60];
+
 boltPlate = boltM * 3;
 
 gapToMove = 0.25;
 gapToFit = 0.1;
 doorSize=[200,150];
 doorLatchPannel=3 * boltM;
-
 
 servoHeight = 22.5;
 servoDrivePlateHeight = 4;
