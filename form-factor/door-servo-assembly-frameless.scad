@@ -8,6 +8,6 @@ frameClip(frameless=true);
 doorClip(frameless=true);
 doorBolt();
 laserDoorSide(frameless=true);
-doorHingeSpacer();
+doorHingeSpacers();
 
 //laserFrameSide();

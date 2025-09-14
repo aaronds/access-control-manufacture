@@ -17,14 +17,14 @@ module cabinetHingeFrameSpacer() {
         translate([cabinetHingeFrameHoleOne, 0, -0.01]) {
             translate([0,cabinetHingeFrameBoltOffsetHeight,0]) {
                 cylinder(r=boltM/2,h=spacerThickness + 0.02);
-                translate([0,0,spacerThickness - cabinetHingeFrameInsetFace]) {
-                    cylinder(r=cabinetHingeDoorBoltChamferM/2,h=cabinetHingeFrameInsetFace + 0.02);
+                translate([0,0,spacerThickness - cabinetHingeFrameInsetFace - gapToFit]) {
+                    cylinder(r=cabinetHingeDoorBoltChamferM/2 + gapToFit, h=cabinetHingeFrameInsetFace + gapToFit + 0.02);
                 }
             }
             translate([0,-cabinetHingeFrameBoltOffsetHeight,0]) {
                 cylinder(r=boltM/2,h=spacerThickness + 0.02);
-                translate([0,0,spacerThickness - cabinetHingeFrameInsetFace]) {
-                    cylinder(r=cabinetHingeDoorBoltChamferM/2,h=cabinetHingeFrameInsetFace + 0.02);
+                translate([0,0,spacerThickness - cabinetHingeFrameInsetFace - gapToFit]) {
+                    cylinder(r=cabinetHingeDoorBoltChamferM/2 + gapToFit, h=cabinetHingeFrameInsetFace + gapToFit + 0.02);
                 }
             }
         }

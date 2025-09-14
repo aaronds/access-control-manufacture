@@ -2,6 +2,8 @@
 boxSize=[640, 300, 500];
 boxWallThickness=6;
 
+perspexSize=[280,400];
+
 strokeSize=20;
 clipSize=20;
 clipWall=5;
@@ -14,8 +16,6 @@ boltNutM=5.9;
 boltHeadHeight=3;
 lockBoltCurveR=1.5;
 
-cabinetHingeFrameBoltOffsetHeight=16;
-cabinetHingeFrameBoltOffsetDepth=25;
 cabinetHingeDoorBoltOffsetHeight=48/2;
 cabinetHingeDoorBoltOffsetLength=7;
 cabinetHingeDoorMetalThickness=0.8;
@@ -27,6 +27,8 @@ cabinetHingeDoorInsetLengthOffset=3;
 cabinetHingeDoorInsetOuterRadius=4;
 cabinetHingeDoorBoltChamferM=8;
 
+cabinetHingeFrameBoltOffsetHeight=16;
+cabinetHingeFrameBoltOffsetDepth=25;
 cabinetHingeFrameSize=[27,46, 16];
 cabinetHingeFrameInsetFace = 2.8;
 cabinetHingeFrameCornerRadius = 4;

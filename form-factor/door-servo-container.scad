@@ -3,20 +3,20 @@ include <door-servo-measurements.scad>
 $fn=100;
 
 
-clipFrameOffsetY = clipSize / 2 + gapToMove + 3 * boltM;
+clipFrameOffsetY = clipSize / 2 + gapToMove + 3.5 * boltM;
 
 clipFrameHoles = [
-    [boltM/2, boxSize[1] - (2 * clipWall) - ferrousSheet / 2, boxSize[2] / 2 - clipFrameOffsetY],
-    [boltM/2, boxSize[1] - (2 * clipWall) - ferrousSheet / 2, boxSize[2] / 2 + clipFrameOffsetY]
+    [boltM/2, boxSize[1] - boxWallThickness - (2 * clipWall) - ferrousSheet / 2, (boxSize[2] / 2) - clipFrameOffsetY],
+    [boltM/2, boxSize[1] - boxWallThickness - (2 * clipWall) - ferrousSheet / 2, (boxSize[2] / 2) - 2 * boxWallThickness + clipFrameOffsetY]
 ];
 
 hingeFrameHoles = [
-    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth, boxSize[2] / 2 - cabinetHingeFrameBoltOffsetHeight],
-    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth, boxSize[2] / 2 + cabinetHingeFrameBoltOffsetHeight]
+    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth - (cabinetHingeDoorInsetDepth - boxWallThickness) - boxWallThickness, boxSize[2] / 3 - cabinetHingeFrameBoltOffsetHeight - 1 * boxWallThickness],
+    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth - (cabinetHingeDoorInsetDepth - boxWallThickness) - boxWallThickness, boxSize[2] / 3 + cabinetHingeFrameBoltOffsetHeight - 1 * boxWallThickness],
+    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth - (cabinetHingeDoorInsetDepth - boxWallThickness) - boxWallThickness, 2 * boxSize[2] / 3 - cabinetHingeFrameBoltOffsetHeight - boxWallThickness],
+    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth - (cabinetHingeDoorInsetDepth - boxWallThickness) - boxWallThickness, 2 * boxSize[2] / 3 + cabinetHingeFrameBoltOffsetHeight - boxWallThickness]
 ];
 
-
-echo(clipFrameHoles);
 
 lasercutoutBox(
     thickness=boxWallThickness,
