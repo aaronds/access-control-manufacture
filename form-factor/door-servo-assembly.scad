@@ -517,79 +517,130 @@ module frameClip(frameless=false) {
 
 /* Laser cut section for door */
 module laserDoorSide(frameless=false) {
+    originOffsetToEdge = frameless ? strokeSize + clipSize + doorClipGap + 2 * clipWall + doorLatchPannel + boxWallThickness : strokeSize + clipSize + doorClipGap + 2 * clipWall;
+    acsPannelOffsetToEdge=originOffsetToEdge + servoMountPlateLength / 2 + servoMountPlateOffset + 6 * boltM + acsButtonM / 2;
+
     translate([0,0,frameless ? -clipWall : 0]) {
         difference() {
-            if (frameless) {
-                translate([(strokeSize + clipSize + doorClipGap + 2 * clipWall + doorLatchPannel + boxWallThickness - boxSize[0]), ((-(boxSize[2])/2)), -boxWallThickness]) {
-                    color("#e7cfb4") cube([boxSize[0], boxSize[2], boxWallThickness]);
-                }
-            } else {
-                translate([(strokeSize + clipSize + doorClipGap + 2 * clipWall - doorSize[0]), (-(doorSize[1])/2), -doorWall]) {
-                    color("#e7cfb4") cube([doorSize[0], doorSize[1], doorWall]);
-                }
-            }
+            union() {
+                difference() {
+                    if (frameless) {
+                        translate([(originOffsetToEdge - boxSize[0]), ((-(boxSize[2])/2)), -boxWallThickness]) {
+                            color("#e7cfb4") cube([boxSize[0], boxSize[2], boxWallThickness]);
+                        }
+                    } else {
+                        translate([(originOffsetToEdge - doorSize[0]), (-(doorSize[1])/2), -doorWall]) {
+                            color("#e7cfb4") cube([doorSize[0], doorSize[1], doorWall]);
+                        }
+                    }
 
-            translate([0,0,frameless ? -boxWallThickness : -doorWall]) {
-                doorNutHoles(frameless ? boxWallThickness : doorWall);
-            }
+                    translate([0,0,frameless ? -boxWallThickness : -doorWall]) {
+                        doorNutHoles(frameless ? boxWallThickness : doorWall);
+                    }
 
 
-            /* Bleepy Box LED and Button */
-            translate([0,0,(frameless ? -boxWallThickness : -doorWall) - 0.01]) {
-                linear_extrude(height=(frameless ? boxWallThickness : doorWall) + 0.02) {
-                    translate([-(servoMountPlateLength / 2) - servoMountPlateOffset - 6 * boltM, 0, 0]) {
-                        rotate([0,0,180]) {
-                            translate([0,bleepHolesOffset, 0]) {
-                                rotate([0,0,90]) {
-                                    holesForBleep(onLid=false, withContacts=false);
+                    /* Bleepy Box LED and Button */
+                    translate([0,0,(frameless ? -boxWallThickness : -doorWall) - 0.01]) {
+                        linear_extrude(height=(frameless ? boxWallThickness : doorWall) + 0.02) {
+                            translate([-(servoMountPlateLength / 2) - servoMountPlateOffset - 6 * boltM, 0, 0]) {
+                                rotate([0,0,180]) {
+                                    translate([0,bleepHolesOffset, 0]) {
+                                        rotate([0,0,90]) {
+                                            holesForBleep(onLid=false, withContacts=false);
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
+
+                    if (frameless) {
+                        translate([(originOffsetToEdge - boxSize[0]), boxSize[2] / 6, -boxWallThickness - 0.01]) {
+                            translate([boxWallThickness + cabinetHingeDoorInsetM / 2, 0, 0]) {
+                                cylinder(r=cabinetHingeDoorInsetM/2,h=boxWallThickness + 0.02);
+                            }
+
+                            translate([boxWallThickness + cabinetHingeDoorInsetM / 2  + cabinetHingeDoorBoltOffsetLength, 0, 0]) {
+                                translate([0, cabinetHingeDoorBoltOffsetHeight, 0]) {
+                                    cylinder(r=boltM/2,h=boxWallThickness + 0.02);
+                                }
+
+                                translate([0, -cabinetHingeDoorBoltOffsetHeight, 0]) {
+                                    cylinder(r=boltM/2,h=boxWallThickness + 0.02);
+                                }
+                            }
+                        }
+
+                        translate([(originOffsetToEdge - boxSize[0]), -boxSize[2] / 6, -boxWallThickness - 0.01]) {
+                            translate([boxWallThickness + cabinetHingeDoorInsetM / 2, 0, 0]) {
+                                cylinder(r=cabinetHingeDoorInsetM/2,h=boxWallThickness + 0.02);
+                            }
+
+                            translate([boxWallThickness + cabinetHingeDoorInsetM / 2  + cabinetHingeDoorBoltOffsetLength, 0, 0]) {
+                                translate([0, cabinetHingeDoorBoltOffsetHeight, 0]) {
+                                    cylinder(r=boltM/2,h=boxWallThickness + 0.02);
+                                }
+
+                                translate([0, -cabinetHingeDoorBoltOffsetHeight, 0]) {
+                                    cylinder(r=boltM/2,h=boxWallThickness + 0.02);
+                                }
+                            }
+                        }
+                    
+                        translate([(originOffsetToEdge - boxSize[0]), -boxSize[2] / 2, -boxWallThickness - 0.01]) {
+                            perspexCutOut(acsPannelOffsetToEdge);                
+                        }
+                    }
+                }
+                translate([(originOffsetToEdge - boxSize[0]), -boxSize[2] / 2, 0]) {
+                    color("grey") perspexCutOut(acsPannelOffsetToEdge, squareBorder=5 * doorWoodBorderRadius);  
                 }
             }
-
-            if (frameless) {
-                translate([(strokeSize + clipSize + doorClipGap + 2 * clipWall + doorLatchPannel + boxWallThickness  - boxSize[0]), boxSize[2] / 6, -boxWallThickness - 0.01]) {
-                    translate([boxWallThickness + cabinetHingeDoorInsetM / 2, 0, 0]) {
-                        cylinder(r=cabinetHingeDoorInsetM/2,h=boxWallThickness + 0.02);
-                    }
-
-                    translate([boxWallThickness + cabinetHingeDoorInsetM / 2  + cabinetHingeDoorBoltOffsetLength, 0, 0]) {
-                        translate([0, cabinetHingeDoorBoltOffsetHeight, 0]) {
-                            cylinder(r=boltM/2,h=boxWallThickness + 0.02);
-                        }
-
-                        translate([0, -cabinetHingeDoorBoltOffsetHeight, 0]) {
-                            cylinder(r=boltM/2,h=boxWallThickness + 0.02);
-                        }
-                    }
-                }
-
-                translate([(strokeSize + clipSize + doorClipGap + 2 * clipWall + doorLatchPannel + boxWallThickness  - boxSize[0]), -boxSize[2] / 6, -boxWallThickness - 0.01]) {
-                    translate([boxWallThickness + cabinetHingeDoorInsetM / 2, 0, 0]) {
-                        cylinder(r=cabinetHingeDoorInsetM/2,h=boxWallThickness + 0.02);
-                    }
-
-                    translate([boxWallThickness + cabinetHingeDoorInsetM / 2  + cabinetHingeDoorBoltOffsetLength, 0, 0]) {
-                        translate([0, cabinetHingeDoorBoltOffsetHeight, 0]) {
-                            cylinder(r=boltM/2,h=boxWallThickness + 0.02);
-                        }
-
-                        translate([0, -cabinetHingeDoorBoltOffsetHeight, 0]) {
-                            cylinder(r=boltM/2,h=boxWallThickness + 0.02);
-                        }
-                    }
-                }
-            
-                *translate([(strokeSize + clipSize + doorClipGap + 2 * clipWall + doorLatchPannel + boxWallThickness  - boxSize[0]), 0, -boxWallThickness - 0.01]) {
-                    translate([boxWallThickness + 2 * cabinetHingeDoorInsetM, -perspexSize[1]/2, 0]) {
-                        #cube([perspexSize[0], perspexSize[1], boxWallThickness + 0.02]);
-                    }
-                }
-
+            translate([doorWoodBorderRadius + 1.5 * boltM,50,-10]) {
+                #cylinder(r=boltM/2,h=30);
             }
-        
+        }
+
+        translate([-acsPannelOffsetToEdge - acsModuleBorder - acsLargeModuleSize[0] + nfcLogoSize[0], -nfcLogoSize[1]/2, -clipWall - boxWallThickness]) {
+            acsControlIslandSize = acsPannelOffsetToEdge + acsModuleBorder + acsLargeModuleSize[0] + acsModuleBorder + acsNfcModuleSize[0] + acsModuleBorder;
+            color("black") linear_extrude(2) import("../nfc-logo.svg");
+        }
+    }
+}
+
+module perspexCutOut(acsPannelOffsetToEdge,squareBorder=0) {
+    acsControlIslandSize = acsPannelOffsetToEdge + acsModuleBorder + acsLargeModuleSize[0] + acsModuleBorder + acsNfcModuleSize[0] + acsModuleBorder;
+    union() {
+        minkowski() {
+            difference() {
+                translate([doorWoodBorder, doorWoodBorder, 0]) {
+                    cube([boxSize[0] - 2 * doorWoodBorder - 2 * doorWoodBorderRadius, boxSize[2] - 2 * doorWoodBorder - 2 * doorWoodBorderRadius, boxWallThickness + 0.02]);
+                }
+                translate([boxSize[0] - acsControlIslandSize, boxSize[2] / 2 - acsLidWidth / 2,-0.01]) {
+                    cube([acsControlIslandSize, acsLidWidth, boxWallThickness + 0.04]);
+                }
+            }
+            if (squareBorder > 0) {
+                translate([0,0,1/2]){
+                    cube([doorWoodBorderRadius + squareBorder, doorWoodBorderRadius + squareBorder, 1],center=true); 
+                }
+            } else {
+                cylinder(r=doorWoodBorderRadius,h=1);
+            }
+        }
+        translate([boxSize[0] - acsControlIslandSize, boxSize[2] / 2 - acsLidWidth / 2,-0.01]) {
+            translate([2 * doorWoodBorderRadius, 2 * doorWoodBorderRadius,-0.01]) {
+                rotate([-0.01,-0.01,180]) {
+                    cornerRoundCut(r=doorWoodBorderRadius + 0.02, h=boxWallThickness + 0.06);
+                }
+            }
+        }
+        translate([boxSize[0] - acsControlIslandSize, boxSize[2] / 2 + acsLidWidth / 2,-0.01]) {
+            translate([2 * doorWoodBorderRadius, -2 * doorWoodBorderRadius,-0.01]) {
+                rotate([-0.01,-0.01,90]) {
+                    cornerRoundCut(r=doorWoodBorderRadius + 0.02, h=boxWallThickness + 0.06);
+                }
+            }
         }
     }
 }
