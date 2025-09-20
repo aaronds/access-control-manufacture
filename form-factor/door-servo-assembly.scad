@@ -8,7 +8,7 @@ $fn=100;
 module servo() {
     translate([-servoSpindleOffset, -servoHeight - servoDrivePlateHeight - servoSpindleHeight,servoWidth / 2]) {
         rotate([-90, 0, 0]) {
-            *sg90();
+            sg90();
         }
     }
 }
@@ -16,6 +16,68 @@ module servo() {
 function angleForT(t=0) = (t < 0.5) ? initialAngle + (t * 2) * deltaAngle : initialAngle + ((1 - t) * 2) * deltaAngle;
 
 $t=0;
+
+module servoArmsRight() {
+    translate([0,0,servoWidth / 2 + strokeSize]) {
+        rotate([0,-90,0]) {
+            translate([0,0,-strokeSize]) {
+                union() {
+                    rotate([90, 0, 0]){
+                        difference() {
+                            cylinder(r=servoArmM/2,h=servoSpindleHeight - gapToMove);
+                            translate([0,0,-0.01]) {
+                                cylinder(r=servoSpindleM/2, h=servoSpindleHeight+0.02);
+                            }
+                        }
+                    }
+                    #translate([-servoArmM/2, -servoSpindleHeight, 0]) {
+                        difference() {
+                            translate([0,gapToMove,0]) {
+                                cube([servoArmM, servoSpindleHeight - gapToMove, strokeSize]); 
+                            }
+                            translate([servoArmM/2, -0.01, 0]) {
+                                rotate([-90, 0, 0]){
+                                    cylinder(r=servoSpindleM/2, h=servoSpindleHeight+0.02);
+                                }
+                            }
+                            translate([servoArmM/2, -0.01, strokeSize + 0]) {
+                                rotate([-90, 0, 0]){
+                                    cylinder(r=smallBoltM/2,h=servoSpindleHeight + 0.02);
+                                }
+                            }
+                        }
+                    }
+
+                    translate([0, 0, strokeSize]) {
+                        rotate([90, 0, 0]){
+                            difference() {
+                                cylinder(r=servoArmM/2,h=servoSpindleHeight - gapToMove);
+                                translate([0,0,-0.1]) {
+                                    cylinder(r=smallBoltM/2,h=servoSpindleHeight + 0.02);
+                                }
+                                translate([0, -0.01, 0]) {
+                                    cylinder(r=smallBoltM/2,h=servoSpindleHeight + 0.02);
+                                }
+                            }
+                        }
+
+                        translate([0, servoSpindleHeight, 0]) {
+                            rotate([90, 0, 0]){
+                                difference() {
+                                    cylinder(r=servoSpindleM/2,h=servoSpindleHeight * 2 - gapToMove);
+                                    translate([0,0,-0.01]) {
+                                        cylinder(r=smallBoltM/2,h=servoSpindleHeight * 2 + 0.02);
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
 
 module servoArms() {
     translate([0,0,servoWidth / 2]) {
@@ -29,7 +91,7 @@ module servoArms() {
                         }
                     }
                 }
-                translate([-servoArmM/2, -servoSpindleHeight, 0]) {
+                #translate([-servoArmM/2, -servoSpindleHeight, 0]) {
                     difference() {
                         translate([0,gapToMove,0]) {
                             cube([servoArmM, servoSpindleHeight - gapToMove, strokeSize]); 
@@ -519,6 +581,8 @@ module frameClip(frameless=false) {
 module laserDoorSide(frameless=false) {
     originOffsetToEdge = frameless ? strokeSize + clipSize + doorClipGap + 2 * clipWall + doorLatchPannel + boxWallThickness : strokeSize + clipSize + doorClipGap + 2 * clipWall;
     acsPannelOffsetToEdge=originOffsetToEdge + servoMountPlateLength / 2 + servoMountPlateOffset + 6 * boltM + acsButtonM / 2;
+    acsControlPeninsulaSize = acsPannelOffsetToEdge + acsModuleBorder + acsLargeModuleSize[0] + acsModuleBorder + acsNfcModuleSize[0] + acsModuleBorder;
+    squareBorderSize = (5 * doorWoodBorderRadius) / 2;
 
     translate([0,0,frameless ? -clipWall : 0]) {
         difference() {
@@ -593,31 +657,87 @@ module laserDoorSide(frameless=false) {
                     }
                 }
                 translate([(originOffsetToEdge - boxSize[0]), -boxSize[2] / 2, 0]) {
-                    color("grey") perspexCutOut(acsPannelOffsetToEdge, squareBorder=5 * doorWoodBorderRadius);  
+                    color("grey", 0.5) perspexCutOut(acsPannelOffsetToEdge, squareBorder=squareBorderSize * 2);  
                 }
             }
-            translate([doorWoodBorderRadius + 1.5 * boltM,50,-10]) {
+
+            centerOfPerspexBorder = doorWoodBorderRadius / 2 + squareBorderSize / 2;
+
+            translate([centerOfPerspexBorder, acsLidWidth / 2 - 2 * doorWoodBorderRadius ,-10]) {
+                cylinder(r=boltM/2,h=30);
+            }
+            translate([centerOfPerspexBorder, -acsLidWidth / 2 + 2 * doorWoodBorderRadius ,-10]) {
+                cylinder(r=boltM/2,h=30);
+            }
+
+            translate([-acsPannelOffsetToEdge - acsModuleBorder - acsLargeModuleSize[0] + nfcLogoSize[0], acsLidWidth / 2 - 2 * doorWoodBorderRadius ,-10]) {
+                cylinder(r=boltM/2,h=30);
+            }
+
+            translate([-acsPannelOffsetToEdge - acsModuleBorder - acsLargeModuleSize[0] + nfcLogoSize[0], -acsLidWidth / 2 + 2 * doorWoodBorderRadius ,-10]) {
+                cylinder(r=boltM/2,h=30);
+            }
+
+            translate([-(servoMountPlateLength / 2) - servoMountPlateOffset - 6 * boltM, acsLidWidth / 2 - 2 * doorWoodBorderRadius ,-10]) {
+                cylinder(r=boltM/2,h=30);
+            }
+
+            translate([-(servoMountPlateLength / 2) - servoMountPlateOffset - 6 * boltM, -acsLidWidth / 2 + 2 * doorWoodBorderRadius ,-10]) {
+                cylinder(r=boltM/2,h=30);
+            }
+
+            peninsulaGaps = (boxSize[2] - 2 * doorWoodBorder  - (acsLidWidth - 4 * doorWoodBorderRadius)) / 2;
+            translate([centerOfPerspexBorder, peninsulaGaps / 2 + acsLidWidth / 2 - 2 * doorWoodBorderRadius ,-10]) {
+                cylinder(r=boltM/2,h=30);
+            }
+            
+            widthOfPerspex = boxSize[0] - 2 * doorWoodBorder - 2 * doorWoodBorderRadius + (4 * doorWoodBorderRadius + boltM/2);
+
+            for (i=[0:4]) {
+                translate([centerOfPerspexBorder - i * (widthOfPerspex / 4), peninsulaGaps + acsLidWidth / 2 - 2 * doorWoodBorderRadius ,-10]) {
+                    cylinder(r=boltM/2,h=30);
+                }
+            }
+
+            translate([doorWoodBorderRadius / 2 + squareBorderSize / 2, -peninsulaGaps / 2 - acsLidWidth / 2 - 0 * doorWoodBorderRadius ,-10]) {
+                cylinder(r=boltM/2,h=30);
+            }
+
+            for (i=[0:4]) {
+                translate([centerOfPerspexBorder - i * (widthOfPerspex / 4), -peninsulaGaps - acsLidWidth / 2 - 0 * doorWoodBorderRadius ,-10]) {
+                    cylinder(r=boltM/2,h=30);
+                }
+            }
+
+            heightOfPerspex = boxSize[1] - 2 * doorWoodBorder - 2 * doorWoodBorderRadius + (4 * doorWoodBorderRadius);
+
+            translate([centerOfPerspexBorder - widthOfPerspex, heightOfPerspex / 2 ,-10]) {
                 #cylinder(r=boltM/2,h=30);
             }
+
+            translate([centerOfPerspexBorder - widthOfPerspex, -heightOfPerspex / 2 ,-10]) {
+                #cylinder(r=boltM/2,h=30);
+            }
+
+
         }
 
         translate([-acsPannelOffsetToEdge - acsModuleBorder - acsLargeModuleSize[0] + nfcLogoSize[0], -nfcLogoSize[1]/2, -clipWall - boxWallThickness]) {
-            acsControlIslandSize = acsPannelOffsetToEdge + acsModuleBorder + acsLargeModuleSize[0] + acsModuleBorder + acsNfcModuleSize[0] + acsModuleBorder;
             color("black") linear_extrude(2) import("../nfc-logo.svg");
         }
     }
 }
 
 module perspexCutOut(acsPannelOffsetToEdge,squareBorder=0) {
-    acsControlIslandSize = acsPannelOffsetToEdge + acsModuleBorder + acsLargeModuleSize[0] + acsModuleBorder + acsNfcModuleSize[0] + acsModuleBorder;
+    acsControlPeninsulaSize = acsPannelOffsetToEdge + acsModuleBorder + acsLargeModuleSize[0] + acsModuleBorder + acsNfcModuleSize[0] + acsModuleBorder;
     union() {
         minkowski() {
             difference() {
                 translate([doorWoodBorder, doorWoodBorder, 0]) {
                     cube([boxSize[0] - 2 * doorWoodBorder - 2 * doorWoodBorderRadius, boxSize[2] - 2 * doorWoodBorder - 2 * doorWoodBorderRadius, boxWallThickness + 0.02]);
                 }
-                translate([boxSize[0] - acsControlIslandSize, boxSize[2] / 2 - acsLidWidth / 2,-0.01]) {
-                    cube([acsControlIslandSize, acsLidWidth, boxWallThickness + 0.04]);
+                translate([boxSize[0] - acsControlPeninsulaSize, boxSize[2] / 2 - acsLidWidth / 2,-0.01]) {
+                    cube([acsControlPeninsulaSize, acsLidWidth, boxWallThickness + 0.04]);
                 }
             }
             if (squareBorder > 0) {
@@ -628,14 +748,14 @@ module perspexCutOut(acsPannelOffsetToEdge,squareBorder=0) {
                 cylinder(r=doorWoodBorderRadius,h=1);
             }
         }
-        translate([boxSize[0] - acsControlIslandSize, boxSize[2] / 2 - acsLidWidth / 2,-0.01]) {
+        translate([boxSize[0] - acsControlPeninsulaSize, boxSize[2] / 2 - acsLidWidth / 2,-0.01]) {
             translate([2 * doorWoodBorderRadius, 2 * doorWoodBorderRadius,-0.01]) {
                 rotate([-0.01,-0.01,180]) {
                     cornerRoundCut(r=doorWoodBorderRadius + 0.02, h=boxWallThickness + 0.06);
                 }
             }
         }
-        translate([boxSize[0] - acsControlIslandSize, boxSize[2] / 2 + acsLidWidth / 2,-0.01]) {
+        translate([boxSize[0] - acsControlPeninsulaSize, boxSize[2] / 2 + acsLidWidth / 2,-0.01]) {
             translate([2 * doorWoodBorderRadius, -2 * doorWoodBorderRadius,-0.01]) {
                 rotate([-0.01,-0.01,90]) {
                     cornerRoundCut(r=doorWoodBorderRadius + 0.02, h=boxWallThickness + 0.06);
@@ -832,12 +952,17 @@ module doorHingeSpacers() {
     }
 }
             
+translate([strokeSize, 0, servoWidth / 2 + strokeSize]) {
+    rotate([0, 180, 0]) {
+        translate([0,0,-servoWidth/2]) servo();
+    }
+}
 
-servo();
-servoArms();
-servoMount();
-laserFrameSide();
-laserDoorSide();
+//servoArms();
+servoArmsRight();
+//servoMount();
+//laserFrameSide();
+//laserDoorSide();
 frameClip();
 doorClip();
 doorBolt();
