@@ -30,7 +30,7 @@ module servoArmsRight() {
                             }
                         }
                     }
-                    #translate([-servoArmM/2, -servoSpindleHeight, 0]) {
+                    translate([-servoArmM/2, -servoSpindleHeight, 0]) {
                         difference() {
                             translate([0,gapToMove,0]) {
                                 cube([servoArmM, servoSpindleHeight - gapToMove, strokeSize]); 
@@ -71,7 +71,6 @@ module servoArmsRight() {
                                 }
                             }
                         }
-
                     }
                 }
             }
@@ -176,7 +175,7 @@ clipFullWidth = 3 * boltM + clipSize + 2 * clipWall + 3 * boltM;
 
 /* Door side clip */
 
-module doorClip(frameless=false) {
+module doorClip(frameless=false, servoMount=false) {
 
     translate([strokeSize + 2 * clipWall, -clipSize / 2 - clipWall - 3 * boltM, 0]) {
         difference() {
@@ -281,6 +280,53 @@ module doorClip(frameless=false) {
             }
             translate([-0.01, 3 * thinWall, clipWall - 0.01]) {
                 cube([strokeSize + 0.02, clipSize - 2 * thinWall, 2 * thinWall + 0.02]);
+            }
+        }
+    }
+
+    /* Embeded servo mount */
+
+    if (servoMount) {
+        difference() {
+            translate([strokeSize - ((servoLength / 2) - servoSpindleOffset) - servoMountPlateExtends - thinWall, -clipSize / 2 - clipWall - 3 * boltM, 0]) {
+                union() {
+                    cube([2 * thinWall + servoMountPlateLength, 3 * boltM + clipWall - gapToMove, strokeSize + servoWidth]);
+                    if (frameless) {
+                        translate([0,0,-clipWall]) {
+                            cube([2 * thinWall + servoMountPlateLength, 3 * boltM + clipWall - gapToMove, clipWall]);
+                        }
+                    }
+                }
+            }
+            translate([strokeSize - ((servoLength / 2) - servoSpindleOffset), -clipSize / 2 - clipWall - 3 * boltM - 0.01, strokeSize - gapToFit / 2]) {
+                cube([servoLength, 3 * boltM + clipWall - gapToMove + 0.02, servoWidth + gapToFit / 2 + 0.02]);
+                
+            }
+
+            translate([strokeSize - ((servoLength / 2) - servoSpindleOffset) - servoMountPlateExtends - gapToFit, -servoSpindleHeight - servoDrivePlateHeight - (servoHeight - servoMountPlateOffset) - servoMountPlateThickness / 2, strokeSize - gapToFit / 2]) {
+                cube([servoMountPlateLength, servoMountPlateThickness + (servoHeight - servoMountPlateOffset), servoWidth + gapToFit / 2 + 0.02]);
+            }
+
+            translate([strokeSize - ((servoLength / 2) - servoSpindleOffset) - servoMountPlateExtends + servoMountHoleOffset , -clipSize / 2 - clipWall - 3 * boltM - 0.01, strokeSize + servoWidth / 2]) {
+                rotate([-90,0,0]) {
+                    cylinder(r=servoMountHoleM/2, h=clipSize / 2 + clipWall + 3 * boltM);
+                }
+            }
+
+            translate([strokeSize - ((servoLength / 2) - servoSpindleOffset) - servoMountPlateExtends + servoMountPlateLength - servoMountHoleOffset , -clipSize / 2 - clipWall - 3 * boltM - 0.01, strokeSize + servoWidth / 2]) {
+                rotate([-90,0,0]) {
+                    cylinder(r=servoMountHoleM/2, h=clipSize / 2 + clipWall + 3 * boltM);
+                }
+            }
+
+            translate([strokeSize + 2 * clipWall + 2 * thinWall, -clipSize / 2 - clipWall - 3 * boltM - 0.01, -0.01]) {
+                //sphere(r=2);
+                cube([clipSize - 2 * thinWall, 3 * boltM, strokeSize]);
+                if (frameless) {
+                    translate([0,0,-clipWall]) {
+                        cube([clipSize - 2 * thinWall, 3 * boltM, clipWall]);
+                    }
+                }
             }
         }
     }
@@ -964,6 +1010,6 @@ servoArmsRight();
 //laserFrameSide();
 //laserDoorSide();
 frameClip();
-doorClip();
+doorClip(servoMount=true);
 doorBolt();
 //doorHandle();
