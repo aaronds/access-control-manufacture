@@ -97,8 +97,8 @@ thinWall=1;
 ferrousSheet=1;
 magnetM=5;
 
-initialAngle = 0;
-deltaAngle = 50;
+initialAngle = 20;
+deltaAngle = 66.5;
 
 bleepHolesOffset=110-56;
 
