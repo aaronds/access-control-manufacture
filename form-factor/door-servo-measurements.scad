@@ -5,6 +5,7 @@ boxWallThickness=6;
 perspexSize=[280,400];
 doorWoodBorder=60;
 doorWoodBorderRadius=5;
+doorWoodThickness=16;
 acsButtonM=20.2;
 acsLargeModuleSize=[50.12, 65.47];
 acsNfcModuleSize=[40,40];

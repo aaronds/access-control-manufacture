@@ -11,6 +11,8 @@
 *.bgcode
 *.wrl
 *.3mf
+*.FCBak
+*.csg
 
 *-backups*
 fp-info-cache
