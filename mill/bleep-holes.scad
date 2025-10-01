@@ -1,5 +1,6 @@
 square([110, 155]);
 $fn=100;
+include <bleep-holes-measurements.scad>
 
 
 module holesForBleep(onLid=true,withContacts=true) {
@@ -7,7 +8,7 @@ module holesForBleep(onLid=true,withContacts=true) {
         translate([-(0), 0, 0]) {
 
             translate([110 - 21, (onLid ? 1 : 0) * (155 - 21), 0]) {
-                circle(r=6.4/2);
+                circle(r=bleepLedCapM);
             }
 
             buttonTabSeparation = 9;
@@ -17,7 +18,7 @@ module holesForBleep(onLid=true,withContacts=true) {
 
             translate([110 - 56, (onLid ? 155 - 21 : 0), 0]) {
                 difference() {
-                    circle(r=20.2/2);
+                    circle(r=bleepButtonM);
                     if (withContacts) {
                         translate([-buttonTabSeparation / 2 - buttonTabLength / 2, -buttonTabOffset - buttonTablThickness / 2,0]) {
                             square([buttonTabLength, buttonTablThickness]);
@@ -37,7 +38,7 @@ module holesForBleep(onLid=true,withContacts=true) {
 
             translate([110 - 84, onLid ? (155 - 21) : 0, 0]) {
                 difference() {
-                    circle(r=11.8/2);
+                    circle(r=bleepIndicatorM);
                     if (withContacts) {
                         translate([-indTabSeparation / 2 - indTabThickness / 2, -indTabLength / 2, 0]) {
                            square([indTabThickness, indTabLength]); 
