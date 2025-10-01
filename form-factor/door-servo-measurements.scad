@@ -1,15 +1,18 @@
 
-boxSize=[640, 300, 500];
-boxWallThickness=6;
+//boxSize=[640, 300, 500];
+boxSize=[280, 150, 220];
+boxWallThickness=4;
 
-perspexSize=[280,400];
-doorWoodBorder=60;
-doorWoodBorderRadius=5;
+perspexBorderSize=8;
+
+doorWoodBorder=10;
+doorWoodHingeBorder=50;
+doorWoodBorderRadius=2;
 doorWoodThickness=16;
 acsButtonM=20.2;
 acsLargeModuleSize=[50.12, 65.47];
 acsNfcModuleSize=[40,40];
-acsModuleBorder=5;
+acsModuleBorder=0.1;
 acsLidWidth=110;
 
 nfcLogoSize=[28.753704,28.782331];

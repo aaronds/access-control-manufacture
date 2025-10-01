@@ -13,6 +13,10 @@
 *.3mf
 *.FCBak
 *.csg
+*.png
+*.dxf
+
+*_flattened.scad
 
 *-backups*
 fp-info-cache

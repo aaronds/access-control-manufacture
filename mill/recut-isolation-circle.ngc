@@ -1,0 +1,29 @@
+G17 G54 G40 G49 G80 G90
+G21
+G54
+
+#<_toolWidth> = 0.8
+#<_toolCut> = [#<_toolWidth> / 2]
+
+#<_zMove> = 3
+
+M5
+G43 H1
+M3 S10000
+
+G0 Z[#<_zMove>]
+
+#<_pcbTrace> = -0.1
+#<_pcbClearance> = 3
+#<_zFeedRate> = 100
+#<_cutFeedRate> = 100
+#<_holeR>=[1.7/2]
+#<_pathR>=[#<_holeR> - #<_toolCut>]
+
+G0 X0 Y0
+
+G0 X[#<_pathR> - #<_toolCut>]
+G1 Z[#<_pcbTrace>] F#<_zFeedRate>
+G2 I-[#<_pathR>] F#<_holeR>
+
+G0 Z[#<_zMove>]

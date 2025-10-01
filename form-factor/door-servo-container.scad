@@ -3,18 +3,21 @@ include <door-servo-measurements.scad>
 $fn=100;
 
 
-clipFrameOffsetY = clipSize / 2 + gapToMove + 3.5 * boltM;
+clipFrameOffsetY = clipSize / 2 + gapToMove + 2 * boltM;
 
 clipFrameHoles = [
-    [boltM/2, boxSize[1] - boxWallThickness - (2 * clipWall) - ferrousSheet / 2, (boxSize[2] / 2) - clipFrameOffsetY],
-    [boltM/2, boxSize[1] - boxWallThickness - (2 * clipWall) - ferrousSheet / 2, (boxSize[2] / 2) - 2 * boxWallThickness + clipFrameOffsetY]
+    [boltM/2, boxSize[1] - boxWallThickness - (2 * clipWall) - ferrousSheet / 2, (boxSize[2] / 2) - clipFrameOffsetY - boxWallThickness / 2 - 0.5],
+    [boltM/2, boxSize[1] - boxWallThickness - (2 * clipWall) - ferrousSheet / 2, (boxSize[2] / 2) + clipFrameOffsetY - 5.5]
 ];
 
+
+hingeProtrudes = cabinetHingeDoorInsetDepth > doorWoodThickness ? cabinetHingeDoorInsetDepth - doorWoodThickness : 0;
+
 hingeFrameHoles = [
-    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth - (cabinetHingeDoorInsetDepth - boxWallThickness) - boxWallThickness, boxSize[2] / 3 - cabinetHingeFrameBoltOffsetHeight - 1 * boxWallThickness],
-    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth - (cabinetHingeDoorInsetDepth - boxWallThickness) - boxWallThickness, boxSize[2] / 3 + cabinetHingeFrameBoltOffsetHeight - 1 * boxWallThickness],
-    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth - (cabinetHingeDoorInsetDepth - boxWallThickness) - boxWallThickness, 2 * boxSize[2] / 3 - cabinetHingeFrameBoltOffsetHeight - boxWallThickness],
-    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth - (cabinetHingeDoorInsetDepth - boxWallThickness) - boxWallThickness, 2 * boxSize[2] / 3 + cabinetHingeFrameBoltOffsetHeight - boxWallThickness]
+    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth - (hingeProtrudes) - boxWallThickness, boxSize[2] / 3 - cabinetHingeFrameBoltOffsetHeight - 1 * boxWallThickness],
+    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth - (hingeProtrudes) - boxWallThickness, boxSize[2] / 3 + cabinetHingeFrameBoltOffsetHeight - 1 * boxWallThickness ],
+    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth - (hingeProtrudes) - boxWallThickness, 2 * boxSize[2] / 3 - cabinetHingeFrameBoltOffsetHeight - boxWallThickness ],
+    [boltM/2, boxSize[1] - cabinetHingeFrameBoltOffsetDepth - (hingeProtrudes) - boxWallThickness, 2 * boxSize[2] / 3 + cabinetHingeFrameBoltOffsetHeight - boxWallThickness ]
 ];
 
 
