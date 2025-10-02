@@ -20,6 +20,6 @@ frameClip(frameless=true);
 doorClip(frameless=true,servoMount=servoMount);
 doorBolt(servoMount=true);
 laserDoorSide(frameless=true, servoMount=servoMount);
-doorHingeSpacers();
+//doorHingeSpacers();
 
 //laserFrameSide();

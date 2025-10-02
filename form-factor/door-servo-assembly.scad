@@ -378,7 +378,7 @@ module doorBolt(servoMount=false) {
     translate([0,0,servoWidth / 2]) {
         if (servoMount) {
             translate([strokeSize - strokeSize * cos(angleForT($t)), 0, 0]) {
-                servoLink();
+                servoLink(length=strokeSize - servoArmM/2 - servoSpindleM/2);
             }
         } else {
             translate([strokeSize * sin(angleForT($t)), 0, 0]) {
@@ -662,26 +662,43 @@ module frameClip(frameless=false) {
 module laserDoorSide(frameless=false, servoMount=false, showWood=true, showPerspex=true, showSVG=true) {
     originOffsetToEdge = frameless ? strokeSize + clipSize + doorClipGap + 2 * clipWall + doorLatchPannel + boxWallThickness : strokeSize + clipSize + doorClipGap + 2 * clipWall;
     
-    acsPannelOffsetToEdge=originOffsetToEdge + servoMountPlateLength / 2 + servoMountPlateOffset + 6 * boltM + acsButtonM / 2;
+    acsPannelOffsetToEdge=originOffsetToEdge + (servoMount ? 0 : servoMountPlateLength / 2 + servoMountPlateOffset) + 6 * boltM + acsButtonM / 2;
     acsControlPeninsulaSize = acsPannelOffsetToEdge + acsModuleBorder + acsLargeModuleSize[0] + acsModuleBorder + acsNfcModuleSize[0] + acsModuleBorder;
 
     translate([0,0,frameless ? -clipWall : 0]) {
         if (showWood) {
             difference() {
-                if (frameless) {
-                    translate([(originOffsetToEdge - boxSize[0]), -boxSize[2] / 2, -doorWoodThickness]) {
-                        color("#e7cfb4") cube([boxSize[0], boxSize[2], doorWoodThickness]);
+                union() {
+                    if (frameless) {
+                        translate([(originOffsetToEdge - boxSize[0]), -boxSize[2] / 2, -doorWoodThickness]) {
+                            color("#e7cfb4") cube([boxSize[0], boxSize[2], doorWoodThickness]);
+                        }
+                    } else {
+                        translate([(originOffsetToEdge - doorSize[0]), (-(doorSize[1])/2), -doorWoodThickness]) {
+                            color("#e7cfb4") cube([doorSize[0], doorSize[1], doorWoodThickness]);
+                        }
                     }
-                } else {
-                    translate([(originOffsetToEdge - doorSize[0]), (-(doorSize[1])/2), -doorWoodThickness]) {
-                        color("#e7cfb4") cube([doorSize[0], doorSize[1], doorWoodThickness]);
+                    
+                    if (showPerspex) {
+                        translate([originOffsetToEdge - doorWoodBorder, 0, -doorWoodThickness - 0.01]) {
+                            translate([perspexBorderSize, 0, doorWoodThickness]) {
+                                color("grey",0.5) mirror([1,0,0]) windowWithPeninsula(
+                                    [boxSize[0] - doorWoodHingeBorder - doorWoodBorder + 2 * perspexBorderSize, boxSize[2] - 2 * doorWoodBorder + 2 * perspexBorderSize],
+                                    [acsControlPeninsulaSize - doorWoodBorder, acsLidWidth - 2 * perspexBorderSize],
+                                    perspexThickness,
+                                    perspexBorderSize
+                                );
+                            }
+                        }
                     }
                 }
 
                 translate([originOffsetToEdge - doorWoodBorder, 0, -doorWoodThickness - 0.01]) {
 
                     mirror([1,0,0]) windowWithPeninsula([boxSize[0] - doorWoodHingeBorder - doorWoodBorder, boxSize[2] - 2 * doorWoodBorder], [acsControlPeninsulaSize - doorWoodBorder, acsLidWidth], doorWoodThickness + 0.02, doorWoodBorderRadius);
+                
                 }
+
 
                 translate([0,0,frameless ? -doorWoodThickness : -doorWoodThickness]) {
                     doorNutHoles(frameless ? doorWoodThickness : doorWoodThickness, servoMount=servoMount);
@@ -689,7 +706,7 @@ module laserDoorSide(frameless=false, servoMount=false, showWood=true, showPersp
 
                 translate([0, 0,(frameless ? -doorWoodThickness : -doorWoodThickness) - 0.01]) {
                     linear_extrude(height=(frameless ? doorWoodThickness : doorWoodThickness) + 0.02) {
-                        translate([-(servoMountPlateLength / 2) - servoMountPlateOffset - 6 * boltM, 0, 0]) {
+                        translate([(servoMount ? 0 : -(servoMountPlateLength / 2) - servoMountPlateOffset) - 6 * boltM, 0, 0]) {
                             rotate([0,0,180]) {
                                 translate([0,bleepHolesOffset, 0]) {
                                     rotate([0,0,90]) {
@@ -737,7 +754,7 @@ module laserDoorSide(frameless=false, servoMount=false, showWood=true, showPersp
                 }
 
                 translate([originOffsetToEdge - doorWoodBorder, 0, -doorWoodThickness - 0.01]) {
-                    mirror([1,0,0]) windowWithPeninsulaHoles([boxSize[0] - doorWoodHingeBorder - doorWoodBorder, boxSize[2] - 2 * doorWoodBorder], [acsControlPeninsulaSize - doorWoodBorder, acsLidWidth], perspexBorderSize, boltM, doorWoodThickness + 0.02);
+                    mirror([1,0,0]) windowWithPeninsulaHoles([boxSize[0] - doorWoodHingeBorder - doorWoodBorder, boxSize[2] - 2 * doorWoodBorder], [acsControlPeninsulaSize - doorWoodBorder, acsLidWidth], perspexBorderSize, boltM, doorWoodThickness + perspexThickness + 0.02);
                 }
             }
         }

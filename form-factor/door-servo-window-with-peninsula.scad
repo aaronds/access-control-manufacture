@@ -14,12 +14,12 @@ module windowWithPeninsula(oceanSize=[300,300], peninsularSize=[100, 100], thick
             cylinder(r=cornerRadius,h=1);
         }
 
-        translate([peninsularSize[0] - cornerRadius, peninsularSize[1]/2 - cornerRadius,0]){
-            cornerRoundCut(r=cornerRadius,h=thickness);
+        translate([peninsularSize[0] - cornerRadius + 0.01, peninsularSize[1]/2 - cornerRadius + 0.05,0]){
+            cornerRoundCut(r=cornerRadius + 0.1,h=thickness);
         }
-        translate([peninsularSize[0] - cornerRadius, -peninsularSize[1]/2 + cornerRadius,0]){
+        translate([peninsularSize[0] - cornerRadius, -peninsularSize[1]/2 + cornerRadius - 0.05,0]){
             rotate([0,0,-90]) {
-                cornerRoundCut(r=cornerRadius,h=thickness);
+                cornerRoundCut(r=cornerRadius + 0.1,h=thickness);
             }
         }
     }

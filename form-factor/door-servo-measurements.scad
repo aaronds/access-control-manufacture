@@ -1,12 +1,13 @@
 
 //boxSize=[640, 300, 500];
 boxSize=[280, 150, 220];
-boxWallThickness=4;
+boxWallThickness=6;
 
 perspexBorderSize=8;
+perspexThickness=3;
 
-doorWoodBorder=10;
-doorWoodHingeBorder=50;
+doorWoodBorder=15;
+doorWoodHingeBorder=58;
 doorWoodBorderRadius=2;
 doorWoodThickness=16;
 acsButtonM=20.2;
@@ -27,10 +28,12 @@ smallBoltM=2;
 boltHeadM=5;
 boltNutM=5.9;
 boltHeadHeight=3;
+boltHeatInsertM=4.5;
+boltHeatInsertLength=5.67;
 lockBoltCurveR=1.5;
 
 cabinetHingeDoorBoltOffsetHeight=48/2;
-cabinetHingeDoorBoltOffsetLength=7;
+cabinetHingeDoorBoltOffsetLength=7 - 1.5/2;
 cabinetHingeDoorMetalThickness=0.8;
 cabinetHingeDoorInsetM=35;
 cabinetHingeDoorInsetDepth=12;
@@ -108,3 +111,5 @@ bleepHolesOffset=110-56;
 
 handleDepth=45;
 handleWall=2;
+
+feetSize=20;
