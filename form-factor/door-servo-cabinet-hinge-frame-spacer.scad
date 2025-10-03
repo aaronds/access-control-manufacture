@@ -2,7 +2,7 @@ include <door-servo-measurements.scad>
 $fn=100;
 
 module cabinetHingeFrameSpacer() {
-    spacerThickness = cabinetHingeFrameSize[2] + cabinetHingeFrameInsetFace;
+    spacerThickness = (cabinetHingeFrameSize[2] + cabinetHingeFrameInsetFace) - cabinetHingeFrameSpacerCorrection;
     innerRadius = cabinetHingeFrameCornerRadius - cabinetHingeDoorMetalThickness;
     difference() {
         translate([0,-cabinetHingeFrameSize[1]/2, 0]) {

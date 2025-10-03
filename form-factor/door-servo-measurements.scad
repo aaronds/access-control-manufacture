@@ -47,6 +47,7 @@ cabinetHingeFrameBoltOffsetHeight=16;
 cabinetHingeFrameBoltOffsetDepth=25;
 cabinetHingeFrameSize=[27,46, 16];
 cabinetHingeFrameInsetFace = 2.8;
+cabinetHingeFrameSpacerCorrection=1.6;
 cabinetHingeFrameCornerRadius = 4;
 cabinetHingeFrameHoleOne=6;
 cabinetHingeFrameHoleTwoExtraOffset = 14;
@@ -61,6 +62,7 @@ gapToMove = 0.25;
 gapToFit = 0.1;
 doorSize=[200,150];
 doorLatchPannel=3 * boltM;
+doorLatchRounding=2;
 
 servoHeight = 22.5;
 servoDrivePlateHeight = 4;
