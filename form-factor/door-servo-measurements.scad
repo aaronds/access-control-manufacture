@@ -1,6 +1,6 @@
 
-//boxSize=[640, 300, 500];
-boxSize=[280, 150, 220];
+boxSize=[640, 300, 500];
+//boxSize=[280, 150, 220];
 boxWallThickness=6;
 
 perspexBorderSize=8;
