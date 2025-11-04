@@ -3816,7 +3816,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "220R"
 			(at 177.8 93.98 90)
 			(effects
 				(font
@@ -4017,7 +4017,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "220R"
 			(at 213.36 81.2799 0)
 			(effects
 				(font

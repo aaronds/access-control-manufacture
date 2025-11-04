@@ -1132,7 +1132,19 @@ module doorHingeSpacers() {
                 }
             }
 
+            translate([0,cabinetHingeFrameBoltOffsetHeight, cabinetHingeFrameBoltOffsetDepth + (hingeProtrudes) + cabinetHingeFrameHoleTwoExtraOffset]) {
+                rotate([0,-90,0]) {
+                    #cylinder(r=boltM/2, h=30);
+                }
+            }
+
             translate([0,-cabinetHingeFrameBoltOffsetHeight, cabinetHingeFrameBoltOffsetDepth + (hingeProtrudes)]) {
+                rotate([0,-90,0]) {
+                    #cylinder(r=boltM/2, h=30);
+                }
+            }
+
+            translate([0,-cabinetHingeFrameBoltOffsetHeight, cabinetHingeFrameBoltOffsetDepth + (hingeProtrudes) + cabinetHingeFrameHoleTwoExtraOffset]) {
                 rotate([0,-90,0]) {
                     #cylinder(r=boltM/2, h=30);
                 }
@@ -1148,7 +1160,19 @@ module doorHingeSpacers() {
                 }
             }
 
+            translate([0,cabinetHingeFrameBoltOffsetHeight, cabinetHingeFrameBoltOffsetDepth + (hingeProtrudes) + cabinetHingeFrameHoleTwoExtraOffset]) {
+                rotate([0,-90,0]) {
+                    #cylinder(r=boltM/2, h=30);
+                }
+            }
+
             translate([0,-cabinetHingeFrameBoltOffsetHeight, cabinetHingeFrameBoltOffsetDepth + (hingeProtrudes)]) {
+                rotate([0,-90,0]) {
+                    #cylinder(r=boltM/2, h=30);
+                }
+            }
+
+            translate([0,-cabinetHingeFrameBoltOffsetHeight, cabinetHingeFrameBoltOffsetDepth + (hingeProtrudes) + cabinetHingeFrameHoleTwoExtraOffset]) {
                 rotate([0,-90,0]) {
                     #cylinder(r=boltM/2, h=30);
                 }
