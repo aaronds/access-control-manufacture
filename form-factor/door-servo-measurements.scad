@@ -1,14 +1,15 @@
 
-boxSize=[640, 300, 500];
+boxSize=[640, 350, 500];
 //boxSize=[280, 150, 220];
-boxWallThickness=6;
+boxWallThickness=11;
+boxCableM=20;
 
 perspexBorderSize=8;
 perspexThickness=3;
 
-doorWoodBorder=15;
-doorWoodHingeBorder=58;
-doorWoodBorderRadius=2;
+doorWoodBorder=60;
+doorWoodHingeBorder=58 + 12;
+doorWoodBorderRadius=10;
 doorWoodThickness=16;
 acsButtonM=20.2;
 acsLargeModuleSize=[50.12, 65.47];
@@ -44,7 +45,7 @@ cabinetHingeDoorInsetOuterRadius=4;
 cabinetHingeDoorBoltChamferM=8;
 
 cabinetHingeFrameBoltOffsetHeight=16;
-cabinetHingeFrameBoltOffsetDepth=25;
+cabinetHingeFrameBoltOffsetDepth=25 - cabinetHingeDoorInsetFace;
 cabinetHingeFrameSize=[27,46, 16];
 cabinetHingeFrameInsetFace = 2.8;
 cabinetHingeFrameSpacerCorrection=1.6;
